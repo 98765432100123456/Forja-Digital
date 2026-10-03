@@ -31,7 +31,7 @@ npm run preview    # revisa la versión final en http://localhost:4173
 1. Sube esta carpeta a un repositorio de GitHub.
 2. Entra a https://vercel.com, inicia sesión con GitHub → **Add New → Project** → elige el repositorio.
 3. Vercel detecta Vite solo (Build: `npm run build`, Output: `dist`). Dale **Deploy**.
-4. Te queda una dirección tipo `forja-digital.vercel.app`. Esa es la que pones en tu página de Facebook (Editar información → Sitio web).
+4. Te queda una dirección tipo `forja-digital-mlid.vercel.app`. Esa es la que pones en tu página de Facebook (Editar información → Sitio web).
 5. Si cambia la dirección, actualízala en `index.html`, `public/robots.txt` y `public/sitemap.xml`.
 
 **Alternativa Netlify:** arrastra la carpeta `dist/` a https://app.netlify.com/drop, o conecta el repositorio (Build `npm run build`, Publish `dist`).
