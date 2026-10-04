@@ -4,10 +4,10 @@ import { IconMenu, IconWhatsApp, IconX } from './Icons';
 
 const LINKS = [
   { href: '/#trabajos', label: 'Trabajos' },
+  { href: '/#simulador', label: 'Pruébalo' },
   { href: '/#servicios', label: 'Servicios' },
   { href: '/#planes', label: 'Planes' },
   { href: '/#plantillas', label: 'Plantillas' },
-  { href: '/#preguntas', label: 'Preguntas' },
 ];
 
 export function Logo({ inverse = false }: { inverse?: boolean }) {

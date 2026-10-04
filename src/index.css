@@ -378,6 +378,7 @@ button { font: inherit; color: inherit; }
 .plan__amount { font-family: var(--f-display); font-weight: 700; font-size: 1.75rem; letter-spacing: -0.03em; }
 .plan__period { font-size: var(--t-s); color: var(--hierro); }
 .plan__desc { color: var(--hierro); font-size: var(--t-s); min-height: 3.2em; }
+.plan__time { font-size: var(--t-xs); font-weight: 600; color: var(--grafito); padding: var(--s-2) 0; border-block: 1px solid var(--linea); }
 .plan .checks { margin-bottom: var(--s-3); }
 .plan .btn { margin-top: auto; }
 @media (max-width: 1100px) {
@@ -547,3 +548,96 @@ button { font: inherit; color: inherit; }
 }
 .empty .link { display: inline-flex; align-items: center; min-height: 44px; }
 .legal ul + p { margin-top: var(--s-4); }
+
+/* ---------- Simulador "Mira tu negocio" ---------- */
+.sim { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); grid-template-areas: 'intro stage' 'form stage'; column-gap: var(--s-8); align-items: start; }
+.sim__intro { grid-area: intro; }
+.sim__work { display: contents; }
+.sim__form { grid-area: form; }
+.sim__stage { grid-area: stage; align-self: center; }
+.sim__intro h2 { font-family: var(--f-display); font-weight: 700; font-size: var(--t-2xl); line-height: 1.1; letter-spacing: -0.03em; }
+.sim__lead { margin-top: var(--s-4); font-size: var(--t-l); line-height: 1.5; color: var(--hierro); }
+.sim__group { margin: var(--s-6) 0 0; padding: 0; border: 0; min-width: 0; }
+.sim__group legend { padding: 0; margin-bottom: var(--s-2); font-weight: 700; font-size: var(--t-s); }
+.choices { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.choice { position: relative; }
+.choice input, .swatch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.choice span {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--s-4);
+  border: 1px solid var(--linea-fuerte); border-radius: var(--r-m); background: var(--blanco);
+  font-size: var(--t-s); font-weight: 600; transition: border-color var(--rapido) var(--ease), background-color var(--rapido) var(--ease);
+}
+.choice:hover span { border-color: var(--grafito); }
+.choice input:checked + span { background: var(--grafito); border-color: var(--grafito); color: var(--blanco); }
+.choice input:focus-visible + span, .swatch input:focus-visible ~ .swatch__chip { outline: 3px solid var(--forja-tinta); outline-offset: 2px; }
+.swatches { display: flex; flex-wrap: wrap; gap: var(--s-3); }
+.swatch { position: relative; display: grid; justify-items: center; gap: var(--s-1); min-width: 56px; cursor: pointer; }
+.swatch__chip { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgb(27 30 34 / 0.15); transition: box-shadow var(--rapido) var(--ease); }
+.swatch input:checked ~ .swatch__chip { box-shadow: 0 0 0 3px var(--blanco), 0 0 0 5px var(--grafito); }
+.swatch__name { font-size: var(--t-xs); color: var(--hierro); }
+.swatch input:checked ~ .swatch__name { color: var(--grafito); font-weight: 700; }
+.sim__cta { margin-top: var(--s-6); }
+.sim__note { margin-top: var(--s-3); font-size: var(--t-s); color: var(--hierro); }
+
+.sim__stage {
+  container-type: inline-size; position: relative; aspect-ratio: 6 / 5;
+  background: var(--acero); border-radius: var(--r-l); overflow: hidden;
+}
+.sim__browser, .sim__phone, .sim__post, .sim__site { transition: background-color var(--medio) var(--ease), color var(--medio) var(--ease); }
+.sim__browser {
+  position: absolute; left: 6%; top: 9%; width: 72%;
+  border-radius: 2cqw; overflow: hidden; background: var(--p-bg); color: var(--p-ink); box-shadow: var(--sombra-1);
+}
+.sim__bar { display: flex; justify-content: center; padding: 1.2cqw; background: rgb(0 0 0 / 0.06); }
+.sim__bar span { padding: 0.3cqw 2.4cqw; border-radius: 0.8cqw; background: rgb(255 255 255 / 0.8); font-size: 1.7cqw; color: #4b5259; }
+.sim__site { padding: 2.4cqw 3.6cqw 5cqw; }
+.sim__nav { display: flex; align-items: center; gap: 2.6cqw; font-size: 1.6cqw; font-weight: 700; }
+.sim__nav b { margin-right: auto; font-family: var(--p-font); font-size: 2.4cqw; font-weight: 700; letter-spacing: -0.02em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60%; }
+.sim__hero { margin-top: 6cqw; display: grid; gap: 3cqw; justify-items: start; max-width: 80%; }
+.sim__hero strong { font-family: var(--p-font); font-size: 5.4cqw; line-height: 1.05; letter-spacing: -0.02em; }
+.sim__hero em, .sim__post em { font-style: normal; font-weight: 700; padding: 1.2cqw 2.6cqw; border-radius: 1cqw; background: var(--p-ink); color: var(--p-bg); font-size: 1.8cqw; }
+
+.sim__phone {
+  position: absolute; right: 6%; bottom: 7%; width: 34%;
+  padding: 2cqw; border-radius: 4cqw; background: var(--blanco); box-shadow: var(--sombra-1); border: 1px solid var(--linea);
+}
+.sim__profile { display: flex; align-items: center; gap: 1.6cqw; font-size: 1.6cqw; line-height: 1.25; }
+.sim__profile b { display: block; color: var(--grafito); }
+.sim__profile small { color: var(--hierro); font-size: 1.4cqw; }
+.sim__avatar { display: grid; place-items: center; flex-shrink: 0; width: 5.4cqw; height: 5.4cqw; border-radius: 50%; background: var(--p-ink); color: var(--p-bg); font-weight: 700; font-size: 1.8cqw; }
+.sim__post {
+  margin-top: 1.8cqw; aspect-ratio: 1; border-radius: 2cqw; padding: 3cqw;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; gap: 1.2cqw;
+  background: var(--p-ink); color: var(--p-bg);
+}
+.sim__post small { font-size: 1.5cqw; opacity: 0.8; }
+.sim__post strong { font-family: var(--p-font); font-size: 3.6cqw; line-height: 1.05; }
+.sim__post span { font-size: 1.6cqw; opacity: 0.85; }
+.sim__post em { margin-top: 1cqw; background: var(--p-accent); color: var(--p-ink); }
+
+@media (max-width: 1024px) {
+  .sim { display: block; }
+  .sim__intro { max-width: 40rem; margin-bottom: var(--s-5); }
+  .sim__work { display: flex; flex-direction: column; gap: var(--s-5); }
+  /* La vista previa queda fija arriba mientras se eligen opciones: cada cambio se ve sin desplazarse */
+  .sim__stage { order: -1; position: sticky; top: 80px; z-index: 2; flex: 0 0 auto; width: 100%; aspect-ratio: auto; height: min(calc((100vw - 2 * var(--gutter)) * 0.625), 460px); box-shadow: 0 10px 24px -14px rgb(27 30 34 / 0.45); }
+  .sim__form { max-width: 40rem; }
+  .sim__group:first-child { margin-top: 0; }
+}
+
+@media (max-width: 560px) {
+  .sim__stage { height: calc((100vw - 2 * var(--gutter)) * 0.6); }
+  .sim__browser { width: 60%; left: 4%; top: 8%; }
+  .sim__site { padding: 3cqw 4cqw 6cqw; }
+  .sim__nav span { display: none; }
+  .sim__nav b { font-size: 3cqw; max-width: 100%; }
+  .sim__hero strong { font-size: 4.6cqw; }
+  .sim__hero { margin-top: 4cqw; max-width: 100%; }
+  .sim__hero em, .sim__post em { font-size: 2.4cqw; }
+  .sim__bar span { font-size: 2.4cqw; }
+  .sim__phone { width: 33%; right: 4%; top: 8%; bottom: auto; padding: 1.6cqw; }
+  .sim__profile { font-size: 2.2cqw; } .sim__profile small { font-size: 1.9cqw; }
+  .sim__avatar { width: 6cqw; height: 6cqw; font-size: 2.2cqw; }
+  .sim__post strong { font-size: 3.6cqw; } .sim__post small, .sim__post span { font-size: 2.2cqw; } .sim__post { padding: 2.4cqw; }
+  .sim__cta { width: 100%; }
+}

@@ -2,6 +2,7 @@
 
 Landing de Forja Digital hecha con **React + Vite + TypeScript**.
 Sin dependencias externas en tiempo de ejecución: las fuentes van incluidas en el proyecto y no hay scripts de terceros.
+El HTML de cada página se prerenderiza al compilar (`src/entry-server.tsx` + `scripts/prerender.mjs`), así Google y las redes leen el contenido sin JavaScript.
 
 ## Requisitos
 - Node.js 20 o superior
@@ -14,7 +15,7 @@ npm run dev        # abre http://localhost:5173
 
 ## Generar la versión final
 ```bash
-npm run build      # crea la carpeta dist/
+npm run build      # compila, prerenderiza el HTML de cada página y crea dist/
 npm run preview    # revisa la versión final en http://localhost:4173
 ```
 
@@ -69,3 +70,4 @@ Compra el dominio (por ejemplo `forjadigital.co`) y en Vercel ve a **Settings �
 ## Documentación de diseño
 - `docs/AUDITORIA.md`: auditoría UX y visual, cambios hechos y pruebas.
 - `docs/SISTEMA-DE-DISENO.md`: paleta, tipografía, espaciado, estados y movimiento.
+- `docs/ESTRATEGIA.md`: producto, competencia, recorrido del usuario, World-Class Gate y pendientes.

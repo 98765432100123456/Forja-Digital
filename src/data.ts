@@ -132,12 +132,14 @@ export const PLANS = [
   {
     name: 'Landing',
     price: '$400.000',
+    time: 'Lista en 1 a 2 semanas',
     desc: 'Una página para presentar tu negocio y recibir clientes.',
     features: ['Una página con secciones', 'Botón y formulario a WhatsApp', 'Adaptada a celular', '1 ronda de cambios'],
   },
   {
     name: 'Web de negocio',
     price: '$700.000',
+    time: 'Lista en 2 a 4 semanas',
     desc: 'Tu sitio completo para generar confianza y aparecer en Google.',
     features: ['3 a 5 secciones', 'Mapa y datos de contacto', 'SEO básico', '2 rondas de cambios'],
     featured: true,
@@ -145,6 +147,7 @@ export const PLANS = [
   {
     name: 'Catálogo',
     price: '$1.000.000',
+    time: 'El tiempo depende del tamaño del catálogo',
     desc: 'Tus productos en línea y los pedidos directo a tu WhatsApp.',
     features: ['Catálogo de productos', 'Pedido por WhatsApp', 'Base de datos de productos', 'Panel para cambiar precios'],
   },
@@ -152,6 +155,7 @@ export const PLANS = [
     name: 'Acompañamiento',
     price: '$60.000',
     period: 'al mes',
+    time: 'Empieza cuando tu web esté publicada',
     desc: 'Para que tu web siga funcionando, segura y al día.',
     features: ['Cambios de contenido', 'Copias de seguridad', 'Revisión de seguridad', 'Soporte por WhatsApp'],
   },

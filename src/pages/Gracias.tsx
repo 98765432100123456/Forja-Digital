@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BRAND, waLink } from '../config';
 import { Breadcrumbs } from '../components/Layout';
 import { MSG_KEY } from '../components/Extra';
@@ -9,7 +9,9 @@ function savedMessage() {
 }
 
 export default function Gracias() {
-  const [msg] = useState(savedMessage);
+  // Se lee después de montar para que el HTML prerenderizado y el del navegador coincidan.
+  const [msg, setMsg] = useState<string | undefined>();
+  useEffect(() => { setMsg(savedMessage()); }, []);
   return (
     <>
       <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Gracias' }]} />

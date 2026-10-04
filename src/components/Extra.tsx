@@ -132,7 +132,7 @@ export function Contact() {
             <label htmlFor="f-mensaje">Cuéntanos un poco más <span>opcional</span></label>
             <textarea id="f-mensaje" name="mensaje" rows={4} maxLength={400} placeholder="Por ejemplo: tengo un restaurante y quiero recibir pedidos por WhatsApp." />
           </div>
-          <button className="btn btn--primary btn--block btn--lg" type="submit" disabled={sending} aria-live="polite">
+          <button data-cta className="btn btn--primary btn--block btn--lg" type="submit" disabled={sending} aria-live="polite">
             <IconWhatsApp size={20} /> {sending ? 'Abriendo WhatsApp…' : 'Enviar por WhatsApp'}
           </button>
           <p className="form__note">El mensaje va directo a nuestro WhatsApp; no se guarda en ningún servidor. <a className="link" href="/privacidad">Política de privacidad</a>.</p>

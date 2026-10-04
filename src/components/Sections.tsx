@@ -102,6 +102,7 @@ export function Pricing() {
                 {p.period && <span className="plan__period">{p.period}</span>}
               </p>
               <p className="plan__desc">{p.desc}</p>
+              <p className="plan__time">{p.time}</p>
               <ul className="checks">{p.features.map((f) => <li key={f}><IconCheck size={16} /> {f}</li>)}</ul>
               <a
                 className={`btn ${p.featured ? 'btn--primary' : 'btn--secondary'} btn--block`}

@@ -23,7 +23,7 @@ export default function Hero() {
             <a className="btn btn--primary btn--lg" href={waLink()} target="_blank" rel="noopener noreferrer" data-hero-cta>
               <IconWhatsApp size={20} /> Cotizar por WhatsApp
             </a>
-            <a className="btn btn--quiet btn--lg" href="#trabajos">Ver trabajos</a>
+            <a className="btn btn--quiet btn--lg" href="#simulador">Mira cómo se vería tu negocio</a>
           </div>
           <p className="hero__note">Cotización gratis. Respondemos en menos de {BRAND.responseTime}.</p>
         </div>

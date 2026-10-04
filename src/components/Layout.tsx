@@ -63,12 +63,17 @@ function Footer() {
 /** Botón flotante en escritorio y barra fija inferior en celular. */
 function StickyContact() {
   // En el inicio, la barra móvil aparece solo cuando el botón principal del hero ya no se ve (evita dos CTAs iguales).
+  // También se oculta mientras se ve otro botón principal (simulador, formulario), para no repetir la acción.
   const [heroCtaVisible, setHeroCtaVisible] = useState(false);
   useEffect(() => {
-    const el = document.querySelector('[data-hero-cta]');
-    if (!el || !('IntersectionObserver' in window)) return;
-    const io = new IntersectionObserver(([e]) => setHeroCtaVisible(e.isIntersecting));
-    io.observe(el);
+    const els = document.querySelectorAll('[data-hero-cta], [data-cta]');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    const visible = new Set<Element>();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      setHeroCtaVisible(visible.size > 0);
+    });
+    els.forEach((el) => io.observe(el));
     return () => io.disconnect();
   }, []);
   return (
