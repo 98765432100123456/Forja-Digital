@@ -59,7 +59,8 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Problema:**
   - "Respondemos en menos de 24 horas" y los tiempos de entrega (1–2 semanas para landing, 2–4 para web) se definieron durante el desarrollo.
   - No los confirmó el dueño.
-- **Estado:** **requiere aprobación humana** (es una decisión de negocio). Se mantienen publicados hasta que Juanes los confirme o los cambie.
+- **Estado:** **aprobado por Juanes el 4 de octubre de 2026.** Son compromisos del dueño; si se incumplen, se corrigen en la página.
+- **Métrica:** tiempo real de respuesta y de entrega por proyecto (anotarlo a mano en cada cliente). **Resultado:** no disponible aún.
 
 ### D8 · Validar el hash de la URL (seguridad + producto)
 - **Problem:** un enlace con `%` mal formado dejaba la página en blanco.
@@ -104,7 +105,7 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 | D4 Prerenderizado | Identificado | Disponible | Definida | Implementada y verificada | Definida | Técnica: verificada; tráfico: pendiente | Alta (técnica) | Search Console |
 | D5 Honestidad | Identificado | Disponible | — | Implementada | Definida | Pendiente | Alta (ética) / baja (efecto) | Conseguir opiniones reales |
 | D6 Textos | Identificado | Disponible | — | Implementada | No aplica | — | Alta | — |
-| D7 Promesas | Identificado | Disponible | — | Propuesta | — | — | — | Aprobación de Juanes |
+| D7 Promesas | Identificado | Disponible | — | Aprobada por el dueño | Tiempo real de respuesta/entrega | No disponible aún | Media | Anotar tiempos de los primeros clientes |
 | D8 Hash | Identificado | Reproducido | — | Implementada | Prueba R1/R2 | VERIFIED | Alta | Regresión permanente |
 | D9 Errores | Identificado | Reproducido | Definida | Implementada | `exception` | Técnico: VERIFIED; negocio: pendiente | Media | Activar GA4 |
 | D10 Veracidad | Identificado | Disponible | — | Implementada | No aplica | VERIFIED | Alta | — |

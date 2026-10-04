@@ -12,7 +12,7 @@ Estados: PASSED, FAILED, NOT YET AVAILABLE, NOT TESTED.
 | **Accessibility** | PASSED | axe-core: 0 violaciones en 4 páginas; Lighthouse 100; teclado y foco probados | Prueba con lector de pantalla real: NOT TESTED |
 | **Performance** | PASSED | Lighthouse móvil 98, LCP 2,1 s, CLS 0,015; INP de laboratorio ≤ 144 ms (CPU 4× más lenta) | Datos de campo: NOT YET AVAILABLE |
 | **Security** | PASSED | Ningún hallazgo crítico ni alto (`seguridad.md`); build con veto automático | Protección de `main` (H3): FAILED, depende de Juanes |
-| **Evidence** | PASSED | Cada afirmación de la página revisada; se quitaron "El más pedido" y "Aparece en Google" (D10) | "24 horas" y tiempos de entrega siguen sin confirmar (D7) |
+| **Evidence** | PASSED | Cada afirmación de la página revisada; se quitaron "El más pedido" y "Aparece en Google" (D10); "24 horas" y tiempos de entrega confirmados por Juanes (D7) | Medir el cumplimiento real |
 | **Conversion / Business** | NOT YET AVAILABLE | No hay tráfico ni contactos medidos | GA4 + primeros clientes |
 
 **Veredicto del World-Class Gate (sec. 83):** se aprueba **para publicar como producto en Etapa 0**: es sólido en producto,

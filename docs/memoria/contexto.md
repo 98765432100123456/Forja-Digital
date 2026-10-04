@@ -61,8 +61,8 @@ Las simulaciones sirven para generar hipótesis; no son evidencia de comportamie
 
 | Promesa en la página | Evidencia | Estado |
 |---|---|---|
-| "Respondemos en menos de 24 horas" | Ninguna todavía (no hay historial de respuestas) | Hipótesis, pendiente de confirmar (D7) |
-| Landing lista en 1 a 2 semanas; Web en 2 a 4 | Ninguna (no hay proyectos entregados) | Hipótesis, pendiente de confirmar (D7) |
+| "Respondemos en menos de 24 horas" | Ninguna todavía (no hay historial de respuestas) | Compromiso confirmado por el dueño (D7); cumplimiento: no disponible aún |
+| Landing lista en 1 a 2 semanas; Web en 2 a 4 | Ninguna (no hay proyectos entregados) | Compromiso confirmado por el dueño (D7); cumplimiento: no disponible aún |
 | Precios "desde" ($400.000 a $1.000.000; $60.000 al mes) | Definidos por el dueño | Observado (decisión), sin validar con el mercado |
 | "Hablas directo con quien lo hace" | Una sola persona (Juanes) | Observado |
 | HTTPS, cabeceras de seguridad, copias de seguridad, accesos por roles | HTTPS y cabeceras verificadas en este sitio (A+). Copias y roles: prácticas para proyectos con datos, aún sin entregar | Parcialmente verificado |
