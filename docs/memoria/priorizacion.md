@@ -20,3 +20,15 @@ Fórmula: **impacto potencial (1–5) × confianza (0–1) ÷ esfuerzo (1–5)**
 - Ejecutar 2 y 4 (autónomas y reversibles).
 - Pedir aprobación o datos a Juanes para 1, 3, 5, 6 y 7.
 - No hacer 9 ni 10 hasta tener evidencia (no sobreingeniería).
+
+## Ciclo del 4 de octubre (motor completo, secciones 0–103)
+
+| Acción | Impacto | Confianza | Esfuerzo | Puntaje | Estado |
+|---|---|---|---|---|---|
+| Arreglar la página en blanco (H1) + límite de errores | 3 | 1,0 | 1 | **3,0** | ✔ Hecho |
+| Quitar afirmaciones sin evidencia (D10) | 2 | 0,9 | 1 | **1,8** | ✔ Hecho |
+| Veto de seguridad en el build (D11) | 2 | 0,8 | 1 | **1,6** | ✔ Hecho |
+| Proteger `main` en GitHub (H3) | 3 | 0,8 | 1 | **2,4** | Juanes |
+| Explicar forma de pago y qué pasa si no le gusta | 3 | 0,6 | 1 | **1,8** | Juanes decide; no se inventa una garantía |
+| Quitar `style-src 'unsafe-inline'` (H4) | 1 | 0,5 | 3 | 0,17 | No se hace: no cambia el riesgo real |
+| Rendimiento de campo (Speed Insights) | 1 | 0,5 | 1 | 0,5 | Después de tener tráfico |

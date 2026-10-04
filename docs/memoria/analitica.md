@@ -13,6 +13,7 @@ ID de prueba.
 | `sim_start` | Primera interacción con el simulador | `control` (tipo / nombre / color) | Inicio del embudo del simulador |
 | `sim_name` | El visitante escribe el nombre de su negocio | — | Compromiso con el simulador |
 | `sim_cta` | Clic en "Cotizar con este estilo" | `tipo`, `color`, `con_nombre` | Fin del embudo del simulador |
+| `exception` | Error de JavaScript en el navegador, o fallo que muestra la pantalla de salida | `description` (máx. 100 caracteres), `fatal` | Detectar errores reales (sec. 73) |
 
 ## Métricas de decisión
 
@@ -29,3 +30,17 @@ ID de prueba.
 3. En GA4, marca `generate_lead` como evento clave (conversión).
 
 La política de privacidad del sitio ya menciona el uso de Google Analytics.
+
+## Preparación para medir (sec. 73)
+
+| Área | Estado |
+|---|---|
+| Adquisición | Preparada (fuente/medio de GA4); sin datos |
+| Activación / conversión | Preparada (`generate_lead`, embudo del simulador); sin datos |
+| Engagement | Preparada (page_view, scroll mejorado de GA4) |
+| Retención | No aplica a una landing; se mide fuera del sitio (clientes que renuevan el acompañamiento) |
+| Errores | Preparada (`exception`); sin datos |
+| Rendimiento de campo | No preparada a propósito: con poco tráfico no habría muestra suficiente. Se activa con Vercel Speed Insights cuando haya visitas |
+| Eventos de seguridad | No aplica: no hay inicio de sesión ni API que registrar |
+
+**Línea base:** no disponible aún. Ningún experimento (E1–E3) puede empezar sin al menos 2 semanas de datos con GA4.

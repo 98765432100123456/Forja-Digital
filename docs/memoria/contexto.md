@@ -7,7 +7,7 @@
 | Tipo de producto | Landing de servicios con tienda de plantillas | Observado |
 | Industria | Diseño y desarrollo web para pequeños negocios | Observado |
 | Modelo de negocio | Proyectos con precio "desde", acompañamiento mensual y venta de kits | Observado (sitio) |
-| Etapa | Lanzamiento: sin clientes publicados | Observado (sin casos reales, sin opiniones) |
+| Etapa | **Etapa 0, PRE-LAUNCH**: público, sin tráfico medido ni clientes | Observado (sin casos reales, sin opiniones, sin GA4) |
 | Audiencia | Salones, restaurantes, inmobiliarias y emprendimientos en Colombia | Observado (decisión del dueño) |
 | Objetivo | Conversaciones de venta por WhatsApp | Observado |
 | Tráfico | Desconocido | Google Analytics sin ID configurado |
@@ -56,3 +56,29 @@ Las simulaciones sirven para generar hipótesis; no son evidencia de comportamie
 **¿Qué descubrimos?** En 4 de los 6 perfiles, la principal duda es la confianza (inferido).
 **¿Qué cambió gracias a eso?** Se priorizan la prueba social real y la medición por encima de mejoras visuales (ver `priorizacion.md`).
 **¿Qué hipótesis queda sin validar?** Que el simulador reduce la incertidumbre; que el precio visible atrae y no espanta; que el canal principal es Facebook.
+
+## Promesas públicas y su evidencia (sec. 6)
+
+| Promesa en la página | Evidencia | Estado |
+|---|---|---|
+| "Respondemos en menos de 24 horas" | Ninguna todavía (no hay historial de respuestas) | Hipótesis, pendiente de confirmar (D7) |
+| Landing lista en 1 a 2 semanas; Web en 2 a 4 | Ninguna (no hay proyectos entregados) | Hipótesis, pendiente de confirmar (D7) |
+| Precios "desde" ($400.000 a $1.000.000; $60.000 al mes) | Definidos por el dueño | Observado (decisión), sin validar con el mercado |
+| "Hablas directo con quien lo hace" | Una sola persona (Juanes) | Observado |
+| HTTPS, cabeceras de seguridad, copias de seguridad, accesos por roles | HTTPS y cabeceras verificadas en este sitio (A+). Copias y roles: prácticas para proyectos con datos, aún sin entregar | Parcialmente verificado |
+| "No compartimos tus datos" | El sitio no guarda datos en servidor y no envía el contenido del formulario a GA4 | Verificado para el sitio |
+| "Lista para Google" | HTML prerenderizado, sitemap, robots, canonical y datos estructurados presentes | Verificado (técnico); posicionamiento: desconocido |
+
+## Inteligencia de negocio (sec. 7)
+
+| Aspecto | Estado | Certeza |
+|---|---|---|
+| Propuesta de valor | Diseño y web a la medida, económicos, con una persona real | Observado (página) |
+| Ingresos | Proyectos únicos + acompañamiento mensual + kits | Observado; precio de los kits: no definido |
+| Costes | Tiempo de Juanes; Vercel gratis; dominio y hosting los paga el cliente | Inferido |
+| Adquisición | Página de Facebook | Hipótesis (sin datos) |
+| Activación | Primer mensaje por WhatsApp | Definido como evento `generate_lead` |
+| Conversión | Mensaje → propuesta → pago | Desconocido |
+| Retención / expansión | Plan de acompañamiento mensual y venta cruzada (redes + web + datos) | Hipótesis |
+| Ventaja competitiva | Precio de entrada más bajo + vista previa propia + trato directo | Hipótesis |
+| Riesgos de negocio | Promesas sin confirmar, sin prueba social, depender de una sola persona | Inferido |

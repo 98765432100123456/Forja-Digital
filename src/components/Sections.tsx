@@ -94,7 +94,7 @@ export function Pricing() {
             <article key={p.name} className={`plan${p.featured ? ' plan--featured' : ''}`}>
               <div className="plan__top">
                 <h3>{p.name}</h3>
-                {p.featured && <span className="plan__badge">El más pedido</span>}
+                {p.featured && <span className="plan__badge">Recomendado</span>}
               </div>
               <p className="plan__price">
                 <span className="plan__from">desde</span>

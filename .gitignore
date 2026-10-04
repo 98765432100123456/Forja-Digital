@@ -23,3 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 dist-ssr
+
+# Variables de entorno: nunca se suben al repositorio
+.env
+.env.*
+!.env.example

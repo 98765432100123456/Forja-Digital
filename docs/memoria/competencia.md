@@ -43,3 +43,17 @@ trabajos y preguntas frecuentes.
 
 **Brecha principal frente a la competencia** (observado): prueba social. Los 3 estudios muestran reseñas o cifras; Forja
 Digital no tiene ninguna.
+
+## Dimensiones no medidas
+Rendimiento y accesibilidad de los competidores: **no medidos**. Se intentó con PageSpeed Insights el 4 de octubre de 2026 y
+el servicio respondió 429 (límite de uso). Arquitectura técnica y onboarding después del contacto: **no observables** desde
+fuera. Conversión de los competidores: **desconocida**.
+
+## Decisión competitiva (sec. 8)
+
+| | Qué | Por qué |
+|---|---|---|
+| **Aprender** | Formulario por pasos y calculadora de precio (K&T Code); prueba social con fuente verificable (reseñas de Google de Novux) | Reducen la incertidumbre antes de escribir |
+| **Evitar** | Cifras de proyectos sin respaldo, logos de marcas sin relación verificable, descuentos permanentes | Rompen la confianza si se descubren y contradicen D5 |
+| **Diferenciar** | Vista previa del negocio propio (simulador), precio de entrada visible, la misma persona de principio a fin | Ninguno de los 4 lo combina (observado en esta muestra) |
+| **No copiar a propósito** | Estética "terminal" de K&T Code, carrusel de reseñas de Novux y el constructor automático de Hostinger | Son identidades ajenas; el constructor automático es justo lo que Forja dice que no es |

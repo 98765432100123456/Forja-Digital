@@ -61,6 +61,37 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
   - No los confirmó el dueño.
 - **Estado:** **requiere aprobación humana** (es una decisión de negocio). Se mantienen publicados hasta que Juanes los confirme o los cambie.
 
+### D8 · Validar el hash de la URL (seguridad + producto)
+- **Problem:** un enlace con `%` mal formado dejaba la página en blanco.
+- **Evidence:** reproducido en Chromium: `URIError`, 0 encabezados visibles (observado, 4 oct 2026).
+- **Risk:** cualquiera puede compartir ese enlace; quien lo abre ve una marca "rota".
+- **Decision:** tratar el hash como entrada no confiable.
+- **Change:** `try/catch` en `Layout.tsx`.
+- **Test:** R1 y R2 en `tests/regresion-seguridad.mjs`.
+- **Result:** la página carga completa con el enlace malicioso. **Status:** VERIFIED.
+- **Next:** la prueba queda como regresión permanente.
+
+### D9 · Límite de errores con salida a WhatsApp
+- **Problem:** cualquier error de JavaScript desmontaba toda la página.
+- **Evidence:** el mismo caso D8 (observado).
+- **Hypothesis:** si algo falla, ofrecer WhatsApp conserva contactos que hoy se perderían.
+- **Change:** `ErrorBoundary.tsx` + evento `exception` a GA4.
+- **Test:** R3 (fallo simulado → pantalla con botón de WhatsApp). **Status:** VERIFIED (técnico).
+- **Metric:** eventos `exception` en GA4. **Result:** NOT YET AVAILABLE.
+
+### D10 · Quitar afirmaciones que no se pueden defender
+- **Problem:** "El más pedido" (no hay pedidos) y "Aparece en Google" (nadie lo puede garantizar).
+- **Evidence:** 0 clientes (observado); la indexación depende de Google (hecho conocido).
+- **Decision:** "Recomendado" y "Lista para Google"; el plan Web dice "preparado para que Google lo lea bien".
+- **Metric:** no aplica; es una corrección de veracidad (sec. 19). **Status:** VERIFIED en el build.
+- **Learning:** las etiquetas de plantilla ("el más popular") son afirmaciones, aunque parezcan diseño.
+
+### D11 · Veto de seguridad automático en el build
+- **Problem:** sin un control automático, un secreto o una cabecera rota podría publicarse sin que nadie lo note.
+- **Decision:** `scripts/security-check.mjs` al final de `npm run build`; si falla, Vercel no publica.
+- **Test:** se plantó un token falso y se quitó una directiva de la CSP: bloqueó en ambos casos. **Status:** VERIFIED.
+- **Risk accepted:** detecta patrones conocidos; no reemplaza una revisión (sec. 91).
+
 ---
 
 ## Matriz de evidencia
@@ -74,3 +105,7 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 | D5 Honestidad | Identificado | Disponible | — | Implementada | Definida | Pendiente | Alta (ética) / baja (efecto) | Conseguir opiniones reales |
 | D6 Textos | Identificado | Disponible | — | Implementada | No aplica | — | Alta | — |
 | D7 Promesas | Identificado | Disponible | — | Propuesta | — | — | — | Aprobación de Juanes |
+| D8 Hash | Identificado | Reproducido | — | Implementada | Prueba R1/R2 | VERIFIED | Alta | Regresión permanente |
+| D9 Errores | Identificado | Reproducido | Definida | Implementada | `exception` | Técnico: VERIFIED; negocio: pendiente | Media | Activar GA4 |
+| D10 Veracidad | Identificado | Disponible | — | Implementada | No aplica | VERIFIED | Alta | — |
+| D11 Veto | Identificado | Disponible | — | Implementada | Bloqueo probado | VERIFIED | Alta (alcance limitado) | Revisar reglas cada ciclo |

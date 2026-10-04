@@ -28,3 +28,7 @@ Con poco tráfico (inferido para un negocio que empieza), conviene medir tendenc
 - **Diseño:** comparación de antes y después (no hay tráfico suficiente para un A/B), anotando las campañas activas en cada periodo.
 - **Métrica:** `generate_lead` / sesiones; tiempo en la página.
 - **Criterio de éxito:** mejora durante 4 semanas sin cambios grandes de tráfico.
+
+## Estado (4 de octubre de 2026)
+Ninguno puede empezar: falta la **línea base** (no hay GA4 ni tráfico medido). Orden: activar GA4 → 2 semanas de línea base →
+E2 (el más barato) → E1 → E3 cuando haya clientes. No se corre un experimento si el tráfico no permite aprender algo.

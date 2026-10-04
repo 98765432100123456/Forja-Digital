@@ -19,7 +19,9 @@ Estado al 4 de octubre de 2026 (observado en el código).
 | Páginas | `src/pages/` |
 | Estilos | `src/index.css` (tokens al inicio) |
 | Analítica | `src/analytics.ts` (GA4 opcional; diccionario en [`analitica.md`](./analitica.md)) |
-| Seguridad | `vercel.json` y `public/_headers` (CSP, HSTS, X-Frame-Options y otras) |
+| Seguridad | `vercel.json` y `public/_headers` (CSP, HSTS, X-Frame-Options y otras); veto en el build (`scripts/security-check.mjs`); detalle en [`seguridad.md`](./seguridad.md) |
+| Resiliencia | `src/components/ErrorBoundary.tsx` (si algo falla, se ofrece WhatsApp en lugar de una pantalla en blanco) |
+| Pruebas | `tests/regresion-seguridad.mjs` (navegador real) |
 
 ## Calidad medida (laboratorio, servidor local, Lighthouse 12)
 | | Rendimiento | Accesibilidad | Buenas prácticas | SEO | LCP | CLS |
@@ -28,6 +30,10 @@ Estado al 4 de octubre de 2026 (observado en el código).
 | Escritorio | 100 | 100 | 100 | 100 | 0,5 s | 0,001 |
 
 Son datos de laboratorio. La experiencia real (Core Web Vitals de campo) se desconoce hasta que haya tráfico.
+
+**INP (laboratorio):** se midió la respuesta a 51 eventos (menú, pestañas, simulador y teclado) en un Pixel 7 emulado con
+CPU 4× más lenta. La interacción más lenta tardó **144 ms** (tocar una opción del simulador); el umbral "bueno" es 200 ms.
+Medido el 4 de octubre de 2026. INP de campo: no disponible aún.
 Mejoras técnicas pendientes que señala Lighthouse:
 - Imágenes del portafolio con `srcset` (se sirven a 720 px aunque se muestran más pequeñas).
 - CSS que bloquea el renderizado.

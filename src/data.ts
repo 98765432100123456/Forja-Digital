@@ -97,7 +97,7 @@ export const SERVICES = [
   {
     title: 'Páginas web',
     text: 'Desde una página para recibir clientes hasta un catálogo con pedidos por WhatsApp. Rápidas y pensadas para celular.',
-    includes: ['Diseño a la medida', 'Aparece en Google', 'Dominio a tu nombre'],
+    includes: ['Diseño a la medida', 'Lista para Google', 'Dominio a tu nombre'],
   },
   {
     title: 'Bases de datos',
@@ -140,7 +140,7 @@ export const PLANS = [
     name: 'Web de negocio',
     price: '$700.000',
     time: 'Lista en 2 a 4 semanas',
-    desc: 'Tu sitio completo para generar confianza y aparecer en Google.',
+    desc: 'Tu sitio completo para generar confianza, preparado para que Google lo lea bien.',
     features: ['3 a 5 secciones', 'Mapa y datos de contacto', 'SEO básico', '2 rondas de cambios'],
     featured: true,
   },

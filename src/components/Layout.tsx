@@ -54,7 +54,7 @@ function Footer() {
       </div>
       <div className="container footer__legal">
         <p>© {YEAR} {BRAND.name}. Hecho en {BRAND.city}.</p>
-        <p>Horario de atención: {BRAND.hours.charAt(0).toLowerCase() + BRAND.hours.slice(1)}.</p>
+        <p>Horario de atención: {(BRAND.hours.charAt(0).toLowerCase() + BRAND.hours.slice(1)).replace(/\.$/, '')}.</p>
       </div>
     </footer>
   );
@@ -95,7 +95,10 @@ export default function Layout({ children }: { children: ReactNode }) {
     initAnalytics();
     // Al llegar desde otra página con un ancla (/#planes), el contenido aún no existía cuando el navegador intentó
     // desplazarse. Lo hacemos ahora que React ya pintó la página.
-    const id = decodeURIComponent(window.location.hash.slice(1));
+    // El hash viene de la URL: es entrada no confiable. Un "%" mal formado hacía fallar decodeURIComponent y dejaba la
+    // página en blanco (H1 en docs/memoria/seguridad.md). Solo se usa para buscar un id; nunca se inserta en el DOM.
+    let id = '';
+    try { id = decodeURIComponent(window.location.hash.slice(1)); } catch { id = ''; }
     if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: 'instant' as ScrollBehavior }));
   }, []);
   return (

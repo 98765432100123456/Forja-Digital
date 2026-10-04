@@ -28,6 +28,10 @@ export function initAnalytics() {
   s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
   document.head.appendChild(s);
 
+  // Errores de JavaScript en navegadores reales (sec. 73: medir errores). Solo el mensaje, recortado; nunca datos del formulario.
+  window.addEventListener('error', (e) => reportError(e.message, false));
+  window.addEventListener('unhandledrejection', (e) => reportError(String(e.reason), false));
+
   // Mide cada clic hacia WhatsApp como un contacto (lead)
   document.addEventListener('click', (e) => {
     const a = (e.target as HTMLElement).closest('a');
@@ -39,4 +43,9 @@ export function initAnalytics() {
 
 export function track(event: string, params: Record<string, unknown> = {}) {
   window.gtag?.('event', event, params);
+}
+
+/** Envía un error a GA4 como evento `exception`. Sin GA4 configurado no hace nada. */
+export function reportError(message: string, fatal: boolean) {
+  track('exception', { description: message.slice(0, 100), fatal });
 }
