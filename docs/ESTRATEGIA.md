@@ -28,41 +28,28 @@ formulario a WhatsApp y las páginas del checklist.
 
 **Qué falta:** una forma de que el visitante vea *su propio* negocio antes de pagar, y un HTML legible sin JavaScript.
 
-**Ventaja competitiva posible:** ser el único que deja "probarse" el resultado en 20 segundos y lo convierte en una
-cotización concreta por WhatsApp.
+**Ventaja competitiva posible (hipótesis):** dejar "probarse" el resultado y convertirlo en una cotización concreta por
+WhatsApp. No se observó en los 4 competidores revisados; su efecto en la conversión no está medido.
 
 ---
 
 ## 02 · Inteligencia competitiva
 
-| Competidor | Tipo | Qué hace bien | Qué hace mal (oportunidad) |
-|---|---|---|---|
-| Agencias y estudios web en Colombia | Directo | Portafolios cuidados, procesos claros. Tarifas de referencia publicadas: landing desde $500.000–$1.500.000 y webs corporativas desde $1.500.000–$4.000.000 COP. | Precio alto para un negocio pequeño, formularios largos y respuesta lenta. |
-| Freelancers locales | Directo | Precio bajo, trato por WhatsApp. | Portafolios genéricos, sin precios, sin garantía ni soporte visible. |
-| Constructores con IA (Hostinger, Wix y similares) | Indirecto | Muy baratos (menos de 3 € al mes en algunos planes) y rápidos. | El dueño hace todo solo; el resultado se parece al de todos; nadie responde por el negocio. |
-| Plantillas de Canva, Etsy o Hotmart | Indirecto | Baratas e inmediatas. | Sin identidad propia, sin web, sin datos. |
-| "El sobrino que sabe de sistemas" | Indirecto | Confianza personal, casi gratis. | Sin continuidad ni seguridad. |
+> **Corrección (4 de octubre de 2026).** La versión anterior de esta sección afirmaba cosas que no se habían
+> verificado en sitios reales; por ejemplo, que los freelancers no publican precios o que ningún competidor tiene
+> simulador. Ahora el análisis está en [`memoria/competencia.md`](./memoria/competencia.md), basado en 4 sitios
+> revisados, y cada afirmación dice si fue **observada**, **inferida** o es una **hipótesis**.
 
-### Matriz categoría → estándar → oportunidad → diferenciación
-
-| Categoría | Estándar del sector | Oportunidad | Diferenciación de Forja Digital |
-|---|---|---|---|
-| Precio | "Cotiza con nosotros", sin cifras | Transparencia reduce el miedo | Precios "desde" visibles y tiempos de entrega por plan |
-| Prueba | Capturas de portafolio | El cliente no se imagina *su* negocio | Simulador "Mira tu negocio": nombre, tipo y color en vivo |
-| Contacto | Formulario largo o WhatsApp genérico | Llegar al chat con contexto ahorra una vuelta | Mensajes prellenados con lo que el visitante eligió |
-| Confianza | Testimonios genéricos (a veces inventados) | La honestidad es escasa | Casos marcados como demostrativos, opiniones solo reales, una persona visible |
-| IA | Venderla como magia o ignorarla | Explicar qué hace y qué no | "La IA genera. Nosotros construimos." como postura |
-
-**Qué hacen todos:** portafolio, servicios, formulario y botón de WhatsApp.
-**Qué hacen excepcionalmente bien algunos:** procesos claros y precios publicados (en artículos, rara vez en la oferta).
-**Qué nadie resuelve bien:** que un dueño de negocio *vea su propio resultado* antes de hablar de dinero. Esa es la apuesta.
-
----
+Resumen de lo observado:
+- 2 de 3 estudios publican precios "desde". K&T Code tiene además una calculadora de precio.
+- 3 de 3 usan WhatsApp o una llamada como contacto principal.
+- Los 3 tienen prueba social: reseñas, cifras de resultados y logos de clientes.
+- Ninguno de los 4 sitios revisados permite ver una vista previa visual del negocio del visitante antes de contactar o pagar. Esto vale para esos 4 sitios, no para todo el mercado.
 
 ## 03 · Estrategia
 
 - **Propuesta central:** tu negocio, bien hecho, sin pagar precio de agencia y sin hacerlo tú solo.
-- **Promesa:** "Mira cómo se vería tu negocio en 20 segundos. Si te gusta, lo construimos contigo."
+- **Promesa:** "Mira cómo se vería tu negocio. Si te gusta, lo construimos contigo."
 - **Posicionamiento:** entre la herramienta de IA (barata, pero haces todo tú) y la agencia (completa, pero cara y lejana).
 - **Personalidad:** un taller. Directo, cuidadoso y sin humo.
 - **Diferenciador:** el simulador + precios visibles + una persona real que responde.
@@ -153,7 +140,7 @@ Revisión como director creativo exigente. ✔ = corregido en esta iteración; �
 
 ### 10 oportunidades de diferenciación desaprovechadas
 
-1. ✔ Simulador "Mira tu negocio" (nadie en la competencia revisada lo ofrece).
+1. ✔ Simulador "Mira tu negocio" (no se observó en los 4 sitios revisados; K&T Code tiene una calculadora de precio, no una vista previa).
 2. ✔ Precio y tiempo visibles por plan.
 3. ⏳ Que el simulador genere una imagen descargable del post para compartir (viralidad).
 4. ⏳ Garantía explícita (por ejemplo, rondas de cambios hasta la aprobación). Necesita una decisión de negocio.
@@ -183,10 +170,13 @@ Revisión como director creativo exigente. ✔ = corregido en esta iteración; �
 
 ## 20 · Revisión final en cinco perspectivas
 
-| Perspectiva | Pregunta | Veredicto |
-|---|---|---|
-| Producto | ¿Resuelve el problema? | Sí: explica la oferta, muestra trabajo, deja probar y lleva al chat con contexto. |
-| Usuario | ¿Es intuitivo y agradable? | Sí: 0 violaciones de axe, móvil rediseñado y feedback en cada acción. |
-| Marca | ¿Tiene identidad? | Sí: el taller (banco de trabajo, grafito y brasa naranja) se reconoce sin el logo. |
-| Negocio | ¿Produce valor? | Sí, con un límite: la confianza tiene techo hasta que haya foto, casos reales y dominio propio. |
-| Ingeniería | ¿Puede evolucionar? | Sí: contenido en datos, tokens en CSS, prerenderizado y pruebas automatizables. |
+> **Corrección.** La versión anterior respondía "Sí" en Negocio y Usuario sin datos. No hay usuarios medidos todavía:
+> son conclusiones **inferidas** de las pruebas, no resultados.
+
+| Perspectiva | Pregunta | Estado | Base |
+|---|---|---|---|
+| Producto | ¿Resuelve el problema? | Probable | Inferido del recorrido y las pruebas funcionales |
+| Usuario | ¿Es intuitivo y agradable? | Sin validar con usuarios | axe sin violaciones y pruebas de flujo (observado); sin pruebas con personas |
+| Marca | ¿Tiene identidad? | Probable | Inferido; sin opinión de clientes |
+| Negocio | ¿Produce valor? | Desconocido | Google Analytics sin ID configurado; 0 datos de conversión |
+| Ingeniería | ¿Puede evolucionar? | Sí | Observado: build, prerenderizado, pruebas automatizadas, contenido en datos |

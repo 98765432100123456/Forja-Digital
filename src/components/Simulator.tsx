@@ -1,4 +1,5 @@
-import { useId, useState, type CSSProperties } from 'react';
+import { useId, useRef, useState, type CSSProperties } from 'react';
+import { track } from '../analytics';
 import { BRAND, waLink } from '../config';
 import { IconWhatsApp } from './Icons';
 
@@ -29,6 +30,14 @@ export default function Simulator() {
   const [name, setName] = useState('');
   const [paletteId, setPaletteId] = useState<(typeof PALETTES)[number]['id']>('vino');
 
+  // Medición del embudo: inicio (primera interacción) → nombre escrito → clic en cotizar.
+  const sent = useRef<Set<string>>(new Set());
+  const once = (event: string, params: Record<string, unknown> = {}) => {
+    if (sent.current.has(event)) return;
+    sent.current.add(event);
+    track(event, params);
+  };
+
   const k = KINDS[kind];
   const p = PALETTES.find((x) => x.id === paletteId)!;
   const shown = name.trim() || k.example;
@@ -56,7 +65,7 @@ export default function Simulator() {
             <div className="choices">
               {(Object.keys(KINDS) as Kind[]).map((key) => (
                 <label key={key} className="choice">
-                  <input type="radio" name={`${uid}-kind`} value={key} checked={kind === key} onChange={() => setKind(key)} />
+                  <input type="radio" name={`${uid}-kind`} value={key} checked={kind === key} onChange={() => { once('sim_start', { control: 'tipo' }); setKind(key); }} />
                   <span>{KINDS[key].label}</span>
                 </label>
               ))}
@@ -65,7 +74,7 @@ export default function Simulator() {
 
           <div className="field sim__group">
             <label htmlFor={`${uid}-name`}>Nombre de tu negocio</label>
-            <input id={`${uid}-name`} value={name} onChange={(e) => setName(clean(e.target.value))} placeholder={k.example} maxLength={28} autoComplete="organization" />
+            <input id={`${uid}-name`} value={name} onChange={(e) => { once('sim_start', { control: 'nombre' }); if (e.target.value.trim()) once('sim_name'); setName(clean(e.target.value)); }} placeholder={k.example} maxLength={28} autoComplete="organization" />
           </div>
 
           <fieldset className="sim__group">
@@ -73,7 +82,7 @@ export default function Simulator() {
             <div className="swatches">
               {PALETTES.map((x) => (
                 <label key={x.id} className="swatch">
-                  <input type="radio" name={`${uid}-color`} value={x.id} checked={paletteId === x.id} onChange={() => setPaletteId(x.id)} />
+                  <input type="radio" name={`${uid}-color`} value={x.id} checked={paletteId === x.id} onChange={() => { once('sim_start', { control: 'color' }); setPaletteId(x.id); }} />
                   <span className="swatch__chip" style={{ background: `linear-gradient(135deg, ${x.ink} 50%, ${x.bg} 50%)` }} aria-hidden="true" />
                   <span className="swatch__name">{x.label}</span>
                 </label>
@@ -81,7 +90,8 @@ export default function Simulator() {
             </div>
           </fieldset>
 
-          <a data-cta className="btn btn--primary btn--lg sim__cta" href={waLink(message)} target="_blank" rel="noopener noreferrer">
+          <a data-cta className="btn btn--primary btn--lg sim__cta" href={waLink(message)} target="_blank" rel="noopener noreferrer"
+            onClick={() => track('sim_cta', { tipo: kind, color: paletteId, con_nombre: !!name.trim() })}>
             <IconWhatsApp size={20} /> Cotizar con este estilo
           </a>
           <p className="sim__note">Te escribimos con este estilo como punto de partida.</p>

@@ -113,10 +113,10 @@ export const SERVICES = [
 
 // ===== Comparación =====
 export const COMPARISON = [
-  { topic: 'Diseño', ai: 'Plantillas que usan miles de negocios', us: 'Pensado para tu cliente y tu tipo de negocio' },
+  { topic: 'Diseño', ai: 'Las mismas plantillas que puede usar cualquier negocio', us: 'Pensado para tu cliente y tu tipo de negocio' },
   { topic: 'Textos', ai: 'Genéricos, no suenan a ti', us: 'Con tu forma de hablar y de vender' },
   { topic: 'Coherencia', ai: 'Redes, web y datos por separado', us: 'Una sola identidad en todo' },
-  { topic: 'Cuando algo falla', ai: 'Nadie responde', us: 'Una persona real por WhatsApp' },
+  { topic: 'Cuando algo falla', ai: 'Lo resuelves tú solo', us: 'Una persona real por WhatsApp' },
 ];
 
 // ===== Proceso =====

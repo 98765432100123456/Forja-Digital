@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { BRAND, waLink } from '../config';
 import { Breadcrumbs } from '../components/Layout';
 import { MSG_KEY } from '../components/Extra';
 import { IconCheck, IconWhatsApp } from '../components/Icons';
+
+const noop = () => () => {};
 
 function savedMessage() {
   try { return sessionStorage.getItem(MSG_KEY) || undefined; } catch { return undefined; }
 }
 
 export default function Gracias() {
-  // Se lee después de montar para que el HTML prerenderizado y el del navegador coincidan.
-  const [msg, setMsg] = useState<string | undefined>();
-  useEffect(() => { setMsg(savedMessage()); }, []);
+  // En el servidor (prerenderizado) no hay mensaje; en el navegador se lee de sessionStorage sin romper la hidratación.
+  const msg = useSyncExternalStore(noop, savedMessage, () => undefined);
   return (
     <>
       <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Gracias' }]} />
