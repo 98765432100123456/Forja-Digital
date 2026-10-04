@@ -13,6 +13,10 @@ empezar de cero. Pertenece **solo a este proyecto**: aquí no se guarda informac
 | [`marca.md`](./marca.md) | Memoria de marca: principios, tono, tokens, elementos permitidos y prohibidos |
 | [`aprendizajes.md`](./aprendizajes.md) | Patrones candidatos y su nivel de evidencia |
 | [`registro.md`](./registro.md) | Trazabilidad: qué cambió, en qué archivos, qué pruebas se corrieron y qué versión se desplegó |
+| [`arquitectura.md`](./arquitectura.md) | Stack, organización del código, calidad medida y escalabilidad |
+| [`analitica.md`](./analitica.md) | Diccionario de eventos, métricas de decisión y cómo activar GA4 |
+
+El sistema de diseño está en [`../SISTEMA-DE-DISENO.md`](../SISTEMA-DE-DISENO.md). Juntos, estos archivos son el **contexto compartido del producto**: producto, marca, decisiones, experimentos, competencia, arquitectura, usuarios, analítica, diseño y aprendizajes.
 
 ## Etiquetas de certeza (se usan en todos los archivos)
 
