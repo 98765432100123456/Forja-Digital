@@ -3,6 +3,7 @@ import { BRAND, waLink } from '../config';
 import { initAnalytics } from '../analytics';
 import Navbar, { Logo } from './Navbar';
 import { IconFacebook, IconInstagram, IconWhatsApp } from './Icons';
+import CookieBanner, { CookieSettingsLink } from './CookieBanner';
 
 const YEAR = new Date().getFullYear();
 
@@ -36,13 +37,18 @@ function Footer() {
           <a href="/#trabajos">Trabajos</a>
           <a href="/#servicios">Servicios</a>
           <a href="/#planes">Planes</a>
-          <a href="/#plantillas">Plantillas</a>
+          <a href="/plantillas-canva">Plantillas para Canva</a>
         </nav>
         <nav className="footer__nav" aria-label="Ayuda">
           <h2>Ayuda</h2>
           <a href="/#preguntas">Preguntas frecuentes</a>
           <a href="/#contacto">Contacto</a>
+        </nav>
+        <nav className="footer__nav" aria-label="Legal">
+          <h2>Legal</h2>
           <a href="/privacidad">Política de privacidad</a>
+          <a href="/terminos">Términos y condiciones</a>
+          <CookieSettingsLink />
         </nav>
         {(BRAND.facebook || BRAND.instagram) && (
           <div className="footer__nav">
@@ -108,6 +114,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main id="contenido">{children}</main>
       <Footer />
       <StickyContact />
+      <CookieBanner />
     </>
   );
 }

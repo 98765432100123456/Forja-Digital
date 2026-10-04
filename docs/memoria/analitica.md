@@ -1,6 +1,8 @@
 # Analítica
 
-**Estado: sin datos.** Google Analytics 4 está instalado en el código, pero se activa solo cuando existe la variable
+**Estado: sin datos.** Desde el 4 de octubre de 2026, GA4 solo se carga si el visitante acepta las cookies (D12): las cifras representarán a quienes aceptan, no a todos los visitantes.
+
+ Google Analytics 4 está instalado en el código, pero se activa solo cuando existe la variable
 `VITE_GA_ID` en Vercel, y hoy no existe. El 4 de octubre de 2026 se verificó que los eventos se envían correctamente usando un
 ID de prueba.
 

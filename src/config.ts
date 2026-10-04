@@ -9,6 +9,8 @@ export const BRAND = {
   facebook: '', // enlace de tu página de Facebook. Vacío = no se muestra
   instagram: '', // enlace de tu Instagram. Vacío = no se muestra
   city: 'Colombia',
+  domicile: 'Bogotá, Colombia', // domicilio del responsable (Decreto 1074 de 2015, art. 2.2.2.25.3.1)
+  depositPercent: 50, // anticipo para iniciar un proyecto; el resto se paga al entregar (aprobado por Juanes, 4 oct 2026)
   serviceArea: 'Atendemos negocios en toda Colombia de forma remota, por WhatsApp y videollamada.',
   /**
    * Mapa (opcional). En Google Maps busca tu ciudad u oficina → Compartir → Insertar un mapa →
@@ -18,7 +20,7 @@ export const BRAND = {
   address: '', // ej. 'Calle 00 #00-00, Bogotá'. Vacío = no se muestra.
   hours: 'Lunes a sábado, de 8:00 a.m. a 7:00 p.m.',
   legalOwner: 'Juan Esteban Niño Naranjo', // responsable del tratamiento de datos (política de privacidad)
-  email: '', // correo para temas de datos personales (opcional)
+  email: '', // PENDIENTE: correo de Forja para datos personales y contacto (Juanes lo crea). Vacío = solo WhatsApp
 };
 
 /** ID de Google Analytics 4 (G-XXXXXXX). Se configura en Vercel como variable de entorno VITE_GA_ID. */

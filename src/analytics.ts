@@ -1,4 +1,5 @@
 import { GA_ID } from './config';
+import { analyticsConfigured, getChoice, onChoice } from './consent';
 
 declare global {
   interface Window {
@@ -8,12 +9,21 @@ declare global {
 }
 
 /**
- * Carga Google Analytics 4 solo si existe la variable VITE_GA_ID.
- * Sin ID, el sitio no carga ningún script de terceros.
+ * Carga Google Analytics 4 solo si existe la variable VITE_GA_ID **y** el visitante aceptó las cookies de analítica.
+ * Sin ID o sin consentimiento, el sitio no carga ningún script de terceros ni instala cookies.
  */
 export function initAnalytics() {
-  if (!GA_ID || typeof window === 'undefined' || window.gtag) return;
-  if (!/^G-[A-Z0-9]+$/.test(GA_ID)) return; // evita inyectar valores raros
+  if (typeof window === 'undefined' || !analyticsConfigured()) return;
+  if (getChoice() === 'granted') loadGA();
+  onChoice((c) => (c === 'granted' ? loadGA() : disableGA()));
+}
+
+let loaded = false;
+function loadGA() {
+  const id = GA_ID!;
+  (window as unknown as Record<string, boolean>)[`ga-disable-${id}`] = false;
+  if (loaded) return;
+  loaded = true;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = function gtag() {
@@ -21,11 +31,11 @@ export function initAnalytics() {
     window.dataLayer.push(arguments);
   };
   window.gtag('js', new Date());
-  window.gtag('config', GA_ID, { anonymize_ip: true });
+  window.gtag('config', id, { anonymize_ip: true });
 
   const s = document.createElement('script');
   s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
   document.head.appendChild(s);
 
   // Errores de JavaScript en navegadores reales (sec. 73: medir errores). Solo el mensaje, recortado; nunca datos del formulario.
@@ -41,7 +51,18 @@ export function initAnalytics() {
   });
 }
 
+/** Si el visitante retira el consentimiento: GA deja de enviar datos y se borran sus cookies. */
+function disableGA() {
+  const id = GA_ID!;
+  (window as unknown as Record<string, boolean>)[`ga-disable-${id}`] = true;
+  const host = location.hostname;
+  document.cookie.split(';').map((c) => c.split('=')[0].trim()).filter((n) => n === '_ga' || n.startsWith('_ga_')).forEach((n) => {
+    for (const domain of ['', `; domain=${host}`, `; domain=.${host}`]) document.cookie = `${n}=; Max-Age=0; path=/${domain}`;
+  });
+}
+
 export function track(event: string, params: Record<string, unknown> = {}) {
+  if (typeof window === 'undefined') return;
   window.gtag?.('event', event, params);
 }
 

@@ -1,0 +1,40 @@
+# Aviso si la web se cae: revisa el sitio cada 30 minutos.
+# Si no responde bien dos veces seguidas, abre un issue en GitHub (te llega una notificación por correo).
+name: Disponibilidad del sitio
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Revisar la página de inicio
+        id: check
+        run: |
+          URL="https://forja-digital-mlid.vercel.app/"
+          for intento in 1 2; do
+            code=$(curl -s -o page.html -w '%{http_code}' --max-time 20 "$URL" || echo 000)
+            if [ "$code" = "200" ] && grep -q "Forja Digital" page.html; then echo "ok=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+            echo "Intento $intento: código $code"; sleep 60
+          done
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Abrir un aviso si está caída
+        if: steps.check.outputs.ok == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CODE: ${{ steps.check.outputs.code }}
+        # Usa la CLI gh que ya trae el ejecutor de GitHub: sin acciones de terceros (sec. 63, cadena de suministro).
+        run: |
+          if [ "$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'La página está caída in:title' --json number --jq length)" != "0" ]; then exit 0; fi
+          gh issue create --repo "$GITHUB_REPOSITORY" --title "La página está caída" \
+            --body "La revisión automática no pudo cargar https://forja-digital-mlid.vercel.app/ (código $CODE) el $(date -u +%Y-%m-%dT%H:%MZ). Revisa Vercel y cierra este aviso cuando vuelva a funcionar."

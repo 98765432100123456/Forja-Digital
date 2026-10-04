@@ -28,7 +28,8 @@ export default function Hero() {
           <p className="hero__note">Cotización gratis. Respondemos en menos de {BRAND.responseTime}.</p>
         </div>
 
-        <div className="bench" role="img" aria-label="Ejemplos de trabajos: una página web de un salón de belleza, el menú de un restaurante en historia y una tabla de pedidos">
+        <div className="bench" role="img" aria-label="Ejemplo ilustrativo con datos de muestra: una página web de un salón de belleza, el menú de un restaurante en historia y una tabla de pedidos">
+          <span className="bench__tag" aria-hidden="true">Ejemplo ilustrativo</span>
           <div className="bench__laptop piece">
             <div className="browser">
               <div className="browser__bar">

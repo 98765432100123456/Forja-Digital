@@ -45,5 +45,53 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "forja-digital.vercel.app"
+        }
+      ],
+      "destination": "https://forja-digital-mlid.vercel.app/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/plantillas",
+      "destination": "/plantillas-canva",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacidad",
+      "statusCode": 301
+    },
+    {
+      "source": "/politica-de-privacidad",
+      "destination": "/privacidad",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms",
+      "destination": "/terminos",
+      "statusCode": 301
+    },
+    {
+      "source": "/terminos-y-condiciones",
+      "destination": "/terminos",
+      "statusCode": 301
+    },
+    {
+      "source": "/contacto",
+      "destination": "/#contacto",
+      "statusCode": 301
+    },
+    {
+      "source": "/planes",
+      "destination": "/#planes",
+      "statusCode": 301
+    }
+  ]
 }

@@ -12,6 +12,8 @@ export default defineConfig({
         gracias: resolve(import.meta.dirname, 'gracias.html'),
         privacidad: resolve(import.meta.dirname, 'privacidad.html'),
         notfound: resolve(import.meta.dirname, '404.html'),
+        terminos: resolve(import.meta.dirname, 'terminos.html'),
+        plantillas: resolve(import.meta.dirname, 'plantillas-canva.html'),
       },
     },
   },

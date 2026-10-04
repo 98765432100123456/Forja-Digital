@@ -27,6 +27,13 @@ un solo nombre ("Cotizar").
 - Formulario con validación propia.
 - Simulador.
 
+## Referencias para orientar el criterio visual
+Sirven para entrenar el criterio, **no para copiar** (sec. 8 y 14):
+- **Linear y Stripe:** jerarquía tipográfica, densidad y movimiento corto como respuesta.
+- **Apple:** una idea por sección y producto real como protagonista (en Forja, el "banco de trabajo").
+- **Duolingo:** tono cercano y estados vacíos honestos.
+- **Competencia local** (`competencia.md`): qué esperan los visitantes en Colombia (WhatsApp, precios y FAQ).
+
 ## Elementos prohibidos
 - Resplandores y gradientes decorativos.
 - Etiquetas en mayúsculas encima de los títulos.

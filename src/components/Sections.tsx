@@ -142,6 +142,7 @@ export function Templates() {
             </article>
           ))}
         </div>
+        <p className="aside">Cómo se compran, qué incluyen y la licencia de uso: <a href="/plantillas-canva">ver la página de plantillas</a>.</p>
       </div>
     </section>
   );

@@ -151,6 +151,15 @@ Se probó plantando un token falso y quitando una directiva de la CSP: en ambos 
 Etapa 0 → **verificar controles** (hecho para este alcance). Observar ataques y errores reales empieza cuando haya
 tráfico y GA4 (el evento `exception` ya está preparado).
 
+## 8b. Cambios del 4 de octubre (tarde)
+| Superficie nueva | Riesgo | Control | Estado |
+|---|---|---|---|
+| Decisión de cookies en `localStorage` | Un script podría cambiarla | Solo acepta los valores `granted` o `denied`; cualquier otro equivale a "sin decisión" | PASSED |
+| Workflow de disponibilidad en GitHub Actions | Permisos excesivos o acciones de terceros comprometidas | `permissions: contents: read, issues: write`; sin acciones de terceros (usa la CLI `gh` del ejecutor) | PASSED (revisión) |
+| Redirección por host | Redirigir previews por error | Condición exacta `host = forja-digital.vercel.app`; las previews tienen otros hosts | PASSED (revisión); en Vercel: NOT YET VALIDATED |
+| Etiquetas de verificación de buscadores | Inyección de HTML desde variables | Solo se aceptan `[A-Za-z0-9_-]{10,100}` | VERIFIED |
+| Veto del build | — | Nueva regla: falla si `analytics.ts` deja de exigir el consentimiento | VERIFIED |
+
 ## 9. Próximas acciones de seguridad
 1. Proteger `main` en GitHub (Juanes, 2 minutos).
 2. Cerrar el PR #1 de Copilot y borrar la rama `claude-prueba-acceso` (Juanes).

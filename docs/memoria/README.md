@@ -17,6 +17,8 @@ empezar de cero. Pertenece **solo a este proyecto**: aquí no se guarda informac
 | [`analitica.md`](./analitica.md) | Diccionario de eventos, métricas de decisión y cómo activar GA4 |
 | [`seguridad.md`](./seguridad.md) | Fronteras de confianza, hallazgos, postura de controles, riesgos residuales y lo que no aplica |
 | [`gates.md`](./gates.md) | Quality gates antes de publicar y crítica honesta de diseño |
+| [`legal.md`](./legal.md) | Privacidad, cookies, términos, derechos de autor e inventario de licencias |
+| [`lanzamiento.md`](./lanzamiento.md) | Checklist de lanzamiento parte 2 (20 puntos) con su estado |
 
 El sistema de diseño está en [`../SISTEMA-DE-DISENO.md`](../SISTEMA-DE-DISENO.md). Juntos, estos archivos son el **contexto compartido del producto**: producto, marca, decisiones, experimentos, competencia, arquitectura, usuarios, analítica, diseño y aprendizajes.
 

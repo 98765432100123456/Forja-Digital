@@ -45,7 +45,10 @@ if (!/frame-ancestors 'none'/.test(vh['content-security-policy'] ?? '')) fails.p
 if (/script-src[^;]*'unsafe-(inline|eval)'/.test(vh['content-security-policy'] ?? '')) fails.push('la CSP permite scripts en línea o eval');
 
 // 4. El ID de analítica se valida antes de insertarse en una URL de script (sec. 43).
-if (!/\^G-\[A-Z0-9\]\+\$/.test(readFileSync('src/analytics.ts', 'utf8'))) fails.push('analytics.ts ya no valida el formato de VITE_GA_ID');
+if (!/\^G-\[A-Z0-9\]\+\$/.test(readFileSync('src/consent.ts', 'utf8'))) fails.push('consent.ts ya no valida el formato de VITE_GA_ID');
+
+// 5. Privacidad: Google Analytics solo se carga con consentimiento previo (Ley 1581 de 2012).
+if (!/getChoice\(\) === 'granted'/.test(readFileSync('src/analytics.ts', 'utf8'))) fails.push('analytics.ts carga GA4 sin comprobar el consentimiento de cookies');
 
 if (fails.length) {
   console.error('\n✖ Control de seguridad: la compilación se detiene.\n  - ' + fails.join('\n  - ') + '\n');

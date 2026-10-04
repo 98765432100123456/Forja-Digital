@@ -19,6 +19,13 @@ general. **Un solo proyecto nunca cambia una regla global.** Por eso no se modif
 - **¿Qué regla se actualiza?** En este proyecto: toda lectura de URL, almacenamiento o formulario va con validación y su
   prueba hostil (R1–R4). Es un patrón candidato para otros proyectos, no una regla global (un solo caso).
 
+## Aprendizajes del 4 de octubre (tarde)
+- **El checklist anterior no detectó que GA4 se cargaba sin consentimiento.** "GA opcional" se leyó como suficiente.
+  Ahora una regla del build lo exige. Patrón candidato: privacidad como regla automática, no como revisión manual.
+- **Dos proyectos de Vercel publicaban el mismo sitio.** Solo apareció al revisar los despliegues de GitHub, no el código.
+  Patrón candidato: revisar también la infraestructura, no solo el repositorio.
+- **La imagen para compartir seguía con la identidad vieja.** Los recursos fuera de `src/` se escapan de los rediseños.
+
 ## Errores cometidos y corregidos
 - **4 de octubre de 2026:** la página decía "El más pedido" y "Aparece en Google" sin evidencia. Venían de un patrón de
   plantilla, no de datos. Corregido (D10).

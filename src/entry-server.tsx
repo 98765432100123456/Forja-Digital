@@ -5,6 +5,8 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Gracias from './pages/Gracias';
 import Privacidad from './pages/Privacidad';
+import Terminos from './pages/Terminos';
+import Plantillas from './pages/Plantillas';
 import NotFound from './pages/NotFound';
 
 const PAGES: Record<string, () => ReactNode> = {
@@ -12,6 +14,8 @@ const PAGES: Record<string, () => ReactNode> = {
   'gracias.html': () => <Gracias />,
   'privacidad.html': () => <Privacidad />,
   '404.html': () => <NotFound />,
+  'terminos.html': () => <Terminos />,
+  'plantillas-canva.html': () => <Plantillas />,
 };
 
 export function render(file: string) {

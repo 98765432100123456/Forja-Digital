@@ -100,6 +100,8 @@ export function Contact() {
           <p>Llena el formulario y se abre WhatsApp con tu mensaje listo para enviar. Te respondemos en menos de {BRAND.responseTime}.</p>
           <dl className="contact__list">
             <div><dt>WhatsApp</dt><dd><a className="link" href={waLink()} target="_blank" rel="noopener noreferrer">{BRAND.whatsappDisplay}</a></dd></div>
+            <div><dt>Llamar</dt><dd><a className="link" href={`tel:+${BRAND.whatsappNumber}`}>+57 {BRAND.whatsappDisplay}</a></dd></div>
+            {BRAND.email && <div><dt>Correo</dt><dd><a className="link" href={`mailto:${BRAND.email}`}>{BRAND.email}</a></dd></div>}
             <div><dt>Horario</dt><dd>{BRAND.hours}</dd></div>
             <div><dt>Dónde</dt><dd>{BRAND.address || BRAND.serviceArea}</dd></div>
           </dl>
@@ -135,7 +137,10 @@ export function Contact() {
           <button data-cta className="btn btn--primary btn--block btn--lg" type="submit" disabled={sending} aria-live="polite">
             <IconWhatsApp size={20} /> {sending ? 'Abriendo WhatsApp…' : 'Enviar por WhatsApp'}
           </button>
-          <p className="form__note">El mensaje va directo a nuestro WhatsApp; no se guarda en ningún servidor. <a className="link" href="/privacidad">Política de privacidad</a>.</p>
+          <p className="form__note">
+            El mensaje va directo a nuestro WhatsApp; no se guarda en ningún servidor. Al enviarlo, autorizas que usemos estos datos
+            para responderte, según la <a className="link" href="/privacidad">política de privacidad</a>.
+          </p>
         </form>
       </div>
     </section>

@@ -46,3 +46,15 @@ en conversión, negocio ni aprendizaje: todavía no hay datos para saberlo. La a
 Capturas completas a 1440 y 390 px del build local (las previews de Vercel piden inicio de sesión). Una captura mostró los
 kits como cuadros grises; se verificó que las 4 imágenes cargan (900 px, `complete: true`). Era la carga diferida durante la
 captura, no un defecto.
+
+## Gates del ciclo legal y de lanzamiento (4 de octubre, tarde)
+
+| Gate | Estado | Nota |
+|---|---|---|
+| Product | PASSED | Nueva página de plantillas; contacto con llamada además de WhatsApp |
+| Design | PASSED | Aviso de cookies y páginas legales con el sistema actual; imagen para compartir rehecha |
+| Accessibility | PASSED | axe 0 en 6 páginas; foco al reabrir el aviso; 3 enlaces dentro de frases bajo 44 px (excepción WCAG 2.5.8) |
+| Performance | PASSED | Sin dependencias nuevas; el aviso de cookies no se renderiza sin GA |
+| Security / Privacy | PASSED | GA solo con consentimiento, protegido por el veto del build |
+| Evidence | PASSED con pendientes | Correo del responsable y revisión de un abogado (`legal.md`) |
+| Cross-browser | FAILED / NOT TESTED | Solo Chromium; falta Safari (iPhone) y Firefox |

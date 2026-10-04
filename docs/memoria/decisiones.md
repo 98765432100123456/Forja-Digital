@@ -93,6 +93,31 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Test:** se plantó un token falso y se quitó una directiva de la CSP: bloqueó en ambos casos. **Status:** VERIFIED.
 - **Risk accepted:** detecta patrones conocidos; no reemplaza una revisión (sec. 91).
 
+### D12 · Analítica solo con consentimiento previo
+- **Problem:** GA4 se cargaba apenas existiera `VITE_GA_ID`, sin preguntar. La Ley 1581 exige autorización previa, expresa e informada cuando las cookies recogen datos personales.
+- **Evidence:** fuente citada en `legal.md`; código de `analytics.ts` (observado).
+- **Decision:** aviso con "Aceptar" y "Rechazar" del mismo peso; sin decisión no se carga nada; la decisión se puede cambiar desde el pie.
+- **Trade-off aceptado:** se medirá menos tráfico (solo quien acepte). La tasa de aceptación pasa a ser una métrica: NOT YET AVAILABLE.
+- **Test:** 23 comprobaciones en `tests/consentimiento.mjs`. **Status:** VERIFIED.
+
+### D13 · Términos y condiciones y política de privacidad completas
+- **Problem:** no había términos; a la política le faltaban domicilio, procedimiento, vigencia, IA, terceros y borrado.
+- **Decision:** `/terminos` con 50 % de anticipo y 50 % al entregar (aprobado por Juanes), retracto según la Ley 1480, garantía legal, licencia de plantillas y créditos. Política reescrita según el Decreto 1074.
+- **Pending:** correo del responsable; validación de un abogado (`legal.md`). **Status:** PASSED (contenido), NOT YET VALIDATED (legal).
+
+### D14 · Una página por intención: `/plantillas-canva`
+- **Problem:** quien busca plantillas para Canva tiene otra intención que quien busca contratar una web; las dos estaban en la misma página.
+- **Hypothesis:** una página propia puede posicionarse para búsquedas de plantillas. **Metric:** impresiones en Search Console. **Result:** NOT YET AVAILABLE.
+- **No se hizo:** páginas por servicio (sin datos de búsqueda, serían contenido duplicado).
+
+### D15 · Un solo dominio público
+- **Problem:** `forja-digital.vercel.app` y `forja-digital-mlid.vercel.app` servían el mismo sitio (dos proyectos de Vercel).
+- **Decision:** 301 hacia la URL canónica actual (`-mlid`), para no romper enlaces ya compartidos. **Open question:** Juanes puede preferir la URL más corta; cambiarla toma minutos.
+
+### D16 · Movimiento revisado con criterios de Emil Kowalski
+- **Change:** curva ease-out más fuerte, presión en botones y opciones, hover solo con mouse, movimiento reducido con fundidos. Tabla en `SISTEMA-DE-DISENO.md`.
+- **Metric:** no medible con datos; es calidad percibida. **Status:** PASSED en Chromium; en un celular real: NOT TESTED.
+
 ---
 
 ## Matriz de evidencia

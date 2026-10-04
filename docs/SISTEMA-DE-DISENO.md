@@ -89,7 +89,26 @@ Interlineado: 1,6 cuerpo; 1,1 titulares. Longitud de línea máxima: 64 caracter
 
 - Una sola secuencia de entrada: las piezas del banco de trabajo se asientan al cargar (400 ms, escalonado 60 ms).
 - Movimiento como respuesta: acordeón de preguntas, cambio de pestaña en Trabajos, apertura del menú y del lightbox (150–200 ms).
-- Curva `cubic-bezier(.2,.7,.2,1)`. Con `prefers-reduced-motion` todo es instantáneo.
+- Curva `--ease: cubic-bezier(0.23, 1, 0.32, 1)` (ease-out fuerte) para entradas, salidas y respuestas; `ease` para cambios de color.
+- Duraciones: 150 ms (respuestas), 220 ms (paneles), 160 ms (presión de botones). Nada de interfaz pasa de 300 ms; solo la
+  entrada del hero (480 ms, una vez por visita).
+- Con `prefers-reduced-motion`: se quitan desplazamientos y escalas; se mantienen los fundidos y los cambios de color.
+
+### Auditoría de movimiento (4 de octubre de 2026, criterios de Emil Kowalski)
+
+| Antes | Después | Por qué |
+| --- | --- | --- |
+| `--ease: cubic-bezier(0.2, 0.7, 0.2, 1)` | `cubic-bezier(0.23, 1, 0.32, 1)` | Una curva ease-out más fuerte da respuesta inmediata |
+| Botón `:active` `scale(0.98)` en 80 ms | `scale(0.97)` en 160 ms ease-out | Presión perceptible sin parecer un salto |
+| Opciones del simulador sin respuesta al tocar | `scale(0.97)` en las opciones y `scale(0.94)` en los colores | El simulador se toca muchas veces: cada toque debe sentirse escuchado |
+| `.piece-thumb:hover` con zoom en cualquier dispositivo, 400 ms | Solo con `(hover: hover) and (pointer: fine)`, 300 ms | En celular, el hover se activa al tocar y queda pegado |
+| `.wa-float:hover` sube 2 px en cualquier dispositivo | Solo con mouse; `:active` `scale(0.95)` | Igual que arriba, más respuesta al presionar |
+| Movimiento reducido = `animation: none; transition: none` en todo | Fundidos en paneles, FAQ, visor y aviso de cookies; sin desplazamientos ni escalas | Reducir no es eliminar: el fundido ayuda a entender qué cambió sin causar mareo |
+| Color de hover con la misma curva de movimiento | `--ease-color: ease` | Los cambios de color no necesitan el impulso de un ease-out |
+
+**Se revisó y se mantuvo:** la entrada escalonada del hero (una vez por visita, decorativa, 60–280 ms entre piezas); el
+cambio de pestaña con fundido de 220 ms (ocasional); la barra fija móvil (220 ms, cambia de estado al desplazarse).
+**Pendiente:** ver las animaciones en un celular real y en cámara lenta (las pruebas fueron en Chromium automatizado).
 
 ## Estructura de la página de inicio
 
