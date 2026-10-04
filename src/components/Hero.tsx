@@ -1,4 +1,4 @@
-import { waLink } from '../config';
+import { BRAND, waLink } from '../config';
 import { img } from '../data';
 import { IconArrow, IconDatabase, IconShield, IconWhatsApp } from './Icons';
 
@@ -27,6 +27,7 @@ export default function Hero() {
               Ver trabajos <IconArrow size={18} />
             </a>
           </div>
+          <p className="hero__promise"><span className="dot" aria-hidden="true" /> Te respondemos en menos de {BRAND.responseTime}</p>
           <ul className="hero__tags" aria-label="Servicios">
             <li>Diseño</li><li>Web</li><li>Bases de datos</li><li>Seguridad</li>
           </ul>

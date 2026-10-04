@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { BRAND, waLink } from '../config';
 import { FAQ, KITS, NICHES, PLANS, PORTFOLIO, PROCESS, SERVICES, VS, img, kitImg, type Niche } from '../data';
 import {
-  IconArrow, IconCheck, IconCode, IconDatabase, IconFacebook, IconInstagram,
+  IconArrow, IconCheck, IconCode, IconDatabase,
   IconPalette, IconShield, IconSpark, IconWhatsApp, IconX,
 } from './Icons';
 
@@ -38,6 +38,7 @@ export function Services() {
             );
           })}
         </div>
+        <p className="note">¿Quieres ver ejemplos? Mira el <a href="#portafolio">portafolio</a>, los <a href="#casos">casos</a> o compara los <a href="#planes">planes y precios</a>.</p>
       </div>
     </section>
   );
@@ -100,6 +101,7 @@ export function Portfolio() {
             </button>
           ))}
         </div>
+        <p className="note">¿Te gusta algún estilo? Lo puedes comprar listo en la <a href="#plantillas">tienda de plantillas</a> o pedir uno a tu medida en los <a href="#planes">planes</a>.</p>
       </div>
 
       <dialog ref={dialogRef} className="lightbox" onClose={() => setActive(null)} onClick={(e) => e.target === e.currentTarget && setActive(null)}>
@@ -211,39 +213,12 @@ export function FinalCta() {
         <div className="cta">
           <div className="glow glow--accent cta__glow" aria-hidden="true" />
           <h2>Tu negocio merece <span className="text-accent">algo único.</span></h2>
-          <p>Escríbenos y en menos de 24 horas te respondemos con ideas para tu negocio. La cotización es gratis.</p>
+          <p>Escríbenos y en menos de {BRAND.responseTime} te respondemos con ideas para tu negocio. La cotización es gratis.</p>
           <a className="btn btn--primary btn--lg" href={waLink()} target="_blank" rel="noopener noreferrer">
             <IconWhatsApp size={22} /> WhatsApp {BRAND.whatsappDisplay}
           </a>
         </div>
       </div>
     </section>
-  );
-}
-
-export function Footer() {
-  return (
-    <footer className="footer">
-      <div className="container footer__inner">
-        <div>
-          <a href="#inicio" className="logo"><span className="logo__mark" aria-hidden="true">F</span><span>Forja<span className="logo__accent">Digital</span></span></a>
-          <p>{BRAND.tagline} Hecho en {BRAND.city}.</p>
-        </div>
-        <div className="footer__social">
-          <a href={BRAND.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><IconFacebook /></a>
-          <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><IconInstagram /></a>
-          <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><IconWhatsApp /></a>
-        </div>
-      </div>
-      <p className="container footer__legal">© {new Date().getFullYear()} {BRAND.name}. Todos los derechos reservados.</p>
-    </footer>
-  );
-}
-
-export function WhatsAppFloat() {
-  return (
-    <a className="wa-float" href={waLink()} target="_blank" rel="noopener noreferrer" aria-label={`Escríbenos por WhatsApp al ${BRAND.whatsappDisplay}`}>
-      <IconWhatsApp size={28} />
-    </a>
   );
 }

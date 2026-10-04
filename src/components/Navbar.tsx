@@ -3,11 +3,12 @@ import { BRAND, waLink } from '../config';
 import { IconMenu, IconWhatsApp, IconX } from './Icons';
 
 const LINKS = [
-  { href: '#servicios', label: 'Servicios' },
-  { href: '#portafolio', label: 'Portafolio' },
-  { href: '#planes', label: 'Planes' },
-  { href: '#plantillas', label: 'Plantillas' },
-  { href: '#preguntas', label: 'Preguntas' },
+  { href: '/#servicios', label: 'Servicios' },
+  { href: '/#portafolio', label: 'Portafolio' },
+  { href: '/#planes', label: 'Planes' },
+  { href: '/#plantillas', label: 'Plantillas' },
+  { href: '/#casos', label: 'Casos' },
+  { href: '/#contacto', label: 'Contacto' },
 ];
 
 export default function Navbar() {
@@ -24,7 +25,7 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? 'nav--solid' : ''}`}>
       <div className="container nav__inner">
-        <a href="#inicio" className="logo" aria-label={`${BRAND.name}, ir al inicio`}>
+        <a href="/" className="logo" aria-label={`${BRAND.name}, ir al inicio`}>
           <span className="logo__mark" aria-hidden="true">F</span>
           <span>Forja<span className="logo__accent">Digital</span></span>
         </a>

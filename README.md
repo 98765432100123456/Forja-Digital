@@ -24,8 +24,28 @@ npm run preview    # revisa la versión final en http://localhost:4173
 | Número de WhatsApp, Facebook, Instagram | `src/config.ts` |
 | Textos, servicios, precios, preguntas, portafolio | `src/data.ts` |
 | Colores y estilos | `src/index.css` (variables al inicio) |
-| Título, descripción e imagen al compartir | `index.html` y `public/og-image.jpg` |
+| Título, descripción e imagen al compartir | cada `.html` de la raíz y `public/og-image.jpg` |
 | Imágenes del portafolio | `src/assets/portfolio/` (formato .webp) |
+
+## Páginas del sitio
+| Página | Archivo HTML | Contenido |
+|---|---|---|
+| `/` | `index.html` | Página principal |
+| `/gracias` | `gracias.html` | Agradecimiento después del formulario (no se indexa en Google) |
+| `/privacidad` | `privacidad.html` | Política de privacidad (Ley 1581 de 2012) |
+| cualquier ruta que no exista | `404.html` | Página 404 personalizada |
+
+Cada página tiene su propio título, metadescripción, ruta de navegación (breadcrumbs) y datos estructurados.
+
+## Pendientes que debes completar tú
+- **Google Analytics:** crea una propiedad GA4 en https://analytics.google.com, copia el ID `G-XXXXXXX` y en Vercel ve a
+  **Settings → Environment Variables** → agrega `VITE_GA_ID` con ese valor → vuelve a desplegar. Sin el ID no se carga nada de Google.
+  Cada clic a WhatsApp se registra como evento `generate_lead`.
+- **Foto del equipo:** guarda tu foto cuadrada como `src/assets/equipo/juanes.webp` (o `.jpg`). Mientras no esté, salen tus iniciales.
+- **Reseñas reales:** agrégalas en `REVIEWS` dentro de `src/data.ts` (solo reseñas verdaderas y con permiso del cliente).
+- **Casos de éxito:** cuando tengas clientes, agrégalos en `CASES` con `demo: false` y un resultado real.
+- **Mapa y dirección:** si atiendes en un lugar físico, llena `address` y `mapEmbedUrl` en `src/config.ts`.
+- **Redes:** cambia `facebook` e `instagram` en `src/config.ts`.
 
 ## Publicar gratis en Vercel (recomendado)
 1. Sube esta carpeta a un repositorio de GitHub.

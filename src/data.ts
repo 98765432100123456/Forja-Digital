@@ -135,3 +135,51 @@ export const FAQ = [
     a: 'Te enviamos un enlace que crea una copia editable en tu cuenta de Canva (sirve la gratuita). Cambias textos, colores y fotos, y publicas.',
   },
 ];
+
+// ===== Casos de éxito =====
+// Hoy son proyectos demostrativos (los kits). Cuando tengas clientes reales, agrégalos aquí con
+// demo: false y un resultado verdadero (ej. "Pasó de 0 a 25 pedidos por WhatsApp al mes").
+export const CASES: {
+  title: string; niche: string; image: string; demo: boolean;
+  challenge: string; solution: string; deliverables: string[]; result?: string;
+}[] = [
+  {
+    title: 'Identidad para un salón de belleza', niche: 'Belleza', image: 'belleza-promo', demo: true,
+    challenge: 'Un salón que publicaba sin un estilo definido y respondía precios uno por uno por chat.',
+    solution: 'Paleta y tipografías propias, lista de precios en historia y tarjeta de fidelidad digital.',
+    deliverables: ['6 posts', '4 historias', 'Lista de precios', 'Tarjeta de fidelidad'],
+  },
+  {
+    title: 'Menú y promociones para restaurante', niche: 'Restaurantes', image: 'restaurante-menu', demo: true,
+    challenge: 'Un restaurante de almuerzos que enviaba el menú como foto de un cuaderno.',
+    solution: 'Menú editable cada día, promos semanales y tarjeta de sellos para clientes frecuentes.',
+    deliverables: ['Menú diario', 'Post 2x1', 'Tarjeta de sellos', 'Historia para domicilios'],
+  },
+  {
+    title: 'Fichas de inmuebles para inmobiliaria', niche: 'Inmobiliarias', image: 'inmobiliaria-servicios', demo: true,
+    challenge: 'Una inmobiliaria pequeña sin un formato claro para publicar inmuebles y servicios.',
+    solution: 'Ficha de inmueble con datos clave, lista de servicios y posts educativos para compradores.',
+    deliverables: ['Ficha de inmueble', 'Lista de servicios', 'Posts educativos', 'Post de contacto'],
+  },
+];
+
+// ===== Reseñas =====
+// Solo reseñas REALES de clientes, con su permiso. Mientras esté vacío, la sección invita a dejar una.
+export const REVIEWS: { name: string; business: string; text: string; rating: 1 | 2 | 3 | 4 | 5 }[] = [];
+
+// ===== Equipo =====
+// Para poner tu foto: guarda una imagen cuadrada en src/assets/equipo/juanes.webp (o .jpg)
+// y cambia photo: 'juanes'. Mientras no exista, se muestran tus iniciales.
+const teamImgs = import.meta.glob('./assets/equipo/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' }) as Record<string, string>;
+export const teamImg = (name?: string) =>
+  name ? Object.entries(teamImgs).find(([k]) => k.includes(`/${name}.`))?.[1] : undefined;
+
+export const TEAM = [
+  {
+    name: 'Juan Esteban Niño',
+    role: 'Fundador · Diseño y desarrollo',
+    bio: 'Estudiante de Ingeniería de Sistemas con experiencia en desarrollo web, bases de datos y documentación de procesos. Atiendo cada proyecto de forma directa, de principio a fin.',
+    initials: 'JN',
+    photo: 'juanes',
+  },
+];
