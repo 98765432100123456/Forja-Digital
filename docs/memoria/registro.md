@@ -7,6 +7,7 @@
 | 2026-10-04 | `327818b` | main | Juanes (brief) + Claude | Claude | `Simulator.tsx`, `entry-server.tsx`, `scripts/prerender.mjs`… | Simulador y prerenderizado | Playwright + axe; lectura del sitio publicado | Producción | D3, D4 |
 | 2026-10-04 | `dcd4153` | `mejora/evidencia-y-medicion` | Claude (autónomo, reversible) | Claude | `Simulator.tsx`, `data.ts`, `Gracias.tsx`, `docs/**` | Eventos del embudo del simulador; corrección de textos sin evidencia; lectura del mensaje en /gracias sin efectos; memoria del proyecto | 25 pruebas OK; axe 0 violaciones en 4 páginas; sin desbordamiento a 390/820/1440 px; eventos verificados con un ID de GA de prueba | Preview de Vercel (pendiente de aprobación para producción) | D3, D6 |
 | 2026-10-04 | este commit | `mejora/evidencia-y-medicion` | Juanes (secciones 41–51) + Claude | Claude | `docs/memoria/arquitectura.md`, `analitica.md`, `README.md` | Contexto compartido (arquitectura y analítica); medición Lighthouse; tablero de producto (artifact privado) | Lighthouse 12: móvil 98/100/100/100, escritorio 100×4 | Solo documentación; preview | — |
+| 2026-10-04 | `01aa065` | main | **Aprobado por Juanes** | Claude | — (merge fast-forward) | Paso a producción de `mejora/evidencia-y-medicion` | Build OK; texto corregido verificado en el sitio publicado | Producción | D3, D6 |
 
 Notas:
 - Las 3 "fallas" de área táctil que reporta la prueba son enlaces dentro de una frase (`Pregúntanos por WhatsApp`, el número en la lista de contacto, `Política de privacidad` en la nota del formulario). WCAG 2.5.8 los exceptúa.
