@@ -1,25 +1,34 @@
+import { useState } from 'react';
 import { BRAND, waLink } from '../config';
 import { Breadcrumbs } from '../components/Layout';
+import { MSG_KEY } from '../components/Extra';
 import { IconCheck, IconWhatsApp } from '../components/Icons';
 
+function savedMessage() {
+  try { return sessionStorage.getItem(MSG_KEY) || undefined; } catch { return undefined; }
+}
+
 export default function Gracias() {
+  const [msg] = useState(savedMessage);
   return (
     <>
       <Breadcrumbs items={[{ label: 'Inicio', href: '/' }, { label: 'Gracias' }]} />
-      <section className="section page">
-        <div className="container container--narrow page__center">
-          <div className="page__icon"><IconCheck size={40} /></div>
-          <h1>¡Gracias por <span className="text-accent">escribirnos!</span></h1>
-          <p className="page__lead">
-            Se abrió WhatsApp con tu mensaje listo. Solo toca <strong>enviar</strong> y te respondemos en menos de {BRAND.responseTime}.
+      <section className="section status">
+        <div className="container status__inner">
+          <div className="status__icon status__icon--ok" aria-hidden="true"><IconCheck size={32} /></div>
+          <h1>Abrimos WhatsApp con tu mensaje</h1>
+          <p className="status__lead">
+            Solo falta tocar <strong>enviar</strong> en WhatsApp. Te respondemos en menos de {BRAND.responseTime}.
           </p>
-          <div className="page__actions">
-            <a className="btn btn--primary" href={waLink()} target="_blank" rel="noopener noreferrer">
-              <IconWhatsApp size={20} /> No se abrió WhatsApp
+          <div className="status__actions">
+            <a className="btn btn--primary btn--lg" href={waLink(msg)} target="_blank" rel="noopener noreferrer">
+              <IconWhatsApp size={20} /> Abrir WhatsApp de nuevo
             </a>
-            <a className="btn btn--ghost" href="/">Volver al inicio</a>
+            <a className="btn btn--secondary btn--lg" href="/">Volver al inicio</a>
           </div>
-          <p className="page__more">Mientras tanto, mira el <a href="/#portafolio">portafolio</a>, los <a href="/#casos">casos</a> o las <a href="/#plantillas">plantillas listas</a>.</p>
+          <p className="status__more">
+            Mientras tanto puedes ver los <a className="link" href="/#trabajos">trabajos</a> o las <a className="link" href="/#plantillas">plantillas listas</a>.
+          </p>
         </div>
       </section>
     </>

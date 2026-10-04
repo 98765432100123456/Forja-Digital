@@ -1,23 +1,21 @@
 import Hero from '../components/Hero';
-import { Faq, FinalCta, Portfolio, Pricing, Process, Services, Templates, VsAI } from '../components/Sections';
-import { Cases, Contact, Reviews, Team } from '../components/Extra';
+import Works from '../components/Works';
+import { Comparison, Faq, Pricing, Process, Services, Templates } from '../components/Sections';
+import { About, Contact } from '../components/Extra';
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <Works />
       <Services />
-      <VsAI />
-      <Portfolio />
-      <Cases />
+      <Comparison />
       <Process />
       <Pricing />
       <Templates />
-      <Reviews />
-      <Team />
+      <About />
       <Faq />
       <Contact />
-      <FinalCta />
     </>
   );
 }

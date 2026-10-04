@@ -1,7 +1,7 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { BRAND, waLink } from '../config';
 import { initAnalytics } from '../analytics';
-import Navbar from './Navbar';
+import Navbar, { Logo } from './Navbar';
 import { IconFacebook, IconInstagram, IconWhatsApp } from './Icons';
 
 const YEAR = new Date().getFullYear();
@@ -23,58 +23,76 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer__inner">
+      <div className="container footer__grid">
         <div className="footer__brand">
-          <a href="/" className="logo"><span className="logo__mark" aria-hidden="true">F</span><span>Forja<span className="logo__accent">Digital</span></span></a>
-          <p>{BRAND.tagline} Hecho en {BRAND.city}.</p>
-          <p>Respondemos en menos de {BRAND.responseTime}.</p>
+          <Logo inverse />
+          <p>{BRAND.tagline}</p>
+          <a className="btn btn--primary" href={waLink()} target="_blank" rel="noopener noreferrer">
+            <IconWhatsApp size={18} /> {BRAND.whatsappDisplay}
+          </a>
         </div>
-        <nav className="footer__nav" aria-label="Pie de página">
-          <p className="footer__title">Sitio</p>
+        <nav className="footer__nav" aria-label="Secciones">
+          <h2>Sitio</h2>
+          <a href="/#trabajos">Trabajos</a>
           <a href="/#servicios">Servicios</a>
-          <a href="/#portafolio">Portafolio</a>
-          <a href="/#casos">Casos</a>
           <a href="/#planes">Planes</a>
           <a href="/#plantillas">Plantillas</a>
         </nav>
         <nav className="footer__nav" aria-label="Ayuda">
-          <p className="footer__title">Ayuda</p>
+          <h2>Ayuda</h2>
           <a href="/#preguntas">Preguntas frecuentes</a>
           <a href="/#contacto">Contacto</a>
           <a href="/privacidad">Política de privacidad</a>
         </nav>
-        <div className="footer__social">
-          <a href={BRAND.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"><IconFacebook /></a>
-          <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"><IconInstagram /></a>
-          <a href={waLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><IconWhatsApp /></a>
-        </div>
+        {(BRAND.facebook || BRAND.instagram) && (
+          <div className="footer__nav">
+            <h2>Síguenos</h2>
+            {BRAND.facebook && <a href={BRAND.facebook} target="_blank" rel="noopener noreferrer"><IconFacebook size={18} /> Facebook</a>}
+            {BRAND.instagram && <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer"><IconInstagram size={18} /> Instagram</a>}
+          </div>
+        )}
       </div>
-      <p className="container footer__legal">
-        © {YEAR} {BRAND.name}. Todos los derechos reservados. · <a href="/privacidad">Privacidad</a>
-      </p>
+      <div className="container footer__legal">
+        <p>© {YEAR} {BRAND.name}. Hecho en {BRAND.city}.</p>
+        <p>Horario de atención: {BRAND.hours.charAt(0).toLowerCase() + BRAND.hours.slice(1)}.</p>
+      </div>
     </footer>
   );
 }
 
-/** Botón flotante en escritorio + barra fija inferior en celular. */
+/** Botón flotante en escritorio y barra fija inferior en celular. */
 function StickyContact() {
+  // En el inicio, la barra móvil aparece solo cuando el botón principal del hero ya no se ve (evita dos CTAs iguales).
+  const [heroCtaVisible, setHeroCtaVisible] = useState(false);
+  useEffect(() => {
+    const el = document.querySelector('[data-hero-cta]');
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([e]) => setHeroCtaVisible(e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   return (
-    <>
+    <aside aria-label="Contacto rápido">
       <a className="wa-float" href={waLink()} target="_blank" rel="noopener noreferrer" aria-label={`Escríbenos por WhatsApp al ${BRAND.whatsappDisplay}`}>
-        <IconWhatsApp size={28} />
+        <IconWhatsApp size={26} />
       </a>
-      <div className="mobile-cta">
+      <div className={`mobile-cta${heroCtaVisible ? ' is-hidden' : ''}`} aria-hidden={heroCtaVisible || undefined}>
         <a className="btn btn--primary btn--block" href={waLink()} target="_blank" rel="noopener noreferrer">
-          <IconWhatsApp size={20} /> Cotiza gratis por WhatsApp
+          <IconWhatsApp size={20} /> Cotizar por WhatsApp
         </a>
-        <span>Respuesta en menos de {BRAND.responseTime}</span>
       </div>
-    </>
+    </aside>
   );
 }
 
 export default function Layout({ children }: { children: ReactNode }) {
-  useEffect(() => { initAnalytics(); }, []);
+  useEffect(() => {
+    initAnalytics();
+    // Al llegar desde otra página con un ancla (/#planes), el contenido aún no existía cuando el navegador intentó
+    // desplazarse. Lo hacemos ahora que React ya pintó la página.
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    if (id) requestAnimationFrame(() => document.getElementById(id)?.scrollIntoView({ behavior: 'instant' as ScrollBehavior }));
+  }, []);
   return (
     <>
       <a className="skip-link" href="#contenido">Saltar al contenido</a>

@@ -1,76 +1,63 @@
 import { BRAND, waLink } from '../config';
 import { img } from '../data';
-import { IconArrow, IconDatabase, IconShield, IconWhatsApp } from './Icons';
+import { IconWhatsApp } from './Icons';
+
+/** Candado del navegador: la seguridad aparece como un detalle real, no como otra tarjeta. */
+const Lock = () => (
+  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
+    <rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" />
+  </svg>
+);
 
 export default function Hero() {
   return (
     <section id="inicio" className="hero">
-      <div className="glow glow--teal hero__glow1" aria-hidden="true" />
-      <div className="glow glow--accent hero__glow2" aria-hidden="true" />
-
-      <div className="container hero__inner">
+      <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="pill"><span className="dot" aria-hidden="true" /> Agenda abierta · Colombia</p>
-          <h1 className="hero__title">
-            La IA genera.<br />
-            <span className="text-accent">Nosotros construimos.</span>
-          </h1>
+          <h1 className="hero__title">La IA genera.<br /> Nosotros construimos.</h1>
           <p className="hero__lead">
-            Diseño, páginas web, bases de datos y seguridad para tu negocio, hechos a tu medida por personas reales.
-            Precio justo y trato directo, sin agencias de por medio.
+            Diseño para redes, páginas web y bases de datos para salones de belleza, restaurantes, inmobiliarias y
+            emprendimientos en Colombia. Hablas directo con quien lo hace.
           </p>
           <div className="hero__actions">
-            <a className="btn btn--primary" href={waLink()} target="_blank" rel="noopener noreferrer">
-              <IconWhatsApp size={20} /> Cotiza gratis
+            <a className="btn btn--primary btn--lg" href={waLink()} target="_blank" rel="noopener noreferrer" data-hero-cta>
+              <IconWhatsApp size={20} /> Cotizar por WhatsApp
             </a>
-            <a className="btn btn--ghost" href="#portafolio">
-              Ver trabajos <IconArrow size={18} />
-            </a>
+            <a className="btn btn--quiet btn--lg" href="#trabajos">Ver trabajos</a>
           </div>
-          <p className="hero__promise"><span className="dot" aria-hidden="true" /> Te respondemos en menos de {BRAND.responseTime}</p>
-          <ul className="hero__tags" aria-label="Servicios">
-            <li>Diseño</li><li>Web</li><li>Bases de datos</li><li>Seguridad</li>
-          </ul>
+          <p className="hero__note">Cotización gratis. Respondemos en menos de {BRAND.responseTime}.</p>
         </div>
 
-        <div className="hero__visual" aria-hidden="true">
-          <div className="phone phone--left"><img src={img('restaurante-menu')} alt="" /></div>
-          <div className="phone phone--right"><img src={img('belleza-fidelidad')} alt="" /></div>
-
-          <div className="laptop">
-            <div className="laptop__screen">
-              <div className="mini-browser">
-                <div className="mini-browser__bar"><i /><i /><i /><span>studiobella.com</span></div>
-                <div className="mini-site">
-                  <div className="mini-site__nav"><b>Studio Bella</b><span>Servicios · Precios · Contacto</span></div>
-                  <div className="mini-site__hero">
-                    <div>
-                      <small>UÑAS · PESTAÑAS · CEJAS</small>
-                      <strong>El detalle que<br />te mereces</strong>
-                      <em>Reservar cita</em>
-                    </div>
-                    <img src={img('belleza-promo')} alt="" />
+        <div className="bench" role="img" aria-label="Ejemplos de trabajos: una página web de un salón de belleza, el menú de un restaurante en historia y una tabla de pedidos">
+          <div className="bench__laptop piece">
+            <div className="browser">
+              <div className="browser__bar">
+                <span className="browser__url"><Lock /> studiobella.com</span>
+              </div>
+              <div className="site">
+                <div className="site__nav"><b>Studio Bella</b><span>Servicios</span><span>Precios</span><span>Reservar</span></div>
+                <div className="site__hero">
+                  <div className="site__copy">
+                    <strong>El detalle que te mereces</strong>
+                    <small>Reserva tu cita en línea en menos de un minuto.</small>
+                    <em>Reservar cita</em>
                   </div>
+                  <img src={img('belleza-promo')} alt="" width="720" height="720" />
                 </div>
               </div>
             </div>
-            <div className="laptop__base" />
           </div>
-
-          <div className="float-card float-card--db">
-            <div className="float-card__head"><IconDatabase size={18} /> pedidos</div>
-            <div className="db-row db-row--head"><span>cliente</span><span>total</span><span>estado</span></div>
-            <div className="db-row"><span>Laura M.</span><span>$90.000</span><span className="ok">● pagado</span></div>
-            <div className="db-row"><span>Andrés P.</span><span>$22.000</span><span className="warn">● en camino</span></div>
-            <div className="db-row"><span>Carolina R.</span><span>$60.000</span><span className="ok">● pagado</span></div>
-          </div>
-
-          <div className="float-card float-card--sec">
-            <div className="sec-icon"><IconShield size={26} /></div>
-            <div>
-              <strong>Sitio protegido</strong>
-              <span>HTTPS · Backups · Roles</span>
-            </div>
+          <div className="bench__phone bench__phone--a piece"><img src={img('restaurante-menu')} alt="" width="720" height="1280" /></div>
+          <div className="bench__table piece">
+            <p className="bench__table-title">Pedidos de hoy</p>
+            <table>
+              <thead><tr><th>Cliente</th><th>Total</th><th>Estado</th></tr></thead>
+              <tbody>
+                <tr><td>Laura M.</td><td>$90.000</td><td><span className="st st--ok">Pagado</span></td></tr>
+                <tr><td>Andrés P.</td><td>$22.000</td><td><span className="st st--wait">En camino</span></td></tr>
+                <tr><td>Carolina R.</td><td>$60.000</td><td><span className="st st--ok">Pagado</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

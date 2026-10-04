@@ -6,8 +6,8 @@ export const BRAND = {
   whatsappNumber: '573133818294', // formato internacional, sin + ni espacios
   whatsappDisplay: '313 381 8294',
   responseTime: '24 horas', // promesa de tiempo de respuesta
-  facebook: 'https://www.facebook.com/', // reemplaza con el enlace de tu página
-  instagram: 'https://www.instagram.com/', // reemplaza con tu perfil
+  facebook: '', // enlace de tu página de Facebook. Vacío = no se muestra
+  instagram: '', // enlace de tu Instagram. Vacío = no se muestra
   city: 'Colombia',
   serviceArea: 'Atendemos negocios en toda Colombia de forma remota, por WhatsApp y videollamada.',
   /**
@@ -16,7 +16,7 @@ export const BRAND = {
    */
   mapEmbedUrl: '',
   address: '', // ej. 'Calle 00 #00-00, Bogotá'. Vacío = no se muestra.
-  hours: 'Lunes a sábado · 8:00 a.m. – 7:00 p.m.',
+  hours: 'Lunes a sábado, de 8:00 a.m. a 7:00 p.m.',
   legalOwner: 'Juan Esteban Niño Naranjo', // responsable del tratamiento de datos (política de privacidad)
   email: '', // correo para temas de datos personales (opcional)
 };

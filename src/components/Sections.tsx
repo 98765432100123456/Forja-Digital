@@ -1,118 +1,60 @@
-import { useEffect, useRef, useState } from 'react';
 import { BRAND, waLink } from '../config';
-import { FAQ, KITS, NICHES, PLANS, PORTFOLIO, PROCESS, SERVICES, VS, img, kitImg, type Niche } from '../data';
-import {
-  IconArrow, IconCheck, IconCode, IconDatabase,
-  IconPalette, IconShield, IconSpark, IconWhatsApp, IconX,
-} from './Icons';
-
-const SERVICE_ICONS = { palette: IconPalette, code: IconCode, database: IconDatabase, shield: IconShield };
-
-function SectionHead({ kicker, title, accent, lead }: { kicker: string; title: string; accent?: string; lead?: string }) {
-  return (
-    <div className="section-head">
-      <p className="kicker">{kicker}</p>
-      <h2>{title} {accent && <span className="text-accent">{accent}</span>}</h2>
-      {lead && <p className="section-head__lead">{lead}</p>}
-    </div>
-  );
-}
+import { COMPARISON, FAQ, KITS, PLANS, PROCESS, SERVICES, kitImg } from '../data';
+import { IconCheck } from './Icons';
 
 export function Services() {
   return (
     <section id="servicios" className="section">
       <div className="container">
-        <SectionHead kicker="Lo que hacemos" title="Todo lo que tu negocio necesita" accent="para verse y funcionar bien." />
+        <header className="section__head">
+          <h2>Lo que hacemos</h2>
+          <p>Cuatro servicios que se pueden contratar por separado o juntos, con la misma identidad en todo.</p>
+        </header>
         <div className="services">
-          {SERVICES.map((s) => {
-            const Icon = SERVICE_ICONS[s.icon];
-            return (
-              <article key={s.title} className="card service">
-                <div className="service__icon"><Icon size={28} /></div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <ul>
-                  {s.points.map((p) => <li key={p}><IconCheck size={16} /> {p}</li>)}
-                </ul>
-              </article>
-            );
-          })}
-        </div>
-        <p className="note">¿Quieres ver ejemplos? Mira el <a href="#portafolio">portafolio</a>, los <a href="#casos">casos</a> o compara los <a href="#planes">planes y precios</a>.</p>
-      </div>
-    </section>
-  );
-}
-
-export function VsAI() {
-  return (
-    <section className="section section--alt">
-      <div className="container">
-        <SectionHead
-          kicker="¿Por qué no solo IA?"
-          title="Lo que la IA sola"
-          accent="no te entrega."
-          lead="Usamos tecnología a nuestro favor, pero lo que vendes es tu negocio, y eso necesita a alguien que lo entienda."
-        />
-        <div className="vs">
-          <div className="vs__col vs__col--ai">
-            <p className="vs__label"><IconSpark size={18} /> Diseño genérico con IA</p>
-            <ul>{VS.ai.map((t) => <li key={t}><IconX size={18} /> {t}</li>)}</ul>
-          </div>
-          <div className="vs__col vs__col--us">
-            <p className="vs__label">Hecho con {BRAND.name}</p>
-            <ul>{VS.us.map((t) => <li key={t}><IconCheck size={18} /> {t}</li>)}</ul>
-          </div>
+          {SERVICES.map((s) => (
+            <article key={s.title} className="service">
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
+              <ul className="checks">
+                {s.includes.map((p) => <li key={p}><IconCheck size={16} /> {p}</li>)}
+              </ul>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-export function Portfolio() {
-  const [filter, setFilter] = useState<Niche | 'todos'>('todos');
-  const [active, setActive] = useState<(typeof PORTFOLIO)[number] | null>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const items = filter === 'todos' ? PORTFOLIO : PORTFOLIO.filter((p) => p.niche === filter);
-
-  useEffect(() => {
-    const d = dialogRef.current;
-    if (!d) return;
-    if (active && !d.open) d.showModal();
-    if (!active && d.open) d.close();
-  }, [active]);
-
+export function Comparison() {
   return (
-    <section id="portafolio" className="section">
-      <div className="container">
-        <SectionHead kicker="Portafolio" title="Diseños reales," accent="no imágenes de stock." lead="Una muestra de los kits que hemos creado para distintos tipos de negocio." />
-        <div className="filters" role="group" aria-label="Filtrar por tipo de negocio">
-          {NICHES.map((n) => (
-            <button key={n.id} className={`chip ${filter === n.id ? 'is-active' : ''}`} aria-pressed={filter === n.id} onClick={() => setFilter(n.id)}>
-              {n.label}
-            </button>
-          ))}
+    <section className="section section--tight">
+      <div className="container compare">
+        <header className="compare__intro">
+          <h2>¿Por qué no hacerlo solo con IA?</h2>
+          <p>
+            Puedes, y para algunas cosas sirve. La diferencia está en lo que la IA no conoce: tu negocio, tu cliente y lo
+            que pasa después de publicar.
+          </p>
+        </header>
+        <div className="table-wrap">
+          <table className="compare__table">
+            <caption className="sr-only">Comparación entre usar solo IA y trabajar con {BRAND.name}</caption>
+            <thead>
+              <tr><th scope="col"><span className="sr-only">Aspecto</span></th><th scope="col">Solo con IA</th><th scope="col">Con {BRAND.name}</th></tr>
+            </thead>
+            <tbody>
+              {COMPARISON.map((r) => (
+                <tr key={r.topic}>
+                  <th scope="row">{r.topic}</th>
+                  <td>{r.ai}</td>
+                  <td>{r.us}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <div className="gallery">
-          {items.map((p) => (
-            <button key={p.file} className="gallery__item" onClick={() => setActive(p)} aria-label={`Ampliar: ${p.title}`}>
-              <img src={img(p.file)} alt={p.title} loading="lazy" />
-              <span className="gallery__caption">{p.title}</span>
-            </button>
-          ))}
-        </div>
-        <p className="note">¿Te gusta algún estilo? Lo puedes comprar listo en la <a href="#plantillas">tienda de plantillas</a> o pedir uno a tu medida en los <a href="#planes">planes</a>.</p>
       </div>
-
-      <dialog ref={dialogRef} className="lightbox" onClose={() => setActive(null)} onClick={(e) => e.target === e.currentTarget && setActive(null)}>
-        {active && (
-          <figure>
-            <img src={img(active.file)} alt={active.title} />
-            <figcaption>{active.title}</figcaption>
-            <button className="lightbox__close" onClick={() => setActive(null)} aria-label="Cerrar"><IconX /></button>
-          </figure>
-        )}
-      </dialog>
     </section>
   );
 }
@@ -121,11 +63,14 @@ export function Process() {
   return (
     <section className="section section--alt">
       <div className="container">
-        <SectionHead kicker="Cómo trabajamos" title="Simple, claro" accent="y contigo en cada paso." />
+        <header className="section__head">
+          <h2>Cómo trabajamos</h2>
+          <p>Cuatro pasos. En todos hablas con la misma persona.</p>
+        </header>
         <ol className="process">
-          {PROCESS.map((p) => (
-            <li key={p.n} className="process__step">
-              <span className="process__n">{p.n}</span>
+          {PROCESS.map((p, i) => (
+            <li key={p.title} className="process__step">
+              <span className="process__n" aria-hidden="true">{i + 1}</span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
             </li>
@@ -140,25 +85,39 @@ export function Pricing() {
   return (
     <section id="planes" className="section">
       <div className="container">
-        <SectionHead kicker="Planes" title="Precios justos," accent="sin sorpresas." lead="Valores de referencia en pesos colombianos. Dominio y hosting se pagan aparte, a tu nombre." />
+        <header className="section__head">
+          <h2>Planes y precios</h2>
+          <p>Precios de referencia en pesos colombianos. El dominio y el hosting se pagan aparte y quedan a tu nombre.</p>
+        </header>
         <div className="plans">
           {PLANS.map((p) => (
-            <article key={p.name} className={`card plan ${p.featured ? 'plan--featured' : ''}`}>
-              {p.featured && <span className="plan__badge">Más pedido</span>}
-              <h3>{p.name}</h3>
+            <article key={p.name} className={`plan${p.featured ? ' plan--featured' : ''}`}>
+              <div className="plan__top">
+                <h3>{p.name}</h3>
+                {p.featured && <span className="plan__badge">El más pedido</span>}
+              </div>
               <p className="plan__price">
-                <small>desde</small>
-                <span>{p.price.replace('desde ', '').replace('/mes', '')}{p.price.endsWith('/mes') && <em>/mes</em>}</span>
+                <span className="plan__from">desde</span>
+                <span className="plan__amount">{p.price}</span>
+                {p.period && <span className="plan__period">{p.period}</span>}
               </p>
               <p className="plan__desc">{p.desc}</p>
-              <ul>{p.features.map((f) => <li key={f}><IconCheck size={16} /> {f}</li>)}</ul>
-              <a className={`btn ${p.featured ? 'btn--primary' : 'btn--ghost'} btn--block`} href={waLink(`Hola ${BRAND.name}, me interesa el plan ${p.name}`)} target="_blank" rel="noopener noreferrer">
-                Lo quiero <IconArrow size={18} />
+              <ul className="checks">{p.features.map((f) => <li key={f}><IconCheck size={16} /> {f}</li>)}</ul>
+              <a
+                className={`btn ${p.featured ? 'btn--primary' : 'btn--secondary'} btn--block`}
+                href={waLink(`Hola ${BRAND.name}, quiero cotizar el plan ${p.name}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cotizar este plan
               </a>
             </article>
           ))}
         </div>
-        <p className="note">¿Necesitas algo distinto, como un sistema a la medida o una base de datos para tu negocio? <a href={waLink(`Hola ${BRAND.name}, necesito un proyecto a la medida`)} target="_blank" rel="noopener noreferrer">Cuéntanos y lo cotizamos.</a></p>
+        <p className="aside">
+          ¿Necesitas algo distinto, como un sistema a la medida o una base de datos?{' '}
+          <a href={waLink(`Hola ${BRAND.name}, necesito un proyecto a la medida`)} target="_blank" rel="noopener noreferrer">Cuéntanos y lo cotizamos</a>.
+        </p>
       </div>
     </section>
   );
@@ -168,18 +127,17 @@ export function Templates() {
   return (
     <section id="plantillas" className="section section--alt">
       <div className="container">
-        <SectionHead kicker="Tienda" title="Plantillas listas" accent="para usar hoy." lead="Kits de 10 diseños editables en Canva: 6 posts y 4 historias. Disponibles en español e inglés." />
+        <header className="section__head">
+          <h2>Plantillas listas para Canva</h2>
+          <p>Kits de 10 diseños: 6 posts y 4 historias, en español o inglés. Cambias textos, colores y fotos, y publicas.</p>
+        </header>
         <div className="kits">
           {KITS.map((k) => (
-            <article key={k.id} className="card kit">
-              <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}`} loading="lazy" />
-              <div className="kit__body">
-                <h3>{k.title}</h3>
-                <p>{k.text}</p>
-                <a className="btn btn--ghost btn--sm" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">
-                  Pedir precio <IconArrow size={16} />
-                </a>
-              </div>
+            <article key={k.id} className="kit">
+              <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
+              <h3>{k.title}</h3>
+              <p>{k.text}</p>
+              <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">Pedir este kit</a>
             </article>
           ))}
         </div>
@@ -191,32 +149,21 @@ export function Templates() {
 export function Faq() {
   return (
     <section id="preguntas" className="section">
-      <div className="container container--narrow">
-        <SectionHead kicker="Preguntas frecuentes" title="Lo que todos" accent="nos preguntan." />
+      <div className="container faq-layout">
+        <header className="section__head">
+          <h2>Preguntas frecuentes</h2>
+          <p>
+            ¿Tienes otra?{' '}
+            <a className="link" href={waLink(`Hola ${BRAND.name}, tengo una pregunta`)} target="_blank" rel="noopener noreferrer">Pregúntanos por WhatsApp</a>.
+          </p>
+        </header>
         <div className="faq">
           {FAQ.map((f) => (
             <details key={f.q} className="faq__item">
               <summary>{f.q}</summary>
-              <p>{f.a}</p>
+              <div className="faq__body"><p>{f.a}</p></div>
             </details>
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function FinalCta() {
-  return (
-    <section className="section">
-      <div className="container">
-        <div className="cta">
-          <div className="glow glow--accent cta__glow" aria-hidden="true" />
-          <h2>Tu negocio merece <span className="text-accent">algo único.</span></h2>
-          <p>Escríbenos y en menos de {BRAND.responseTime} te respondemos con ideas para tu negocio. La cotización es gratis.</p>
-          <a className="btn btn--primary btn--lg" href={waLink()} target="_blank" rel="noopener noreferrer">
-            <IconWhatsApp size={22} /> WhatsApp {BRAND.whatsappDisplay}
-          </a>
         </div>
       </div>
     </section>

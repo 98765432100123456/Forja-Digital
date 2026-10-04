@@ -23,7 +23,7 @@ npm run preview    # revisa la versión final en http://localhost:4173
 |---|---|
 | Número de WhatsApp, Facebook, Instagram | `src/config.ts` |
 | Textos, servicios, precios, preguntas, portafolio | `src/data.ts` |
-| Colores y estilos | `src/index.css` (variables al inicio) |
+| Colores y estilos | `src/index.css` (tokens al inicio; ver `docs/SISTEMA-DE-DISENO.md`) |
 | Título, descripción e imagen al compartir | cada `.html` de la raíz y `public/og-image.jpg` |
 | Imágenes del portafolio | `src/assets/portfolio/` (formato .webp) |
 
@@ -42,10 +42,10 @@ Cada página tiene su propio título, metadescripción, ruta de navegación (bre
   **Settings → Environment Variables** → agrega `VITE_GA_ID` con ese valor → vuelve a desplegar. Sin el ID no se carga nada de Google.
   Cada clic a WhatsApp se registra como evento `generate_lead`.
 - **Foto del equipo:** guarda tu foto cuadrada como `src/assets/equipo/juanes.webp` (o `.jpg`). Mientras no esté, salen tus iniciales.
-- **Reseñas reales:** agrégalas en `REVIEWS` dentro de `src/data.ts` (solo reseñas verdaderas y con permiso del cliente).
-- **Casos de éxito:** cuando tengas clientes, agrégalos en `CASES` con `demo: false` y un resultado real.
+- **Opiniones reales:** agrégalas en `REVIEWS` dentro de `src/data.ts` (solo reseñas verdaderas y con permiso del cliente).
+- **Casos de éxito:** cuando tengas clientes, edita `WORKS` en `src/data.ts` con `demo: false` y un resultado real.
 - **Mapa y dirección:** si atiendes en un lugar físico, llena `address` y `mapEmbedUrl` en `src/config.ts`.
-- **Redes:** cambia `facebook` e `instagram` en `src/config.ts`.
+- **Redes:** pon los enlaces en `facebook` e `instagram` en `src/config.ts`. Vacíos no se muestran.
 
 ## Publicar gratis en Vercel (recomendado)
 1. Sube esta carpeta a un repositorio de GitHub.
@@ -65,3 +65,7 @@ Cada página tiene su propio título, metadescripción, ruta de navegación (bre
 
 ## Dominio propio (opcional)
 Compra el dominio (por ejemplo `forjadigital.co`) y en Vercel ve a **Settings → Domains** para conectarlo. El certificado HTTPS se genera automáticamente.
+
+## Documentación de diseño
+- `docs/AUDITORIA.md`: auditoría UX y visual, cambios hechos y pruebas.
+- `docs/SISTEMA-DE-DISENO.md`: paleta, tipografía, espaciado, estados y movimiento.
