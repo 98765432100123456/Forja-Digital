@@ -15,6 +15,7 @@
 | 2026-10-04 | este commit | main | Juanes (dio el correo para publicarlo) | Claude | `src/config.ts`, `index.html` | Correo de Forja en contacto, privacidad, términos y datos estructurados | 25 funcionales OK; axe 0 en 6 páginas; veto OK | Producción | D13 |
 | 2026-10-04 | este commit | main | Juanes ("Ponlo tú") | Claude | `src/config.ts` | GA4 activado con consentimiento; aparece el aviso de cookies | Consentimiento 20/20 con el ID real; 25 funcionales OK; veto OK | Producción | D17 |
 | 2026-10-04 | este commit | main | Juanes (dio el precio: desde $50.000) | Claude | `data.ts`, `Sections.tsx`, `Plantillas.tsx`, `Terminos.tsx`, `plantillas-canva.html`, `index.css` | Precio de los kits en inicio, página de plantillas, términos y descripción para buscadores | 25 funcionales OK; axe 0 en 6 páginas; veto OK | Producción | — |
+| 2026-10-04 | este commit | main | Juanes (dio el enlace) | Claude | `src/config.ts` | Enlace a la página de Facebook en el pie | 25 funcionales OK; sin desbordes a 390 y 1440 px; veto OK | Producción | — |
 
 Notas:
 - Las 3 "fallas" de área táctil que reporta la prueba son enlaces dentro de una frase (`Pregúntanos por WhatsApp`, el número en la lista de contacto, `Política de privacidad` en la nota del formulario). WCAG 2.5.8 los exceptúa.

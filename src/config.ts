@@ -6,7 +6,7 @@ export const BRAND = {
   whatsappNumber: '573133818294', // formato internacional, sin + ni espacios
   whatsappDisplay: '313 381 8294',
   responseTime: '24 horas', // promesa de tiempo de respuesta
-  facebook: '', // enlace de tu página de Facebook. Vacío = no se muestra
+  facebook: 'https://www.facebook.com/share/19iYGa7gPs/', // página de Facebook (dada por Juanes el 4 oct 2026)
   instagram: '', // enlace de tu Instagram. Vacío = no se muestra
   city: 'Colombia',
   domicile: 'Bogotá, Colombia', // domicilio del responsable (Decreto 1074 de 2015, art. 2.2.2.25.3.1)

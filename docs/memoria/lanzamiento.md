@@ -9,7 +9,7 @@ La parte 1 (20 puntos) se aplicó el 3 de octubre de 2026 (commit `8c42aab`).
 | 2 | Alta en Search Console | Preparado, **depende de Juanes** | Variable `VITE_GSC_VERIFICATION`: el build inserta la etiqueta meta en el inicio (probado con un código de prueba). Falta crear la propiedad y enviar `sitemap.xml` |
 | 3 | Alta en Bing Webmaster Tools | Preparado, **depende de Juanes** | Variable `VITE_BING_VERIFICATION`, o importar directamente desde Search Console |
 | 4 | Teléfono y correo tocables | VERIFIED | WhatsApp, llamada (`tel:`) y correo (`mailto:forjadigital7@gmail.com`) tocables en contacto, privacidad y términos |
-| 5 | Íconos de redes a cuentas reales | PASSED | No se muestra ningún ícono sin enlace real. Falta el enlace de la página de Facebook (Juanes) |
+| 5 | Íconos de redes a cuentas reales | VERIFIED | Facebook enlazado a la página real (enlace para compartir que dio Juanes); Instagram oculto hasta que exista |
 | 6 | Redirecciones 301 | VERIFIED en producción (`/plantillas` → `/plantillas-canva`) | `vercel.json`: /plantillas, /privacy, /politica-de-privacidad, /terms, /terminos-y-condiciones, /contacto, /planes. `.html` → URL limpia lo hace `cleanUrls` (308). Se verifica en el preview de Vercel, no en local |
 | 7 | Una sola versión del dominio | VERIFIED en producción (`forja-digital.vercel.app/terminos` redirige a `-mlid`) / **Juanes puede preferir la corta** | Se encontraron **dos sitios públicos iguales**: `forja-digital.vercel.app` y `forja-digital-mlid.vercel.app` (dos proyectos de Vercel conectados al mismo repositorio). Se agregó una 301 de `forja-digital.vercel.app` → `forja-digital-mlid.vercel.app`, que es la URL canónica actual |
 | 8 | URL canónicas | VERIFIED | Una por página indexable; se quitó la canónica de /404 |
