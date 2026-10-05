@@ -47,91 +47,104 @@ function PedidosApp() {
   );
 }
 
+/** Datos clave de cada servicio: precio, tiempo y lo que trae, sin cajas. */
+function Specs({ items, dark = false }: { items: { k: string; v: string }[]; dark?: boolean }) {
+  return (
+    <dl className={`specs${dark ? ' specs--dark' : ''}`}>
+      {items.map((i) => (
+        <div key={i.k}><dt>{i.k}</dt><dd>{i.v}</dd></div>
+      ))}
+    </dl>
+  );
+}
+
+const REEL = ['belleza-promo', 'restaurante-menu', 'inmobiliaria-promo', 'emprendedores-catalogo', 'restaurante-promo', 'belleza-precios', 'inmobiliaria-servicios', 'emprendedores-promo'];
+
 export default function Vitrinas() {
   const landing = PLANS[0];
   return (
     <div id="servicios" className="vitrinas">
       <h2 className="sr-only">Lo que hacemos</h2>
 
-      <section className="tile tile--acero" aria-labelledby="v-web">
-        <div className="container tile__head">
-          <p className="tile__eyebrow">Páginas web</p>
-          <h3 id="v-web" className="tile__title">Una página que presenta tu negocio mientras atiendes.</h3>
-          <p className="tile__sub">Desde {landing.price}. Lista en 1 a 2 semanas.<sup>1</sup></p>
-          <div className="tile__actions">
-            <a className="btn btn--primary" href={cotizar('una página web')} target="_blank" rel="noopener noreferrer">Cotizar mi página</a>
-            <a className="btn btn--outline" href="#planes">Ver planes</a>
+      {/* 1. Páginas web: texto a la izquierda y el portátil se sale por la derecha */}
+      <section className="feat feat--web" aria-labelledby="v-web">
+        <div className="container feat__grid">
+          <div className="feat__text">
+            <p className="feat__index"><span>01</span>Páginas web</p>
+            <h3 id="v-web" className="feat__title">Una página que presenta tu negocio mientras atiendes.</h3>
+            <p className="feat__sub">Tus clientes ven qué haces, cuánto cuesta y te escriben por WhatsApp sin esperar a que contestes.</p>
+            <Specs items={[{ k: 'Desde', v: `${landing.price}¹` }, { k: 'Tiempo', v: '1 a 2 semanas' }, { k: 'Incluye', v: 'Botón a WhatsApp' }]} />
+            <div className="feat__actions">
+              <a className="btn btn--primary" href={cotizar('una página web')} target="_blank" rel="noopener noreferrer">Cotizar mi página</a>
+              <a className="btn btn--outline" href="#planes">Ver planes</a>
+            </div>
           </div>
-        </div>
-        <div className="tile__visual tile__visual--wide reveal" role="img" aria-label="Ejemplo ilustrativo de una página web para un restaurante">
-          <span className="stage__tag stage__tag--light" aria-hidden="true">Ejemplo ilustrativo</span>
-          <LaptopSite site="resto" />
+          <div className="feat__media feat__media--bleed reveal" role="img" aria-label="Ejemplo ilustrativo de una página web para un restaurante">
+            <span className="media-tag" aria-hidden="true">Ejemplo ilustrativo</span>
+            <LaptopSite site="resto" />
+          </div>
         </div>
       </section>
 
-      <section className="tile tile--noche" aria-labelledby="v-apps">
-        <div className="container tile__head">
-          <p className="tile__eyebrow">Apps y micro apps</p>
-          <h3 id="v-apps" className="tile__title">Tu negocio, en el celular de tus clientes.</h3>
-          <p className="tile__sub">Micro apps desde {APP_OFFERS[0].price}. Apps desde {APP_OFFERS[1].price}.<sup>1</sup></p>
-          <div className="tile__actions">
-            <a className="btn btn--primary" href="/apps">Conocer las apps</a>
-            <a className="btn btn--ghost" href={cotizar('una app')} target="_blank" rel="noopener noreferrer">Cotizar</a>
+      {/* 2. Apps: oscuro, los celulares primero y el texto a la derecha */}
+      <section className="feat feat--apps" aria-labelledby="v-apps">
+        <div className="container feat__grid feat__grid--flip">
+          <div className="feat__media phones reveal" role="img" aria-label="Ejemplo ilustrativo: una micro app de agenda de citas y una app de pedidos">
+            <span className="media-tag" aria-hidden="true">Ejemplo ilustrativo</span>
+            <div className="phone phone--tilt-l"><AgendaApp /></div>
+            <div className="phone phone--tilt-r"><PedidosApp /></div>
           </div>
-        </div>
-        <div className="tile__visual phones reveal" role="img" aria-label="Ejemplo ilustrativo: una micro app de agenda de citas y una app de pedidos">
-          <span className="stage__tag" aria-hidden="true">Ejemplo ilustrativo</span>
-          <div className="phone phone--tilt-l"><AgendaApp /></div>
-          <div className="phone phone--tilt-r"><PedidosApp /></div>
+          <div className="feat__text">
+            <p className="feat__index"><span>02</span>Apps y micro apps</p>
+            <h3 id="v-apps" className="feat__title">Tu negocio, en el celular de tus clientes.</h3>
+            <p className="feat__sub">Agenda, pedidos o inventario en una app que se instala sin pasar por las tiendas.</p>
+            <Specs dark items={[{ k: 'Micro app', v: `${APP_OFFERS[0].price}¹ · 2 a 4 semanas` }, { k: 'App', v: `${APP_OFFERS[1].price}¹ · 6 a 10 semanas` }]} />
+            <div className="feat__actions">
+              <a className="btn btn--primary" href="/apps">Conocer las apps</a>
+              <a className="btn btn--ghost" href={cotizar('una app')} target="_blank" rel="noopener noreferrer">Cotizar</a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="tiles-grid container-wide">
-        <section className="tile tile--half tile--acero" aria-labelledby="v-canva">
-          <div className="tile__head">
-            <p className="tile__eyebrow">Plantillas para Canva</p>
-            <h3 id="v-canva" className="tile__title tile__title--sm">Publica como una marca grande.</h3>
-            <p className="tile__sub">Kits de 10 diseños, {KIT_PRICE.toLowerCase()}.</p>
-            <div className="tile__actions">
-              <a className="btn btn--primary btn--sm" href="/plantillas-canva">Ver plantillas</a>
-              <a className="btn btn--outline btn--sm" href={waLink(`Hola ${BRAND.name}, quiero una plantilla para Canva`)} target="_blank" rel="noopener noreferrer">Pedir por WhatsApp</a>
+      {/* 3. Canva y redes: una tira de piezas reales que cruza la pantalla */}
+      <section className="strip" aria-labelledby="v-canva">
+        <div className="container strip__head">
+          <div>
+            <p className="feat__index"><span>03</span>Diseño y plantillas</p>
+            <h3 id="v-canva" className="feat__title">Publica como una marca grande.</h3>
+          </div>
+          <div className="strip__offers">
+            <div>
+              <h4>Plantillas para Canva</h4>
+              <p>Kits de 10 diseños editables, {KIT_PRICE.toLowerCase()}.</p>
+              <a className="link-arrow" href="/plantillas-canva">Ver plantillas <span aria-hidden="true">→</span></a>
+            </div>
+            <div>
+              <h4 id="v-redes">Diseño para redes</h4>
+              <p>Posts, historias y menús con tus colores, editables en Canva.</p>
+              <a className="link-arrow" href={cotizar('diseño para redes')} target="_blank" rel="noopener noreferrer">Cotizar diseño <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <div className="tile__visual reveal">
-            <img className="tile__img" src={kitImg('belleza')} srcSet={kitSet('belleza')} sizes="(min-width: 900px) 420px, 80vw" alt="Vista previa del kit para salones de belleza: 6 posts y 4 historias" width="900" height="900" loading="lazy" decoding="async" />
-          </div>
-        </section>
+        </div>
+        <ul className="reel" aria-label="Piezas de muestra para salones, restaurantes, inmobiliarias y emprendedores" tabIndex={0}>
+          {REEL.map((n) => (
+            <li key={n}><img src={img(n)} srcSet={imgSet(n)} sizes="(min-width: 900px) 260px, 56vw" alt="" width="720" height="720" loading="lazy" decoding="async" /></li>
+          ))}
+          <li className="reel__kit"><img src={kitImg('belleza')} srcSet={kitSet('belleza')} sizes="(min-width: 900px) 260px, 56vw" alt="Kit para salones de belleza: 6 posts y 4 historias" width="900" height="900" loading="lazy" decoding="async" /></li>
+        </ul>
+      </section>
 
-        <section className="tile tile--half tile--acero" aria-labelledby="v-redes">
-          <div className="tile__head">
-            <p className="tile__eyebrow">Diseño para redes</p>
-            <h3 id="v-redes" className="tile__title tile__title--sm">Tu identidad en cada post.</h3>
-            <p className="tile__sub">Posts, historias y menús con tus colores, editables en Canva.</p>
-            <div className="tile__actions">
-              <a className="btn btn--primary btn--sm" href={cotizar('diseño para redes')} target="_blank" rel="noopener noreferrer">Cotizar diseño</a>
-              <a className="btn btn--outline btn--sm" href="#trabajos">Ver trabajos</a>
-            </div>
-          </div>
-          <div className="tile__visual fan reveal" role="img" aria-label="Ejemplos de posts para un restaurante, una inmobiliaria y un emprendimiento">
-            <img src={img('restaurante-promo')} srcSet={imgSet('restaurante-promo')} sizes="200px" alt="" width="720" height="720" loading="lazy" decoding="async" />
-            <img src={img('inmobiliaria-promo')} srcSet={imgSet('inmobiliaria-promo')} sizes="200px" alt="" width="720" height="720" loading="lazy" decoding="async" />
-            <img src={img('emprendedores-promo')} srcSet={imgSet('emprendedores-promo')} sizes="200px" alt="" width="720" height="720" loading="lazy" decoding="async" />
-          </div>
-        </section>
-
-        <section className="tile tile--half tile--acero" aria-labelledby="v-datos">
-          <div className="tile__head">
-            <p className="tile__eyebrow">Bases de datos</p>
-            <h3 id="v-datos" className="tile__title tile__title--sm">Deja el cuaderno y los mil chats.</h3>
-            <p className="tile__sub">Clientes, pedidos e inventario en un solo lugar.</p>
-            <div className="tile__actions">
-              <a className="btn btn--primary btn--sm" href={cotizar('una base de datos')} target="_blank" rel="noopener noreferrer">Cotizar</a>
-            </div>
-          </div>
-          <div className="tile__visual reveal" role="img" aria-label="Ejemplo ilustrativo de una tabla de pedidos">
-            <div className="data-card">
-              <p className="data-card__title">Pedidos de hoy</p>
-              <table>
+      {/* 4. Datos y seguridad: como un libro de cuentas, con líneas y sin tarjetas */}
+      <section className="ledger" aria-label="Bases de datos y seguridad">
+        <div className="container ledger__grid">
+          <div className="ledger__col">
+            <p className="feat__index"><span>04</span>Bases de datos</p>
+            <h3 id="v-datos" className="ledger__title">Deja el cuaderno y los mil chats.</h3>
+            <p className="feat__sub">Clientes, pedidos e inventario en un solo lugar.</p>
+            <div className="ledger__table" role="img" aria-label="Ejemplo ilustrativo de una tabla de pedidos">
+              <span className="media-tag media-tag--inline" aria-hidden="true">Ejemplo ilustrativo · Pedidos de hoy</span>
+              <table aria-hidden="true">
                 <thead><tr><th>Cliente</th><th>Total</th><th>Estado</th></tr></thead>
                 <tbody>
                   <tr><td>Laura M.</td><td>$90.000</td><td><span className="st st--ok">Pagado</span></td></tr>
@@ -140,28 +153,22 @@ export default function Vitrinas() {
                 </tbody>
               </table>
             </div>
+            <a className="link-arrow" href={cotizar('una base de datos')} target="_blank" rel="noopener noreferrer">Cotizar una base de datos <span aria-hidden="true">→</span></a>
           </div>
-        </section>
-
-        <section className="tile tile--half tile--grafito" aria-labelledby="v-seg">
-          <div className="tile__head">
-            <p className="tile__eyebrow">Seguridad y soporte</p>
-            <h3 id="v-seg" className="tile__title tile__title--sm">Tu sitio cuidado, mes a mes.</h3>
-            <p className="tile__sub">Acompañamiento desde {PLANS[3].price} al mes.</p>
-            <div className="tile__actions">
-              <a className="btn btn--primary btn--sm" href={cotizar('el acompañamiento mensual')} target="_blank" rel="noopener noreferrer">Cotizar</a>
-            </div>
-          </div>
-          <div className="tile__visual reveal">
-            <ul className="secure-card" aria-label="Lo que incluye el acompañamiento">
+          <div className="ledger__col">
+            <p className="feat__index"><span>05</span>Seguridad y soporte</p>
+            <h3 id="v-seg" className="ledger__title">Tu sitio cuidado, mes a mes.</h3>
+            <p className="feat__sub">Acompañamiento desde {PLANS[3].price} al mes.<sup>1</sup></p>
+            <ul className="ledger__list" aria-label="Lo que incluye el acompañamiento">
               <li><Lock /> Conexión segura (HTTPS)</li>
               <li><Lock /> Copias de seguridad</li>
               <li><Lock /> Revisión de seguridad</li>
               <li><IconWhatsApp size={14} /> Soporte por WhatsApp</li>
             </ul>
+            <a className="link-arrow" href={cotizar('el acompañamiento mensual')} target="_blank" rel="noopener noreferrer">Cotizar el acompañamiento <span aria-hidden="true">→</span></a>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 }

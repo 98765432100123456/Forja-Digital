@@ -186,3 +186,15 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Decision:** martillo inclinado en el momento del golpe con tres chispas, dentro del cuadro naranja de siempre (martillo grafito, chispas blancas). Se mantienen el naranja, Unbounded para el nombre y el cuadro de 32 px.
 - **Change:** `Navbar.tsx` (componente `Logo`, usado en el menú y en el pie), `index.css` (`.logo__fondo`, `.logo__martillo`, `.logo__chispas`), `public/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` y `og.jpg` regenerados.
 - **Riesgo residual:** el martillo es un símbolo común; no se hizo búsqueda de marcas registradas parecidas (NOT TESTED). Antes de registrar la marca en la SIC conviene revisarlo.
+
+### D22 · Quitar el "mismo cuadro para todo"
+- **Problem:** Juanes (captura del celular, 4 oct 2026, 23:23): "el mismo tipo de tarjeta que encierra la información es la misma para toda la página, se nota hecha por IA".
+- **Evidence:** auditoría de capturas a 1440 y 390 px. Las 6 vitrinas repetían la misma fórmula: etiqueta naranja centrada, titular centrado, subtítulo, dos botones en píldora y una imagen abajo. 4 de ellas, además, dentro del mismo cuadro gris redondeado. Todos los títulos de sección también iban centrados.
+- **Decision:** cada servicio tiene su propia composición y ninguna usa cuadros:
+  - Web: texto a la izquierda con una ficha técnica de precio y tiempo, y el portátil saliéndose por la derecha.
+  - Apps: fondo oscuro, los celulares primero y el texto a la derecha.
+  - Plantillas y redes: una sola sección con dos ofertas separadas por líneas y una tira de piezas reales que cruza la pantalla.
+  - Datos y seguridad: dos columnas con líneas, como un libro de cuentas.
+  - Numeración 01–05 en lugar de la etiqueta naranja; títulos de sección alineados a la izquierda; solo el héroe queda centrado.
+- **Change:** `Vitrinas.tsx` reescrito; `index.css` (se quitan `.tiles-grid`, `.tile--half`, `.fan`, `.data-card`, `.secure-card`; se agregan `.feat`, `.specs`, `.strip`, `.reel`, `.ledger`, `.link-arrow`).
+- **Validación:** build con veto OK; lint y tipos OK; 27 funcionales (el enlace dentro de una frase está exento); axe 0 en 9 páginas; checklist de 15 OK; S1–S4 OK; Lighthouse móvil 98/100/100/100, LCP 2,0 s, CLS 0,012. Opinión de clientes: NOT YET AVAILABLE.
