@@ -8,7 +8,7 @@ Estados: Por hacer · En curso · Bloqueado (depende de alguien) · Hecho.
 
 | # | Tarea | Tipo | Responsable | Estado | Nota |
 |---|---|---|---|---|---|
-| 1 | Aprobar y publicar: logo del martillo, vitrinas sin cuadros, DESIGN.md, pruebas en CI | Lanzamiento | Juanes | Bloqueado | Rama `marca/logo-martillo` |
+| 1 | Aprobar y publicar: logo del martillo, vitrinas sin cuadros, DESIGN.md, pruebas en CI | Lanzamiento | Juanes | Hecho | Aprobado el 4 oct, 23:48 |
 | 2 | Vercel Hobby es "solo para uso personal, no comercial" (normas de uso de Vercel). Elegir: pasar a Pro (US$20 al mes) o mudar a un hosting gratuito que permita uso comercial | Riesgo | Juanes | Bloqueado | `seguridad.md`, sección de costos |
 | 3 | NIT (sacar el RUT) y dirección de notificación judicial (Ley 1480, art. 50) | Legal | Juanes | Bloqueado | `legal.md` |
 | 4 | Confirmar las 4 reglas de cancelación y reembolso redactadas por Claude | Legal | Juanes | Bloqueado | `legal.md` |
