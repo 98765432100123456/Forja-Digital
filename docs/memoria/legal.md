@@ -18,7 +18,7 @@ y es correcto). Lo que sigue es lo que se implementó, en qué norma se apoya y 
 | Requisito (fuente) | Dónde | Estado |
 |---|---|---|
 | Política de privacidad con enlace visible en el pie (imagen 1) | `/privacidad`, pie → "Legal" | VERIFIED |
-| Contenido mínimo del Decreto 1074: responsable, domicilio, teléfono, correo, finalidad, derechos, quién atiende, procedimiento, vigencia | `/privacidad` puntos 1–12 | PASSED, **excepto el correo**: pendiente (Juanes lo va a crear) |
+| Contenido mínimo del Decreto 1074: responsable, domicilio, teléfono, correo, finalidad, derechos, quién atiende, procedimiento, vigencia | `/privacidad` puntos 1–12 | PASSED (correo `forjadigital7@gmail.com` agregado el 4 oct 2026) |
 | Autorización informada en el formulario | Nota bajo el botón "Enviar por WhatsApp" | PASSED |
 | Uso de IA declarado (video 2) | `/privacidad` punto 5: se usa IA para diseñar; no se ingresan datos personales sin autorización expresa | Aprobado por Juanes |
 | Derecho a borrar datos y cómo pedirlo (video 2) | `/privacidad` puntos 9–10 | PASSED |
@@ -49,7 +49,6 @@ en `/terminos` punto 9 y en la página de plantillas. **Freepik** no se recomien
 gratuito exige atribución, y algunos recursos son solo para suscriptores.
 
 ## Pendiente o con riesgo residual
-- **Correo del responsable:** lo exige el decreto. Mientras no exista, la política solo publica WhatsApp. RESIDUAL RISK, depende de Juanes.
 - **Retracto de las plantillas digitales:** la redacción ("el retracto aplica mientras no te hayamos enviado el enlace") es
   una interpretación de la excepción de bienes que no pueden devolverse. HYPOTHESIS legal: **validarla con un abogado**.
 - **Cancelación con el trabajo empezado y acompañamiento sin permanencia:** son decisiones de negocio redactadas con un

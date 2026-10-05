@@ -20,7 +20,7 @@ export const BRAND = {
   address: '', // ej. 'Calle 00 #00-00, Bogotá'. Vacío = no se muestra.
   hours: 'Lunes a sábado, de 8:00 a.m. a 7:00 p.m.',
   legalOwner: 'Juan Esteban Niño Naranjo', // responsable del tratamiento de datos (política de privacidad)
-  email: '', // PENDIENTE: correo de Forja para datos personales y contacto (Juanes lo crea). Vacío = solo WhatsApp
+  email: 'forjadigital7@gmail.com', // correo de Forja (dado por Juanes el 4 oct 2026): datos personales y contacto
 };
 
 /** ID de Google Analytics 4 (G-XXXXXXX). Se configura en Vercel como variable de entorno VITE_GA_ID. */
