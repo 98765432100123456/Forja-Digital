@@ -71,6 +71,16 @@ Adaptación de los checklists que ya se aplicaron al sitio (20 + 20 + 15 puntos)
 - [ ] Manual corto y sesión de entrega al cliente.
 - [ ] Cuentas (servidor, dominio, tiendas) a nombre del cliente, con Forja como colaborador.
 
+**Operación antes de producción** (videos de @sebas.soto222, 4 oct 2026: "6 errores" y "4 errores al lanzar una app")
+- [ ] **Analítica de producto desde el día uno**, con consentimiento: qué pantallas usan y en qué paso se van (embudo). Herramienta sugerida en el video: PostHog. Alternativa ya usada en el sitio: GA4. Se elige con el cliente, según dónde quedan los datos.
+- [ ] **Límite de solicitudes (rate limiting)** por usuario **y** por IP en toda la API, no solo en el inicio de sesión. Respuesta 429 con un mensaje claro. Herramientas: Upstash Ratelimit, Cloudflare o el firewall de Vercel.
+- [ ] **Pruebas automáticas** de componentes, de integración y de principio a fin (Playwright) que corren solas en cada cambio (CI). No se publica con pruebas en rojo.
+- [ ] **Registro de errores** (Sentry o similar) que avisa antes que el cliente, sin datos personales en los reportes (limpiar correos, nombres y tokens).
+- [ ] **Organización:** tablero de tareas con bugs, ideas y pendientes (Linear, GitHub Issues o el tablero del proyecto). Nada queda solo en el chat.
+- [ ] **Tope de gastos y alertas** en cada servicio de pago (servidor, base de datos, IA, correo): límite duro donde exista y alerta al 50 % y al 80 %. Los costos a nombre del cliente, que los conoce por escrito.
+- [ ] **Caché de datos:** no volver a pedir a la base de datos lo que no cambió (caché en el cliente con tiempo de vida, y caché HTTP o del servidor para lo público).
+- [ ] **Índices en la base de datos** para cada columna que se usa para buscar, filtrar, ordenar o unir tablas. Revisar las consultas lentas con `EXPLAIN` usando datos de prueba de miles de filas antes de entregar.
+
 ## Riesgos de este servicio
 - **Seguridad:** un error de autorización expone datos de los clientes de nuestro cliente. Severidad CRÍTICA (sec. 93). Por eso la lista de seguridad no es opcional.
 - **Alcance:** las apps crecen. Mitigación: propuesta escrita con alcance cerrado y cambios cotizados aparte.

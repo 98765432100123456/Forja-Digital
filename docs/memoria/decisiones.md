@@ -198,3 +198,23 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
   - Numeración 01–05 en lugar de la etiqueta naranja; títulos de sección alineados a la izquierda; solo el héroe queda centrado.
 - **Change:** `Vitrinas.tsx` reescrito; `index.css` (se quitan `.tiles-grid`, `.tile--half`, `.fan`, `.data-card`, `.secure-card`; se agregan `.feat`, `.specs`, `.strip`, `.reel`, `.ledger`, `.link-arrow`).
 - **Validación:** build con veto OK; lint y tipos OK; 27 funcionales (el enlace dentro de una frase está exento); axe 0 en 9 páginas; checklist de 15 OK; S1–S4 OK; Lighthouse móvil 98/100/100/100, LCP 2,0 s, CLS 0,012. Opinión de clientes: NOT YET AVAILABLE.
+
+### D23 · Operación, pruebas automáticas y DESIGN.md (videos del 4 oct, noche)
+- **Problem:** Juanes pidió aplicar sin excepción 10 capturas y 2 videos: 6 y 4 errores al lanzar una app, cómo diseñar con un DESIGN.md y qué hacer antes de publicar una web. Pidió además llevar la página al nivel de Apple y superarlo.
+- **Evidence:** matriz punto por punto en `lanzamiento.md` (A1–D4). Los videos no tienen transcripción: se leyeron los subtítulos cuadro por cuadro.
+- **Decision:**
+  - Aplicar al sitio lo que le corresponde y llevar a `apps.md` lo que solo existe en una app: límite de solicitudes, índices, caché de datos, topes de gasto y Sentry.
+  - No agregar PostHog ni Sentry al sitio: duplicarían terceros y el aviso de cookies sin responder una pregunta nueva. Sentry queda en el backlog porque requiere la cuenta de Juanes.
+  - Del sistema de Apple (Refero) se toman los principios: sin sombras, capas con color y líneas, un solo color de acción y titulares de peso medio.
+  - La recomendación automática de UI UX Pro Max (negro y dorado, Cormorant) se descarta porque contradice la marca.
+- **Change:**
+  - `DESIGN.md` nuevo en la raíz del proyecto.
+  - Sin sombras en el contenido (`--sombra-1` pasa a ser una línea de 1 px; `--sombra-flotante` queda solo para lo que flota) y titulares en Manrope 700.
+  - El menú marca la sección visible (`aria-current`).
+  - Evento `view_section`.
+  - Títulos, descripción y datos estructurados con Bogotá.
+  - Ficha de `/apps` con límites, caché, índices y topes de gasto.
+  - `npm test` con 5 suites (Playwright y axe) y la CI de GitHub `pruebas.yml`.
+  - `backlog.md` nuevo.
+- **Hallazgo nuevo:** Vercel Hobby es solo para uso no comercial (backlog #2), y la decisión es de Juanes.
+- **Validación:** `npm test` con 183 comprobaciones en verde. Lighthouse móvil 98/100/100/100 (LCP 2,1 s, CLS 0,013) y escritorio 100/100/100/100. Build con veto y lint en verde.

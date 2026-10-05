@@ -1,6 +1,6 @@
-// Comprueba los 15 puntos del checklist "15 cosas para ser real" en todas las páginas. Requiere el build servido en :4174.
+// Comprueba los 15 puntos del checklist "15 cosas para ser real" en todas las páginas. Corre con npm test (tests/run.mjs).
 import { chromium } from 'playwright';
-const B='http://localhost:4174';const PAGES=['/','/apps','/plantillas-canva','/cookies','/reembolsos','/privacidad','/terminos','/gracias','/404'];
+const B=process.env.BASE_URL||'http://localhost:4174';const PAGES=['/','/apps','/plantillas-canva','/cookies','/reembolsos','/privacidad','/terminos','/gracias','/404'];
 let fail=0;const ok=(c,n)=>{console.log((c?'PASS ':'FAIL ')+n);if(!c)fail++;};
 const b=await chromium.launch();const ctx=await b.newContext();
 await ctx.addInitScript(()=>{try{localStorage.setItem('forja:cookies','denied')}catch{}});
@@ -44,4 +44,4 @@ ok(true,'12 sin desbordes revisado en 6 páginas × 5 anchos (fallas arriba si h
  ok(await p.locator('.cookies').isVisible(),'8 banner de cookies visible en la primera visita');
  await p.getByRole('button',{name:'Aceptar'}).click();await p.waitForTimeout(300);
  ok(await p.evaluate(()=>window.dataLayer?.some(a=>a[0]==='config'&&a[1]==='G-XKHGRSYFDP')),'13 analítica G-XKHGRSYFDP tras aceptar');await c2.close();}
-await b.close();console.log(fail?fail+' fallaron':'TODAS PASARON');
+await b.close();console.log(fail?'✖ checklist-15: '+fail+' fallaron':'✔ checklist-15: todas pasaron');process.exit(fail?1:0);

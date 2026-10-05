@@ -1,7 +1,5 @@
 // Pruebas de regresión de seguridad y resiliencia en un navegador real.
-// Uso: npm run build && npx vite preview --port 4174  (en otra terminal)
-//      npm i --no-save playwright && node tests/regresion-seguridad.mjs
-// No forma parte del build para no sumar dependencias al proyecto (ver docs/memoria/seguridad.md).
+// Corre con el resto de pruebas: npm run build && npm test (ver tests/run.mjs).
 import { chromium } from 'playwright';
 
 const BASE = process.env.BASE_URL || 'http://localhost:4174';

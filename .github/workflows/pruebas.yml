@@ -1,0 +1,32 @@
+# Pruebas automáticas en cada cambio (video @sebas.soto222: "sin pruebas, cada cambio es una ruleta rusa").
+# Corre el build (con su veto de seguridad), el lint y las 5 suites de tests/ en Chromium.
+# Para que nada llegue a producción con pruebas en rojo, falta exigir este check en la protección de `main` (backlog #9).
+name: Pruebas
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pruebas-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint
+      - run: npm run build
+      - run: npm test

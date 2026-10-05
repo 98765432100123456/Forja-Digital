@@ -46,3 +46,7 @@ La política de privacidad del sitio ya menciona el uso de Google Analytics.
 | Eventos de seguridad | No aplica: no hay inicio de sesión ni API que registrar |
 
 **Línea base:** no disponible aún. Ningún experimento (E1–E3) puede empezar sin al menos 2 semanas de datos con GA4.
+
+## Secciones vistas (4 oct 2026)
+Evento nuevo `view_section` con `section` (por ejemplo `inicio`, `web`, `apps`, `diseno`, `datos-seguridad`, `simulador`, `trabajos`, `planes`, `contacto`). Se envía una vez por sección y por visita, cuando la sección cruza la mitad de la pantalla, y solo con consentimiento. Sirve para ver **hasta dónde llega la gente y dónde se va** (video de @sebas.soto222). Prueba: `tests/consentimiento.mjs`. Datos reales: NOT YET AVAILABLE.
+Por qué no se agregó PostHog: GA4 ya cubre visitas, embudo y secciones. Una segunda herramienta duplicaría el aviso de cookies, el peso de la página y los terceros que reciben datos, sin una pregunta que GA4 no pueda responder hoy. Para las apps se elige con el cliente (`apps.md`).

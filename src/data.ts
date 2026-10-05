@@ -140,12 +140,12 @@ export const APP_OFFERS = [
 export const APP_BASICS = [
   { t: 'Se instala en el celular', d: 'Ícono en la pantalla de inicio y pantalla completa, en Android y iPhone, sin pasar por las tiendas.' },
   { t: 'Cada quien ve solo lo suyo', d: 'Los permisos se revisan en el servidor, no solo en la pantalla: así un cliente no puede ver los datos de otro.' },
-  { t: 'Contraseñas y datos protegidos', d: 'Contraseñas cifradas, conexión segura (HTTPS), recuperación de contraseña y ninguna clave secreta en el celular.' },
+  { t: 'Contraseñas y datos protegidos', d: 'Contraseñas cifradas, conexión segura (HTTPS), límite de intentos y de solicitudes por usuario, y ninguna clave secreta en el celular.' },
   { t: 'Copias de seguridad', d: 'Tus datos se respaldan de forma automática y se pueden exportar cuando quieras.' },
   { t: 'Privacidad desde el diseño', d: 'Política de privacidad y términos dentro de la app, autorización de datos y opción de borrar la cuenta.' },
   { t: 'Pensada para todos', d: 'Textos legibles, buen contraste y uso con teclado o lector de pantalla.' },
-  { t: 'Rápida con mala señal', d: 'Pensada primero para celular y conexiones lentas.' },
-  { t: 'Sabes qué pasa', d: 'Medición de uso (con consentimiento), aviso de errores y de caídas.' },
+  { t: 'Rápida aunque crezca', d: 'Pensada primero para celular y conexiones lentas, con datos en caché e índices en la base de datos para que no se vuelva lenta con miles de registros.' },
+  { t: 'Sabes qué pasa', d: 'Medición de uso (con consentimiento), aviso de errores y de caídas, y topes de gasto en cada servicio para que no lleguen cobros sorpresa.' },
 ];
 
 export const APP_STEPS = [

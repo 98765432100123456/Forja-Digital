@@ -47,3 +47,25 @@ Revisado el 4 de octubre de 2026 con `quince.mjs` (47 comprobaciones automática
 | 13 | Analíticas | VERIFIED | GA4 `G-XKHGRSYFDP` tras aceptar cookies |
 | 14 | Favicon personalizado | VERIFIED (corregido) | El favicon tenía los colores y la forma de la marca vieja. Ahora es igual al logo, con versiones PNG de 32 px, `apple-touch-icon` de 180 px (iPhone) e ícono de 512 px para el logo en Google |
 | 15 | Imagen de Open Graph | VERIFIED | `og.jpg` 1200×630 en las 6 páginas |
+
+# Videos del 4 de octubre (noche): @sebas.soto222 ×2, @soyenriquerocha y @ulisesdesarrolladorweb
+
+Fuente: 10 capturas y 2 videos enviados por Juanes. Los videos no tienen transcripción de audio (este entorno no puede transcribir). Los puntos se leyeron de los subtítulos cuadro por cuadro.
+
+| # | Punto | Aplica a | Estado | Evidencia o lo que falta |
+|---|---|---|---|---|
+| A1 | Sin analíticas: medir qué usan y dónde se van (PostHog) | Sitio | VERIFIED | GA4 con consentimiento desde el 4 oct; nuevo evento `view_section` por sección (`analitica.md`) |
+| A2 | Sin límite de solicitudes (Upstash, Cloudflare) | Sitio / apps | Sitio: NO APLICA (sin API ni funciones de servidor). Apps: obligatorio | `seguridad.md`; `apps.md` "Operación antes de producción"; ficha de `/apps` |
+| A3 | Sin pruebas (componentes, integración y de principio a fin) | Sitio | VERIFIED | `npm test`: 5 suites, 183 comprobaciones; corren en GitHub Actions en cada cambio (`.github/workflows/pruebas.yml`) |
+| A4 | Sin registro de errores (Sentry) | Sitio | PARCIAL | Errores de JavaScript a GA4 (`exception`) solo con consentimiento, más una pantalla de rescate. Sentry: requiere la cuenta de Juanes (backlog #12). En apps: obligatorio |
+| A5 | Trabajar desorganizado (Linear) | Proceso | VERIFIED con alternativa | `docs/memoria/backlog.md` con responsable y estado, más el tablero de Claude. Linear: opcional, requiere cuenta |
+| A6 | Sin tope de gastos | Sitio / apps | Sitio: VERIFIED, todo es gratis y Vercel Hobby no cobra. **Riesgo nuevo:** Hobby es solo para uso no comercial | `seguridad.md`; backlog #2 |
+| B1 | No guardar en caché los datos | Sitio / apps | Sitio: VERIFIED (archivos con caché de 1 año inmutable). Apps: obligatorio | Cabeceras de producción; `apps.md` |
+| B2 | Sin límite de solicitudes | — | = A2 | |
+| B3 | No indexar las tablas | Apps y bases de datos | Obligatorio en apps (`EXPLAIN` con miles de filas) | `apps.md`; ficha de `/apps` ("Rápida aunque crezca") |
+| B4 | No hacer pruebas | — | = A3 | |
+| C1 | Diseñar con un DESIGN.md: colores, letras, espacios y botones; partir de una página de referencia (Refero Styles) y de UI UX Pro Max | Sitio | VERIFIED | `DESIGN.md` en la raíz, con el sistema de Apple de Refero y la lista de UI UX Pro Max. Cambios aplicados: sin sombras en el contenido, titulares en 700, menú que marca la sección visible |
+| D1 | Certificado SSL (candado) | Sitio | VERIFIED | HTTPS y HSTS de 2 años (punto 14 de la parte 2) |
+| D2 | Reducir el tamaño de las imágenes (Squoosh) y su formato | Sitio | VERIFIED | WebP con versiones de 320–450 px; 61 KB de imágenes en celular |
+| D3 | Medir la velocidad (PageSpeed Insights) | Sitio | VERIFIED con Lighthouse | Lighthouse móvil local (el mismo motor de PageSpeed). PageSpeed en línea devolvió 429 antes: se mide de nuevo en producción |
+| D4 | SEO local y palabras clave (Rank Math en WordPress) | Sitio | VERIFIED | Rank Math no aplica (no es WordPress). Equivalente: título y descripción con "Bogotá" y los servicios; datos estructurados con `areaServed` Bogotá y Colombia; sitemap y canónicas |

@@ -165,3 +165,23 @@ tráfico y GA4 (el evento `exception` ya está preparado).
 2. Cerrar el PR #1 de Copilot y borrar la rama `claude-prueba-acceso` (Juanes).
 3. Correr `npm audit` y `tests/regresion-seguridad.mjs` en cada ciclo.
 4. Repetir esta revisión completa en cada proyecto de cliente con datos.
+
+## Límite de solicitudes, costos y topes de gasto (4 oct 2026, videos de @sebas.soto222)
+
+**Límite de solicitudes (rate limiting):** el sitio **no tiene API ni funciones de servidor**: no hay carpeta `api/` ni `functions` en `vercel.json`, y el formulario abre WhatsApp sin pasar por un servidor. No hay nada propio que alguien pueda saturar con solicitudes. Lo estático lo sirve la CDN de Vercel, que trae mitigación de DDoS activada por defecto en todos los planes ([documentación de Vercel](https://vercel.com/docs/plans/hobby)). Estado: NO APLICA al sitio, VERIFIED. Para las apps es obligatorio (`apps.md`, "Operación antes de producción").
+
+**Servicios y costos:**
+| Servicio | Plan | ¿Puede llegar un cobro sorpresa? | Evidencia |
+|---|---|---|---|
+| Vercel (2 proyectos) | Hobby, gratis | **No.** "Como es gratis, no hay ciclos de cobro". Si se pasa del uso incluido, la función se pausa hasta por 30 días | [Vercel Hobby](https://vercel.com/docs/plans/hobby), consultado el 4 oct 2026 |
+| GitHub (repositorio y Actions) | Gratis, repositorio público | No. Actions es gratis en repositorios públicos | Repositorio público (API de GitHub) |
+| Google Analytics 4 | Gratis | No | — |
+| Fuentes e imágenes | Alojadas en el sitio | No | — |
+
+Uso incluido en Hobby: 100 GB de transferencia y 1 000 000 de solicitudes a la CDN al mes. La página de inicio pesa unos 190 KB, así que alcanza para cientos de miles de visitas al mes (inferido). **Riesgo de disponibilidad:** si se superara, Vercel pausaría el sitio en lugar de cobrar.
+
+**RIESGO NUEVO (alto, de negocio):** las normas de uso de Vercel dicen que el plan Hobby "restringe a uso personal, no comercial" ([fuente](https://vercel.com/docs/plans/hobby)). Forja Digital es un negocio. Opciones, que decide Juanes:
+1. Pasar a Pro (US$20 al mes por persona), que además permite topes de gasto configurables.
+2. Mudar el sitio a un hosting gratuito que permita uso comercial. Las condiciones del otro proveedor habría que verificarlas antes de mudarse: NOT VERIFIED.
+
+Hasta que decida, queda en el backlog (#2).

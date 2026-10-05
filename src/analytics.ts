@@ -43,6 +43,24 @@ function loadGA() {
   window.addEventListener('error', (e) => reportError(e.message, false));
   window.addEventListener('unhandledrejection', (e) => reportError(String(e.reason), false));
 
+  // Qué secciones se ven y hasta dónde llega cada visita (video @sebas.soto222: "no sabes qué usan ni dónde se te van").
+  // Un evento por sección y por visita, cuando la sección cruza la mitad de la pantalla. Sin datos personales.
+  if ('IntersectionObserver' in window) {
+    const seen = new Set<string>();
+    const io = new IntersectionObserver((entries) => {
+      for (const en of entries) {
+        if (!en.isIntersecting) continue;
+        const el = en.target as HTMLElement;
+        const name = el.dataset.seccion || el.id;
+        io.unobserve(el);
+        if (!name || seen.has(name)) continue;
+        seen.add(name);
+        track('view_section', { section: name });
+      }
+    }, { rootMargin: '0px 0px -50% 0px' });
+    document.querySelectorAll<HTMLElement>('main section[id], main [data-seccion]').forEach((el) => io.observe(el));
+  }
+
   // Mide cada clic hacia WhatsApp como un contacto (lead)
   document.addEventListener('click', (e) => {
     const a = (e.target as HTMLElement).closest('a');

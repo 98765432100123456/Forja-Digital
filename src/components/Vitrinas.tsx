@@ -67,7 +67,7 @@ export default function Vitrinas() {
       <h2 className="sr-only">Lo que hacemos</h2>
 
       {/* 1. Páginas web: texto a la izquierda y el portátil se sale por la derecha */}
-      <section className="feat feat--web" aria-labelledby="v-web">
+      <section data-seccion="web" className="feat feat--web" aria-labelledby="v-web">
         <div className="container feat__grid">
           <div className="feat__text">
             <p className="feat__index"><span>01</span>Páginas web</p>
@@ -87,7 +87,7 @@ export default function Vitrinas() {
       </section>
 
       {/* 2. Apps: oscuro, los celulares primero y el texto a la derecha */}
-      <section className="feat feat--apps" aria-labelledby="v-apps">
+      <section data-seccion="apps" className="feat feat--apps" aria-labelledby="v-apps">
         <div className="container feat__grid feat__grid--flip">
           <div className="feat__media phones reveal" role="img" aria-label="Ejemplo ilustrativo: una micro app de agenda de citas y una app de pedidos">
             <span className="media-tag" aria-hidden="true">Ejemplo ilustrativo</span>
@@ -108,7 +108,7 @@ export default function Vitrinas() {
       </section>
 
       {/* 3. Canva y redes: una tira de piezas reales que cruza la pantalla */}
-      <section className="strip" aria-labelledby="v-canva">
+      <section data-seccion="diseno" className="strip" aria-labelledby="v-canva">
         <div className="container strip__head">
           <div>
             <p className="feat__index"><span>03</span>Diseño y plantillas</p>
@@ -136,7 +136,7 @@ export default function Vitrinas() {
       </section>
 
       {/* 4. Datos y seguridad: como un libro de cuentas, con líneas y sin tarjetas */}
-      <section className="ledger" aria-label="Bases de datos y seguridad">
+      <section data-seccion="datos-seguridad" className="ledger" aria-label="Bases de datos y seguridad">
         <div className="container ledger__grid">
           <div className="ledger__col">
             <p className="feat__index"><span>04</span>Bases de datos</p>

@@ -33,6 +33,7 @@ export function Logo({ inverse = false }: { inverse?: boolean }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('');
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
 
@@ -41,6 +42,26 @@ export default function Navbar() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Estado activo del menú: la página actual o la sección que se está viendo en el inicio
+  useEffect(() => {
+    const path = location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    if (path !== '/') {
+      const match = LINKS.find((l) => l.href === path);
+      if (match) queueMicrotask(() => setActive(match.href));
+      return;
+    }
+    const targets = LINKS.filter((l) => l.href.startsWith('/#'))
+      .map((l) => document.getElementById(l.href.slice(2)))
+      .filter((el): el is HTMLElement => !!el);
+    const hero = document.getElementById('inicio');
+    if (hero) targets.push(hero);
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) if (e.isIntersecting) setActive(e.target.id === 'inicio' ? '' : '/#' + e.target.id);
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    targets.forEach((t) => io.observe(t));
+    return () => io.disconnect();
   }, []);
 
   // Cerrar con Escape o al tocar fuera del menú
@@ -65,7 +86,13 @@ export default function Navbar() {
 
         <nav id="menu-principal" ref={panelRef} className={`nav__links${open ? ' is-open' : ''}`} aria-label="Principal">
           {LINKS.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
+            <a
+              key={l.href}
+              href={l.href}
+              className={active === l.href ? 'is-active' : undefined}
+              aria-current={active === l.href ? (l.href.startsWith('/#') ? 'location' : 'page') : undefined}
+              onClick={() => setOpen(false)}
+            >{l.label}</a>
           ))}
           <a className="btn btn--primary btn--sm nav__cta" href={waLink()} target="_blank" rel="noopener noreferrer">
             <IconWhatsApp size={18} /> Cotizar
