@@ -83,7 +83,7 @@ export default function Terminos() {
 
           <h2 id="plantillas">8. Plantillas para Canva</h2>
           <ul>
-            <li>Te enviamos un enlace que crea una copia editable en tu cuenta de Canva. El precio se confirma por WhatsApp antes de pagar.</li>
+            <li>Te enviamos un enlace que crea una copia editable en tu cuenta de Canva. Cada kit cuesta desde $50.000; el valor exacto se confirma por WhatsApp antes de pagar.</li>
             <li><strong>Licencia:</strong> puedes usar y modificar las plantillas para tu propio negocio, sin límite de publicaciones. No puedes revenderlas, compartirlas ni publicarlas como plantillas.</li>
             <li>Si el enlace no funciona o una plantilla tiene un defecto, la corregimos o te devolvemos el dinero.</li>
             <li>Como es un archivo digital que no se puede devolver una vez entregado, el retracto aplica mientras no te hayamos enviado el enlace.</li>

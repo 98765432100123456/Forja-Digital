@@ -162,6 +162,9 @@ export const PLANS = [
 ];
 
 // ===== Plantillas =====
+/** Precio de referencia de cada kit (aprobado por Juanes el 4 oct 2026). */
+export const KIT_PRICE = 'Desde $50.000';
+
 export const KITS = [
   { id: 'belleza', title: 'Kit para salones de belleza', text: 'Uñas, pestañas, cejas y spa.' },
   { id: 'restaurante', title: 'Kit para restaurantes', text: 'Menú, promociones y tarjeta de sellos.' },

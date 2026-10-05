@@ -694,3 +694,4 @@ button { font: inherit; color: inherit; }
   .choice:active span, .swatch:active .swatch__chip { transform: none; }
 }
 .contact__list a { display: inline-flex; align-items: center; min-height: 44px; }
+.kit .kit__price { font-size: var(--t-s); font-weight: 700; color: var(--grafito); font-variant-numeric: tabular-nums; }

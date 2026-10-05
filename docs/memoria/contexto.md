@@ -74,7 +74,7 @@ Las simulaciones sirven para generar hipótesis; no son evidencia de comportamie
 | Aspecto | Estado | Certeza |
 |---|---|---|
 | Propuesta de valor | Diseño y web a la medida, económicos, con una persona real | Observado (página) |
-| Ingresos | Proyectos únicos + acompañamiento mensual + kits | Observado; precio de los kits: no definido |
+| Ingresos | Proyectos únicos + acompañamiento mensual + kits (desde $50.000) | Observado; precio de kits definido por Juanes el 4 oct 2026 |
 | Costes | Tiempo de Juanes; Vercel gratis; dominio y hosting los paga el cliente | Inferido |
 | Adquisición | Página de Facebook | Hipótesis (sin datos) |
 | Activación | Primer mensaje por WhatsApp | Definido como evento `generate_lead` |

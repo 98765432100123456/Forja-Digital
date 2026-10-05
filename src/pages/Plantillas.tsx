@@ -1,10 +1,10 @@
 import { BRAND, waLink } from '../config';
-import { KITS, kitImg } from '../data';
+import { KITS, KIT_PRICE, kitImg } from '../data';
 import { Breadcrumbs } from '../components/Layout';
 import { IconWhatsApp } from '../components/Icons';
 
 const STEPS = [
-  { t: 'Elige tu kit', d: 'Escríbenos por WhatsApp con el kit que quieres y en qué idioma (español o inglés). Te confirmamos el precio.' },
+  { t: 'Elige tu kit', d: 'Escríbenos por WhatsApp con el kit que quieres y en qué idioma (español o inglés). Cada kit cuesta desde $50.000; te confirmamos el valor exacto antes de pagar.' },
   { t: 'Paga', d: 'Te enviamos los datos de pago. No necesitas cuenta en ninguna tienda.' },
   { t: 'Recibe el enlace', d: 'Te llega un enlace que crea una copia editable en tu cuenta de Canva. Sirve la cuenta gratuita.' },
   { t: 'Personaliza y publica', d: 'Cambias textos, colores y fotos con tu marca, y publicas en Instagram, Facebook o WhatsApp.' },
@@ -28,7 +28,7 @@ export default function Plantillas() {
             <h1 className="page__title">Plantillas para Canva para negocios en Colombia</h1>
             <p>
               Kits de 10 diseños para redes sociales, hechos para salones de belleza, restaurantes, inmobiliarias y emprendimientos.
-              Los editas en Canva con tus colores, textos y fotos.
+              Los editas en Canva con tus colores, textos y fotos. Desde $50.000 por kit.
             </p>
           </header>
           <div className="kits">
@@ -37,6 +37,7 @@ export default function Plantillas() {
                 <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
                 <h2 className="kit__title">{k.title}</h2>
                 <p>{k.text}</p>
+                <p className="kit__price">{KIT_PRICE}</p>
                 <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">Pedir este kit</a>
               </article>
             ))}

@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { COMPARISON, FAQ, KITS, PLANS, PROCESS, SERVICES, kitImg } from '../data';
+import { COMPARISON, FAQ, KITS, KIT_PRICE, PLANS, PROCESS, SERVICES, kitImg } from '../data';
 import { IconCheck } from './Icons';
 
 export function Services() {
@@ -130,7 +130,7 @@ export function Templates() {
       <div className="container">
         <header className="section__head">
           <h2>Plantillas listas para Canva</h2>
-          <p>Kits de 10 diseños: 6 posts y 4 historias, en español o inglés. Cambias textos, colores y fotos, y publicas.</p>
+          <p>Kits de 10 diseños: 6 posts y 4 historias, en español o inglés. Cambias textos, colores y fotos, y publicas. {KIT_PRICE} por kit.</p>
         </header>
         <div className="kits">
           {KITS.map((k) => (
@@ -138,6 +138,7 @@ export function Templates() {
               <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
               <h3>{k.title}</h3>
               <p>{k.text}</p>
+              <p className="kit__price">{KIT_PRICE}</p>
               <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">Pedir este kit</a>
             </article>
           ))}
