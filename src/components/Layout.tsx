@@ -37,6 +37,7 @@ function Footer() {
           <a href="/#trabajos">Trabajos</a>
           <a href="/#servicios">Servicios</a>
           <a href="/#planes">Planes</a>
+          <a href="/apps">Apps y micro apps</a>
           <a href="/plantillas-canva">Plantillas para Canva</a>
         </nav>
         <nav className="footer__nav" aria-label="Ayuda">

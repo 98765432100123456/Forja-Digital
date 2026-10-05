@@ -45,7 +45,7 @@ export function About() {
   );
 }
 
-const SERVICE_OPTIONS = ['Página web', 'Diseño para redes', 'Base de datos', 'Seguridad y soporte', 'No estoy seguro, quiero asesoría'];
+const SERVICE_OPTIONS = ['Página web', 'App o micro app', 'Diseño para redes', 'Base de datos', 'Seguridad y soporte', 'No estoy seguro, quiero asesoría'];
 type Errors = Partial<Record<'nombre' | 'servicio', string>>;
 
 export function Contact() {

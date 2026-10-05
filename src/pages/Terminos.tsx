@@ -89,6 +89,16 @@ export default function Terminos() {
             <li>Como es un archivo digital que no se puede devolver una vez entregado, el retracto aplica mientras no te hayamos enviado el enlace.</li>
           </ul>
 
+          <h2 id="apps">8b. Apps y micro apps</h2>
+          <ul>
+            <li><strong>Entrega:</strong> una app instalable desde el navegador (se agrega a la pantalla de inicio del celular). Publicarla en Google Play o App Store se cotiza aparte.</li>
+            <li><strong>Cuentas y costos de terceros:</strong> el servidor, la base de datos, el dominio y las cuentas de desarrollador de las tiendas quedan a tu nombre y los pagas tú. Te decimos cuánto cuestan en la propuesta, antes de empezar.</li>
+            <li><strong>Tiendas:</strong> la aprobación depende de Apple y Google. Preparamos la app para cumplir sus requisitos, pero no podemos garantizar que la aprueben ni cuánto tarden.</li>
+            <li><strong>Datos de tus usuarios:</strong> tú eres el responsable de esos datos frente a tus usuarios y debes tener tu propia política de privacidad (te ayudamos a redactarla). Nosotros solo los usamos para construir y mantener la app.</li>
+            <li><strong>Borrar cuentas:</strong> si la app tiene cuentas de usuario, incluye la opción de borrar la cuenta y sus datos desde la app.</li>
+            <li><strong>Mantenimiento:</strong> opcional. Sin él, la garantía cubre los defectos de lo entregado, pero no las actualizaciones que exijan Apple, Google, los navegadores o los proveedores del servidor.</li>
+          </ul>
+
           <h2 id="propiedad">9. Propiedad intelectual</h2>
           <ul>
             <li>Cuando pagas el total, el diseño y el código hechos para tu proyecto son tuyos.</li>

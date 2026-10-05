@@ -92,6 +92,26 @@
       "source": "/planes",
       "destination": "/#planes",
       "statusCode": 301
+    },
+    {
+      "source": "/app",
+      "destination": "/apps",
+      "statusCode": 301
+    },
+    {
+      "source": "/micro-apps",
+      "destination": "/apps",
+      "statusCode": 301
+    },
+    {
+      "source": "/aplicaciones",
+      "destination": "/apps",
+      "statusCode": 301
+    },
+    {
+      "source": "/micro-app",
+      "destination": "/apps",
+      "statusCode": 301
     }
   ]
 }

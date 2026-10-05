@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { COMPARISON, FAQ, KITS, KIT_PRICE, PLANS, PROCESS, SERVICES, kitImg, kitSet } from '../data';
+import { APP_OFFERS, COMPARISON, FAQ, KITS, KIT_PRICE, PLANS, PROCESS, SERVICES, kitImg, kitSet } from '../data';
 import { IconCheck } from './Icons';
 
 export function Services() {
@@ -8,7 +8,7 @@ export function Services() {
       <div className="container">
         <header className="section__head">
           <h2>Lo que hacemos</h2>
-          <p>Cuatro servicios que se pueden contratar por separado o juntos, con la misma identidad en todo.</p>
+          <p>Cinco servicios que se pueden contratar por separado o juntos, con la misma identidad en todo.</p>
         </header>
         <div className="services">
           {SERVICES.map((s) => (
@@ -20,6 +20,13 @@ export function Services() {
               </ul>
             </article>
           ))}
+          <article className="service service--wide">
+            <div>
+              <h3>Apps y micro apps</h3>
+              <p>Agendas, pedidos, inventarios o portales de clientes que se instalan en el celular. Micro apps desde {APP_OFFERS[0].price}; apps desde {APP_OFFERS[1].price}.</p>
+            </div>
+            <a className="btn btn--secondary" href="/apps">Ver apps y micro apps</a>
+          </article>
         </div>
       </div>
     </section>
@@ -116,7 +123,7 @@ export function Pricing() {
           ))}
         </div>
         <p className="aside">
-          ¿Necesitas algo distinto, como un sistema a la medida o una base de datos?{' '}
+          ¿Necesitas una app? Mira las <a className="link" href="/apps">apps y micro apps</a>. ¿Algo distinto, como un sistema a la medida o una base de datos?{' '}
           <a href={waLink(`Hola ${BRAND.name}, necesito un proyecto a la medida`)} target="_blank" rel="noopener noreferrer">Cuéntanos y lo cotizamos</a>.
         </p>
       </div>

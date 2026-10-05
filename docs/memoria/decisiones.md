@@ -124,6 +124,14 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Test:** 20 comprobaciones del aviso con el ID real; 25 pruebas funcionales. **Status:** VERIFIED (técnico). Datos: NOT YET AVAILABLE.
 - **Next:** en 48 horas, revisar en GA4 → Tiempo real que lleguen visitas; marcar `generate_lead` como evento clave.
 
+### D18 · Servicio de apps y micro apps
+- **Problem:** Juanes quiere ofrecer apps; la página no las mencionaba.
+- **Decision (Juanes):** micro app desde $800.000 (2–4 semanas) y app desde $2.500.000 (6–10 semanas), PWA primero y tiendas aparte.
+- **Change:** página `/apps`, enlace en el menú y el pie, fila destacada en "Lo que hacemos", opción en el formulario, nota en Planes, sección 8b en los términos, redirecciones y datos estructurados.
+- **Evidence:** requisitos de tiendas verificados en fuentes oficiales (`apps.md`). Demanda: UNKNOWN.
+- **Metric:** clics en "Cotizar una micro app" o "Cotizar una app" (`generate_lead` con su etiqueta) y visitas a `/apps`. **Result:** NOT YET AVAILABLE.
+- **Risk:** prometer apps sin una entregada; la página no muestra casos inventados.
+
 ---
 
 ## Matriz de evidencia

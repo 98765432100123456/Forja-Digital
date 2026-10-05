@@ -14,6 +14,7 @@ export default defineConfig({
         notfound: resolve(import.meta.dirname, '404.html'),
         terminos: resolve(import.meta.dirname, 'terminos.html'),
         plantillas: resolve(import.meta.dirname, 'plantillas-canva.html'),
+        apps: resolve(import.meta.dirname, 'apps.html'),
       },
     },
   },

@@ -701,3 +701,31 @@ button { font: inherit; color: inherit; }
   .hero__title { font-size: 2.1rem; }
   .btn { white-space: normal; text-align: center; }
 }
+
+/* Servicio destacado de ancho completo (apps) */
+.service--wide { grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s-5); }
+@media (max-width: 760px) { .service--wide { grid-template-columns: 1fr; } .service--wide .btn { justify-self: start; } }
+
+/* ---------- Página de apps ---------- */
+.plans--two { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-5); max-width: 60rem; }
+.plans--two .plan, .plans--two .plan:first-child { border: 1px solid var(--linea); border-radius: var(--r-l); padding: var(--s-6) var(--s-5); }
+.plans--two .plan--featured { border-color: var(--grafito); }
+.plan__name { font-size: var(--t-l); font-weight: 700; }
+.plan__examples { font-size: var(--t-s); color: var(--hierro); }
+.plan__examples strong { color: var(--grafito); }
+@media (max-width: 640px) { .plans--two { grid-template-columns: 1fr; } }
+.compare--flat { padding-top: 0; border-top: 0; }
+.table-scroll { overflow-x: auto; min-width: 0; }
+.basics { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-6) var(--s-5); }
+.basics__item { display: grid; gap: var(--s-2); align-content: start; padding-top: var(--s-4); border-top: 1px solid var(--grafito); }
+.basics__item h3 { display: flex; gap: var(--s-2); align-items: flex-start; font-size: var(--t-m); font-weight: 700; }
+.basics__item h3 svg { flex-shrink: 0; margin-top: 3px; color: var(--exito); }
+.basics__item p { font-size: var(--t-s); color: var(--hierro); }
+@media (max-width: 1000px) { .basics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .basics { grid-template-columns: 1fr; } }
+.stores { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-5); }
+.stores__item { display: grid; gap: var(--s-2); align-content: start; padding: var(--s-5); border: 1px solid var(--linea); border-radius: var(--r-l); background: var(--acero); }
+.stores__item:first-child { border-color: var(--grafito); }
+.stores__item h3 { font-size: var(--t-m); font-weight: 700; }
+.stores__item p { font-size: var(--t-s); color: var(--hierro); }
+@media (max-width: 900px) { .stores { grid-template-columns: 1fr; } }
