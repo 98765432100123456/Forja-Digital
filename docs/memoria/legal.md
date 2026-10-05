@@ -42,7 +42,7 @@ y es correcto). Lo que sigue es lo que se implementó, en qué norma se apoya y 
 | Íconos del sitio (`Icons.tsx`) | Dibujados a mano (los trazos no coinciden con Lucide ni Feather) | Propios | Inferido |
 | Logotipos de WhatsApp, Facebook e Instagram | Marcas de Meta | Uso para indicar el canal de contacto | Declarado en `/terminos` |
 | Imagen para compartir (`og.jpg`) | Regenerada con la identidad actual (antes tenía la identidad vieja: degradado y Poppins) | Propia | VERIFIED |
-| Foto del equipo | Aún no existe | — | Pendiente (Juanes) |
+| Foto del equipo (`juanes.webp`) | Foto propia de Juanes (4 oct 2026), recortada a 640×640 y sin metadatos | Propia | VERIFIED |
 
 **Regla para clientes:** fotos propias o de bancos con licencia comercial (Unsplash, Pexels); nunca imágenes de Google. Está
 en `/terminos` punto 9 y en la página de plantillas. **Freepik** no se recomienda por defecto: buena parte de su contenido

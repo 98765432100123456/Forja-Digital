@@ -213,7 +213,7 @@ export const teamImg = (name?: string) =>
 
 export const TEAM = [
   {
-    name: 'Juan Esteban Niño',
+    name: 'Juan Niño',
     role: 'Diseño y desarrollo',
     bio: 'Estudio Ingeniería de Sistemas y trabajo en desarrollo web, bases de datos y documentación de procesos. Atiendo cada proyecto de principio a fin: el que te responde es el mismo que lo construye.',
     initials: 'JN',
