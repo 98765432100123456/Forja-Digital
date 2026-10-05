@@ -234,3 +234,24 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
     - los botones largos bajan de línea;
     - las tablas legales se muestran como bloques con etiquetas (`data-label`).
 - **Prevención:** nuevas pruebas automáticas: "recargar empieza arriba" en escritorio y celular, "un enlace con #ancla sí lleva a la sección" y "nada cortado por el borde" (9 páginas × 5 anchos). Total: 234 comprobaciones en verde.
+
+### D25 · Los 20 puntos de "una web que no trae clientes"
+- **Problem:** Juanes pidió aplicar "como un experto, cero errores" el video de @luisalvarezweb (5 oct 2026).
+- **Evidence:** matriz en `lanzamiento.md`. Hallazgos:
+  - 4 servicios sin página propia;
+  - el título del inicio era un lema que no decía qué se vende;
+  - en la vitrina de apps, el botón principal no llevaba al contacto;
+  - un enlace roto en `/gracias`;
+  - la marca no aparece en Google.
+- **Decision:**
+  - Crear las 4 páginas con contenido real y sin precios inventados: donde no hay precio aprobado dice "se cotiza". Esto revierte la decisión del 4 oct de no crear páginas por servicio: ahora hay contenido propio suficiente para cada una (incluye, muestra y preguntas).
+  - El título dice qué se ofrece y el lema queda como etiqueta.
+  - Un botón principal por sección.
+- **Change:**
+  - `src/servicios.ts` y `src/pages/Servicio.tsx`, más 4 `.html` con datos estructurados `Service`.
+  - Pie con la columna "Servicios".
+  - 7 redirecciones cortas (`/web`, `/diseno`, `/seguridad`…).
+  - Título del héroe, botones de la vitrina y enlaces de las vitrinas a sus páginas.
+  - `whatsapp.md` con los mensajes automáticos.
+  - `tests/veinte-puntos.mjs`.
+- **Validación:** `npm test`, 364 comprobaciones en verde (6 suites). Lighthouse móvil: inicio 98/100/100/100 (LCP 2,0 s) y /paginas-web 98/100/100/100 (LCP 1,9 s). Se quitó la opacidad de la animación de entrada: Lighthouse medía el texto a medio aparecer y marcaba un contraste insuficiente.

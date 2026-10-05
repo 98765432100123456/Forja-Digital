@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import { BASE, ok, done } from './lib.mjs';
 
 const axe = fs.readFileSync('node_modules/axe-core/axe.min.js', 'utf8');
-const PAGES = ['/', '/apps', '/plantillas-canva', '/cookies', '/reembolsos', '/privacidad', '/terminos', '/gracias', '/404'];
+const PAGES = ['/', '/paginas-web', '/diseno-para-redes', '/bases-de-datos', '/seguridad-y-soporte', '/apps', '/plantillas-canva', '/cookies', '/reembolsos', '/privacidad', '/terminos', '/gracias', '/404'];
 const b = await chromium.launch();
 for (const w of [390, 1440]) {
   const ctx = await b.newContext({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' });

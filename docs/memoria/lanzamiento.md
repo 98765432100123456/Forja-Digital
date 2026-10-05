@@ -69,3 +69,30 @@ Fuente: 10 capturas y 2 videos enviados por Juanes. Los videos no tienen transcr
 | D2 | Reducir el tamaño de las imágenes (Squoosh) y su formato | Sitio | VERIFIED | WebP con versiones de 320–450 px; 61 KB de imágenes en celular |
 | D3 | Medir la velocidad (PageSpeed Insights) | Sitio | VERIFIED con Lighthouse | Lighthouse móvil local (el mismo motor de PageSpeed). PageSpeed en línea devolvió 429 antes: se mide de nuevo en producción |
 | D4 | SEO local y palabras clave (Rank Math en WordPress) | Sitio | VERIFIED | Rank Math no aplica (no es WordPress). Equivalente: título y descripción con "Bogotá" y los servicios; datos estructurados con `areaServed` Bogotá y Colombia; sitemap y canónicas |
+
+# "20 cosas que reviso cuando una web no trae clientes" (@luisalvarezweb, 5 oct 2026)
+
+Lista leída de la superposición del video. Las comprobaciones automáticas están en `tests/veinte-puntos.mjs`.
+
+| # | Punto | Estado | Evidencia o lo que falta |
+|---|---|---|---|
+| 1 | Título único en cada página | VERIFIED | 13 títulos únicos (prueba 01) |
+| 2 | Descripción escrita por ti | VERIFIED | 13 descripciones propias (prueba 02) |
+| 3 | Sales al buscar tu marca | **FAILED** | Buscar "Forja Digital Bogotá" no muestra el sitio (búsqueda del 5 oct). Depende de Search Console y del Perfil de Empresa en Google (backlog #5 y #13) |
+| 4 | Una página por servicio | VERIFIED (nuevo) | `/paginas-web`, `/diseno-para-redes`, `/bases-de-datos`, `/seguridad-y-soporte`, más `/apps` y `/plantillas-canva`. Cada una con datos estructurados `Service` y en el sitemap (11 URLs) |
+| 5 | Carga rápida en el celular | VERIFIED | Lighthouse móvil, ver registro |
+| 6 | Opiniones o reseñas reales | **FAILED / bloqueado** | 0 clientes todavía. No se inventan (D5). La sección invita a dejar la primera |
+| 7 | Fotos del negocio, no de banco | VERIFIED | Foto real de Juanes y piezas propias. Ninguna foto de banco |
+| 8 | Se entiende en 3 segundos | VERIFIED (cambiado) | El título del inicio pasó de "La IA genera. Nosotros construimos." a "Páginas web, apps y diseño para tu negocio." El lema queda como etiqueta y debajo va el precio desde $400.000 (prueba 08) |
+| 9 | Precio o rango visible | VERIFIED con pendiente | Precio en web, apps, plantillas y acompañamiento. Diseño a la medida y bases de datos: "se cotiza", porque no hay precio aprobado (backlog #19) |
+| 10 | El mismo mensaje en toda la web | VERIFIED | Mismo tiempo de respuesta (24 h), mismos precios desde `data.ts`; datos estructurados actualizados con los 5 servicios |
+| 11 | Botón de contacto siempre visible | VERIFIED | Barra de WhatsApp en celular y botón flotante en escritorio, en las 13 páginas (prueba 11) |
+| 12 | Formulario de máximo 5 campos | VERIFIED | 5: nombre, negocio, servicio, mensaje y autorización (prueba 12) |
+| 13 | Formulario probado por ti | VERIFIED | `tests/funcional.mjs` en cada cambio |
+| 14 | Respuesta en menos de 5 minutos | PREPARADO, **depende de Juanes** | Mensajes automáticos de WhatsApp Business redactados en `whatsapp.md` (backlog #18). La página sigue prometiendo 24 h, que es lo que se puede cumplir |
+| 15 | Una sola llamada a la acción | VERIFIED (cambiado) | Un botón principal por sección. En apps, "Cotizar mi app" pasa a principal y "Conocer las apps" a secundario (prueba 15) |
+| 16 | Funciona igual en el celular | VERIFIED | Nada cortado en 13 páginas × 5 anchos (D24) |
+| 17 | Enlaces del menú comprobados | VERIFIED (con arreglo) | La prueba encontró un enlace roto en `/gracias` (`/#plantillas`, sección que ya no existe). Corregido. Ahora se revisan todos los enlaces internos y sus secciones (prueba 17) |
+| 18 | Sin ventanas que tapen | VERIFIED | Ninguna ventana fija ocupa más del 30 % de la pantalla. El aviso de cookies queda por debajo del 35 % en celular (prueba 18) |
+| 19 | Contenido que resuelve dudas | VERIFIED | Preguntas frecuentes en el inicio, en apps y en cada página de servicio |
+| 20 | Medir qué hace la gente | VERIFIED | GA4 con consentimiento, `generate_lead`, `view_section` (ahora también en cada página de servicio) |

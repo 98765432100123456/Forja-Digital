@@ -76,7 +76,7 @@ export default function Vitrinas() {
             <Specs items={[{ k: 'Desde', v: `${landing.price}¹` }, { k: 'Tiempo', v: '1 a 2 semanas' }, { k: 'Incluye', v: 'Botón a WhatsApp' }]} />
             <div className="feat__actions">
               <a className="btn btn--primary" href={cotizar('una página web')} target="_blank" rel="noopener noreferrer">Cotizar mi página</a>
-              <a className="btn btn--outline" href="#planes">Ver planes</a>
+              <a className="btn btn--outline" href="/paginas-web">Conocer las páginas web</a>
             </div>
           </div>
           <div className="feat__media feat__media--bleed reveal" role="img" aria-label="Ejemplo ilustrativo de una página web para un restaurante">
@@ -100,8 +100,8 @@ export default function Vitrinas() {
             <p className="feat__sub">Agenda, pedidos o inventario en una app que se instala sin pasar por las tiendas.</p>
             <Specs dark items={[{ k: 'Micro app', v: `${APP_OFFERS[0].price}¹ · 2 a 4 semanas` }, { k: 'App', v: `${APP_OFFERS[1].price}¹ · 6 a 10 semanas` }]} />
             <div className="feat__actions">
-              <a className="btn btn--primary" href="/apps">Conocer las apps</a>
-              <a className="btn btn--ghost" href={cotizar('una app')} target="_blank" rel="noopener noreferrer">Cotizar</a>
+              <a className="btn btn--primary" href={cotizar('una app')} target="_blank" rel="noopener noreferrer">Cotizar mi app</a>
+              <a className="btn btn--ghost" href="/apps">Conocer las apps</a>
             </div>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function Vitrinas() {
             <div>
               <h4 id="v-redes">Diseño para redes</h4>
               <p>Posts, historias y menús con tus colores, editables en Canva.</p>
-              <a className="link-arrow" href={cotizar('diseño para redes')} target="_blank" rel="noopener noreferrer">Cotizar diseño <span aria-hidden="true">→</span></a>
+              <a className="link-arrow" href="/diseno-para-redes">Ver diseño para redes <span aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
@@ -153,7 +153,7 @@ export default function Vitrinas() {
                 </tbody>
               </table>
             </div>
-            <a className="link-arrow" href={cotizar('una base de datos')} target="_blank" rel="noopener noreferrer">Cotizar una base de datos <span aria-hidden="true">→</span></a>
+            <a className="link-arrow" href="/bases-de-datos">Ver bases de datos <span aria-hidden="true">→</span></a>
           </div>
           <div className="ledger__col">
             <p className="feat__index"><span>05</span>Seguridad y soporte</p>
@@ -165,7 +165,7 @@ export default function Vitrinas() {
               <li><Lock /> Revisión de seguridad</li>
               <li><IconWhatsApp size={14} /> Soporte por WhatsApp</li>
             </ul>
-            <a className="link-arrow" href={cotizar('el acompañamiento mensual')} target="_blank" rel="noopener noreferrer">Cotizar el acompañamiento <span aria-hidden="true">→</span></a>
+            <a className="link-arrow" href="/seguridad-y-soporte">Ver seguridad y soporte <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </section>

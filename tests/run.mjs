@@ -4,7 +4,7 @@ import { spawn } from 'node:child_process';
 
 const PORT = 4174;
 const BASE = `http://localhost:${PORT}`;
-const SUITES = ['funcional.mjs', 'accesibilidad.mjs', 'consentimiento.mjs', 'checklist-15.mjs', 'regresion-seguridad.mjs'];
+const SUITES = ['funcional.mjs', 'accesibilidad.mjs', 'consentimiento.mjs', 'checklist-15.mjs', 'veinte-puntos.mjs', 'regresion-seguridad.mjs'];
 
 const server = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], { stdio: 'ignore', detached: true });
 const stop = () => { try { process.kill(-server.pid); } catch { /* ya terminó */ } };

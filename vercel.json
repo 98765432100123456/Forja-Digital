@@ -132,6 +132,41 @@
       "source": "/politica-de-reembolsos",
       "destination": "/reembolsos",
       "statusCode": 301
+    },
+    {
+      "source": "/pagina-web",
+      "destination": "/paginas-web",
+      "statusCode": 301
+    },
+    {
+      "source": "/web",
+      "destination": "/paginas-web",
+      "statusCode": 301
+    },
+    {
+      "source": "/diseno",
+      "destination": "/diseno-para-redes",
+      "statusCode": 301
+    },
+    {
+      "source": "/redes",
+      "destination": "/diseno-para-redes",
+      "statusCode": 301
+    },
+    {
+      "source": "/base-de-datos",
+      "destination": "/bases-de-datos",
+      "statusCode": 301
+    },
+    {
+      "source": "/seguridad",
+      "destination": "/seguridad-y-soporte",
+      "statusCode": 301
+    },
+    {
+      "source": "/soporte",
+      "destination": "/seguridad-y-soporte",
+      "statusCode": 301
     }
   ]
 }

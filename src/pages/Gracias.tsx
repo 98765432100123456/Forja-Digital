@@ -30,7 +30,7 @@ export default function Gracias() {
             <a className="btn btn--secondary btn--lg" href="/">Volver al inicio</a>
           </div>
           <p className="status__more">
-            Mientras tanto puedes ver los <a className="link" href="/#trabajos">trabajos</a> o las <a className="link" href="/#plantillas">plantillas listas</a>.
+            Mientras tanto puedes ver los <a className="link" href="/#trabajos">trabajos</a> o las <a className="link" href="/plantillas-canva">plantillas listas</a>.
           </p>
         </div>
       </section>

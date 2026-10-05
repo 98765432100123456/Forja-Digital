@@ -1,3 +1,4 @@
+import { SERVICE_PAGES } from '../servicios';
 import { useEffect, useState, type ReactNode } from 'react';
 import { BRAND, waLink } from '../config';
 import { initAnalytics } from '../analytics';
@@ -32,16 +33,17 @@ function Footer() {
             <IconWhatsApp size={18} /> {BRAND.whatsappDisplay}
           </a>
         </div>
-        <nav className="footer__nav" aria-label="Secciones">
-          <h2>Sitio</h2>
-          <a href="/#trabajos">Trabajos</a>
-          <a href="/#servicios">Servicios</a>
-          <a href="/#planes">Planes</a>
+        <nav className="footer__nav" aria-label="Servicios">
+          <h2>Servicios</h2>
+          {SERVICE_PAGES.map((sp) => <a key={sp.path} href={sp.path}>{sp.name}</a>)}
           <a href="/apps">Apps y micro apps</a>
           <a href="/plantillas-canva">Plantillas para Canva</a>
         </nav>
-        <nav className="footer__nav" aria-label="Ayuda">
-          <h2>Ayuda</h2>
+        <nav className="footer__nav" aria-label="Sitio">
+          <h2>Sitio</h2>
+          <a href="/#trabajos">Trabajos</a>
+          <a href="/#planes">Planes y precios</a>
+          <a href="/#simulador">Pruébalo</a>
           <a href="/#preguntas">Preguntas frecuentes</a>
           <a href="/#contacto">Contacto</a>
         </nav>

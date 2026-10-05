@@ -486,8 +486,9 @@ button { font: inherit; color: inherit; }
 
 /* ---------- Pie de página ---------- */
 .footer { background: var(--grafito); color: var(--sobre-grafito); padding: var(--s-8) 0 var(--s-6); }
-.footer__grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: var(--s-6); }
-.footer__brand { display: grid; gap: var(--s-4); justify-items: start; }
+.footer__grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(4, minmax(0, 1fr)); gap: var(--s-6); }
+@media (max-width: 1100px) and (min-width: 901px) { .footer__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } .footer__brand { grid-column: 1 / -1; } }
+.footer__brand { display: grid; gap: var(--s-4); justify-items: start; align-content: start; }
 .footer__brand p { max-width: 20rem; }
 .footer__nav { display: grid; gap: 0; align-content: start; justify-items: start; }
 .footer__nav h2 { margin-bottom: var(--s-2); font-family: var(--f-texto); font-size: var(--t-s); font-weight: 700; color: var(--blanco); }
@@ -806,7 +807,7 @@ button { font: inherit; color: inherit; }
 
 /* Hero */
 .hero.tile { padding-bottom: 0; }
-.hero__title { max-width: 14ch; font-family: var(--f-display); font-size: var(--t-hero); font-weight: 700; line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
+.hero__title { max-width: 18ch; font-family: var(--f-display); font-size: var(--t-hero); font-weight: 700; line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
 .hero .tile__sub { max-width: 34rem; }
 .hero__stage { position: relative; max-width: 1180px; margin: clamp(48px, 7vw, 88px) auto 0; padding: 0 var(--gutter) clamp(40px, 6vw, 80px); display: flex; justify-content: center; }
 .hero__laptop { width: min(940px, 86%); }
@@ -874,7 +875,7 @@ button { font: inherit; color: inherit; }
 /* Aparición al desplazarse: solo navegadores que lo soportan y sin JavaScript (mejora progresiva) */
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    @keyframes vitrina-entra { from { opacity: 0; transform: translateY(32px) scale(0.98); } }
+    @keyframes vitrina-entra { from { transform: translateY(32px) scale(0.98); } } /* sin opacidad: el texto siempre conserva su contraste */
     .reveal { animation: vitrina-entra linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
   }
 }
@@ -1027,4 +1028,32 @@ button { font: inherit; color: inherit; }
   .legal-table th, .legal-table td { padding: var(--s-1) 0; border: 0; }
   .legal-table tbody th { font-size: var(--t-m); }
   .legal-table td[data-label]::before { content: attr(data-label); display: block; font-size: var(--t-xs); font-weight: 600; color: var(--hierro); }
+}
+
+/* =========================================================
+   Páginas de servicio (D25): /paginas-web, /diseno-para-redes, /bases-de-datos, /seguridad-y-soporte
+   Texto a la izquierda con ficha técnica; muestra a la derecha; "Qué incluye" en columnas con líneas, sin tarjetas.
+   ========================================================= */
+.svc { background: var(--blanco); padding-block: clamp(32px, 5vw, 64px) clamp(64px, 8vw, 112px); overflow: hidden; }
+.svc__grid-top { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.svc__text { display: grid; gap: var(--s-4); justify-items: start; min-width: 0; }
+.svc__title { max-width: 16ch; text-wrap: balance; }
+.svc__side { display: grid; gap: var(--s-3); min-width: 0; }
+.svc__media { min-width: 0; }
+.svc__media .laptop { width: 92%; margin-inline: auto; } /* deja espacio a la base del portátil, que es más ancha */
+.svc__caption { font-size: var(--t-s); color: var(--hierro); }
+.svc__grid { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); }
+.svc__grid img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: 4px; box-shadow: 0 0 0 1px rgb(27 30 34 / 0.08); }
+.svc__includes { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 var(--s-6); border-top: 2px solid var(--grafito); }
+.svc__includes li { display: grid; gap: var(--s-2); align-content: start; padding: var(--s-5) 0; border-bottom: 1px solid var(--linea); }
+.svc__includes h3 { display: flex; align-items: center; gap: var(--s-2); font-size: var(--t-m); font-weight: 700; }
+.svc__includes h3 svg { color: var(--exito); flex-shrink: 0; }
+.svc__includes p { color: var(--hierro); line-height: 1.5; }
+@media (max-width: 900px) {
+  .svc__grid-top { grid-template-columns: 1fr; }
+  .svc__includes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .svc__includes { grid-template-columns: 1fr; }
+  .svc__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

@@ -11,6 +11,7 @@ import Apps from './pages/Apps';
 import Reembolsos from './pages/Reembolsos';
 import Cookies from './pages/Cookies';
 import NotFound from './pages/NotFound';
+import Servicio from './pages/Servicio';
 
 const PAGES: Record<string, () => ReactNode> = {
   'index.html': () => <Home />,
@@ -22,6 +23,10 @@ const PAGES: Record<string, () => ReactNode> = {
   'apps.html': () => <Apps />,
   'reembolsos.html': () => <Reembolsos />,
   'cookies.html': () => <Cookies />,
+  'paginas-web.html': () => <Servicio id="paginas-web" />,
+  'diseno-para-redes.html': () => <Servicio id="diseno-para-redes" />,
+  'bases-de-datos.html': () => <Servicio id="bases-de-datos" />,
+  'seguridad-y-soporte.html': () => <Servicio id="seguridad-y-soporte" />,
 };
 
 export function render(file: string) {

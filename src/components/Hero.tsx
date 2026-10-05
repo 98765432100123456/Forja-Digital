@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { img, imgSet } from '../data';
+import { PLANS, img, imgSet } from '../data';
 import { IconWhatsApp } from './Icons';
 
 /** Candado del navegador: la seguridad aparece como un detalle real, no como otra tarjeta. */
@@ -46,10 +46,11 @@ export default function Hero() {
   return (
     <section id="inicio" className="hero tile tile--noche">
       <div className="container tile__head">
-        <p className="tile__eyebrow">Forja Digital · Bogotá, Colombia</p>
-        <h1 className="hero__title">La IA genera.<br /> Nosotros construimos.</h1>
+        {/* Se entiende en 3 segundos (D25): el título dice qué hacemos; el lema queda como etiqueta */}
+        <p className="tile__eyebrow">{BRAND.tagline}</p>
+        <h1 className="hero__title">Páginas web, apps y diseño para tu negocio.</h1>
         <p className="tile__sub">
-          Páginas web, apps y diseño para negocios en Colombia. Hablas directo con quien lo hace.
+          Desde {PLANS[0].price}<sup>1</sup>, en Bogotá y toda Colombia. Hablas directo con quien lo hace.
         </p>
         <div className="tile__actions">
           <a className="btn btn--primary btn--lg" href={waLink()} target="_blank" rel="noopener noreferrer" data-hero-cta>
