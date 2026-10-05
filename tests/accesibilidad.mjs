@@ -24,5 +24,26 @@ for (const w of [390, 1440]) {
   }
   await ctx.close();
 }
+// Celular y tableta: ningún elemento visible queda cortado por el borde de la pantalla
+for (const w of [320, 360, 390, 430, 768]) {
+  const ctx = await b.newContext({ viewport: { width: w, height: 800 }, isMobile: true, hasTouch: true, reducedMotion: 'reduce' });
+  await ctx.addInitScript(() => { try { localStorage.setItem('forja:cookies', 'denied'); } catch { /* sin almacenamiento */ } });
+  for (const path of PAGES) {
+    const p = await ctx.newPage();
+    await p.goto(BASE + path, { waitUntil: 'load' }); await p.waitForTimeout(300);
+    const cut = await p.evaluate((vw) => {
+      const found = [];
+      for (const e of document.querySelectorAll('body *')) {
+        const r = e.getBoundingClientRect();
+        if (!r.width || !r.height || getComputedStyle(e).visibility === 'hidden') continue;
+        if ((r.right > vw + 1 || r.left < -1) && !found.some((f) => f.contains(e))) found.push(e);
+      }
+      return found.map((e) => (typeof e.className === 'string' && e.className ? '.' + e.className.split(' ')[0] : e.tagName));
+    }, w);
+    ok(cut.length === 0, `nada cortado por el borde ${path} a ${w}px ${cut.slice(0, 5).join(', ')}`);
+    await p.close();
+  }
+  await ctx.close();
+}
 await b.close();
 done('accesibilidad');

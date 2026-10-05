@@ -69,6 +69,21 @@ ok(p.url().includes('gracias'), 'formulario: lleva a /gracias');
 ok(decodeURIComponent((await p.getAttribute('.status__actions a', 'href')) || '').includes('Laura'), 'gracias: reusa el mensaje');
 await popup.close();
 
+// Recargar: la página empieza arriba (pedido de Juanes); un enlace con #ancla que llega de afuera sigue funcionando
+for (const [w, h] of [[1280, 860], [390, 844]]) {
+  const r = await b.newPage({ viewport: { width: w, height: h } });
+  await r.addInitScript(() => { try { localStorage.setItem('forja:cookies', 'denied'); } catch { /* sin almacenamiento */ } });
+  await r.goto(B + '/', { waitUntil: 'load' }); await r.evaluate(() => window.scrollTo(0, 3000)); await r.waitForTimeout(300);
+  await r.reload({ waitUntil: 'load' }); await r.waitForTimeout(800);
+  ok(await r.evaluate(() => window.scrollY) === 0, `recargar a ${w}px: empieza arriba`);
+  await r.goto(B + '/#planes', { waitUntil: 'load' }); await r.waitForTimeout(800);
+  await r.reload({ waitUntil: 'load' }); await r.waitForTimeout(800);
+  ok(await r.evaluate(() => window.scrollY) === 0, `recargar con #planes a ${w}px: empieza arriba`);
+  await r.goto(B + '/apps', { waitUntil: 'load' }); await r.goto(B + '/#planes', { waitUntil: 'load' }); await r.waitForTimeout(800);
+  ok(await r.evaluate(() => window.scrollY) > 500, `enlace con #planes a ${w}px: sí lleva a la sección`);
+  await r.close();
+}
+
 // Celular: menú, barra fija y tamaño de lo tocable
 const m = await b.newPage({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 await m.addInitScript(() => { try { localStorage.setItem('forja:cookies', 'denied'); } catch { /* sin almacenamiento */ } });

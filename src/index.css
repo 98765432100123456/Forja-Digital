@@ -959,7 +959,7 @@ button { font: inherit; color: inherit; }
 .reel::-webkit-scrollbar { display: none; }
 .reel:focus-visible { outline: 3px solid var(--forja); outline-offset: 4px; }
 .reel li { flex: 0 0 clamp(200px, 19vw, 280px); scroll-snap-align: start; }
-.reel img { width: 100%; height: auto; border-radius: 4px; box-shadow: 0 0 0 1px rgb(27 30 34 / 0.08); }
+.reel img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: 4px; box-shadow: 0 0 0 1px rgb(27 30 34 / 0.08); }
 
 /* Libro de cuentas: datos y seguridad */
 .ledger { background: var(--blanco); padding-block: clamp(72px, 10vw, 128px); }
@@ -983,7 +983,8 @@ button { font: inherit; color: inherit; }
   .feat__grid, .feat__grid--flip { grid-template-columns: 1fr; }
   .feat__grid--flip .feat__text { order: -1; padding-bottom: 0; }
   .feat--apps .phones { padding-top: var(--s-7); }
-  .feat__media--bleed { margin-right: calc(var(--gutter) * -1 - 18%); margin-top: var(--s-6); }
+  /* En celular y tableta nada se sale del borde: el portátil cabe completo (Juanes, 4 oct 2026) */
+  .feat__media--bleed { margin-right: 0; margin-top: var(--s-7); }
   .strip__head { grid-template-columns: 1fr; gap: var(--s-6); }
   .ledger__grid { grid-template-columns: 1fr; }
   .ledger__col, .ledger__col + .ledger__col { padding: var(--s-6) 0; border-left: 0; }
@@ -993,6 +994,37 @@ button { font: inherit; color: inherit; }
   .strip__offers { grid-template-columns: 1fr; gap: var(--s-5); }
   .feat__actions .btn { flex: 1 1 auto; }
   .specs div { grid-template-columns: 6rem minmax(0, 1fr); }
-  .reel li { flex-basis: 58vw; }
+
 }
 @media (max-width: 359px) { .feat__title { font-size: 1.85rem; } }
+
+/* =========================================================
+   Celular y tableta sin nada cortado por el borde (Juanes, 4 oct 2026: "cero errores")
+   ========================================================= */
+/* Tira de piezas: cuadrícula, todo visible y sin deslizar de lado */
+@media (max-width: 900px) {
+  .reel { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-3); overflow: visible; scroll-snap-type: none; }
+  .reel li:nth-child(n+7) { display: none; }
+  .feat__media--bleed { padding-inline: 4%; }
+}
+@media (max-width: 560px) {
+  .reel { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* Pestañas de Trabajos: 2 por fila en vez de una fila que se sale de la pantalla */
+  .tabs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .tab { padding: 0 var(--s-2); }
+  .tab::after { left: var(--s-2); right: var(--s-2); }
+}
+/* Botones con texto largo: bajan de línea en vez de salirse */
+@media (max-width: 420px) {
+  .btn { white-space: normal; text-align: center; }
+}
+/* Tablas legales en celular: cada fila es un bloque con sus etiquetas, sin desplazamiento lateral */
+@media (max-width: 640px) {
+  .legal-table { min-width: 0; }
+  .legal-table, .legal-table tbody, .legal-table tr, .legal-table th, .legal-table td { display: block; width: 100%; }
+  .legal-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .legal-table tr { padding: var(--s-3) 0; border-bottom: 1px solid var(--linea); }
+  .legal-table th, .legal-table td { padding: var(--s-1) 0; border: 0; }
+  .legal-table tbody th { font-size: var(--t-m); }
+  .legal-table td[data-label]::before { content: attr(data-label); display: block; font-size: var(--t-xs); font-weight: 600; color: var(--hierro); }
+}

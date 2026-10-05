@@ -33,7 +33,7 @@ export default function Cookies() {
               </thead>
               <tbody>
                 {ROWS.map((r) => (
-                  <tr key={r.name}><th scope="row"><code>{r.name}</code></th><td>{r.who}</td><td>{r.type}</td><td>{r.what}</td><td>{r.time}</td><td>{r.when}</td></tr>
+                  <tr key={r.name}><th scope="row"><code>{r.name}</code></th><td data-label="De quién">{r.who}</td><td data-label="Tipo">{r.type}</td><td data-label="Para qué">{r.what}</td><td data-label="Duración">{r.time}</td><td data-label="Cuándo">{r.when}</td></tr>
                 ))}
               </tbody>
             </table>

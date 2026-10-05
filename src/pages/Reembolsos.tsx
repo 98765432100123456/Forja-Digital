@@ -38,12 +38,12 @@ export default function Reembolsos() {
             <table className="legal-table">
               <thead><tr><th scope="col">Situación</th><th scope="col">Qué pasa</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Cancelas un proyecto antes de que empecemos</th><td>Te devolvemos el anticipo completo.</td></tr>
-                <tr><th scope="row">Cancelas un proyecto ya empezado</th><td>El anticipo cubre lo hecho hasta ese momento y te entregamos lo avanzado.</td></tr>
-                <tr><th scope="row">Lo entregado no funciona como se acordó</th><td>Lo corregimos sin costo (garantía legal). Si no podemos corregirlo, te devolvemos lo pagado por esa parte.</td></tr>
-                <tr><th scope="row">Plantilla con defecto o enlace que no abre</th><td>La corregimos o te devolvemos el dinero.</td></tr>
-                <tr><th scope="row">Cancelas el acompañamiento mensual</th><td>Sin permanencia: no se cobra el mes siguiente. El mes ya pagado no se devuelve.</td></tr>
-                <tr><th scope="row">Cambias de opinión sobre algo ya entregado y que funciona</th><td>No hay reembolso, salvo el retracto del punto 2 cuando aplique.</td></tr>
+                <tr><th scope="row">Cancelas un proyecto antes de que empecemos</th><td data-label="Qué pasa">Te devolvemos el anticipo completo.</td></tr>
+                <tr><th scope="row">Cancelas un proyecto ya empezado</th><td data-label="Qué pasa">El anticipo cubre lo hecho hasta ese momento y te entregamos lo avanzado.</td></tr>
+                <tr><th scope="row">Lo entregado no funciona como se acordó</th><td data-label="Qué pasa">Lo corregimos sin costo (garantía legal). Si no podemos corregirlo, te devolvemos lo pagado por esa parte.</td></tr>
+                <tr><th scope="row">Plantilla con defecto o enlace que no abre</th><td data-label="Qué pasa">La corregimos o te devolvemos el dinero.</td></tr>
+                <tr><th scope="row">Cancelas el acompañamiento mensual</th><td data-label="Qué pasa">Sin permanencia: no se cobra el mes siguiente. El mes ya pagado no se devuelve.</td></tr>
+                <tr><th scope="row">Cambias de opinión sobre algo ya entregado y que funciona</th><td data-label="Qué pasa">No hay reembolso, salvo el retracto del punto 2 cuando aplique.</td></tr>
               </tbody>
             </table>
           </div>

@@ -218,3 +218,19 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
   - `backlog.md` nuevo.
 - **Hallazgo nuevo:** Vercel Hobby es solo para uso no comercial (backlog #2), y la decisión es de Juanes.
 - **Validación:** `npm test` con 183 comprobaciones en verde. Lighthouse móvil 98/100/100/100 (LCP 2,1 s, CLS 0,013) y escritorio 100/100/100/100. Build con veto y lint en verde.
+
+### D24 · Celular sin nada cortado y recarga al inicio
+- **Problem:** Juanes (capturas del celular, 4 oct 2026, 23:57):
+  - en el celular, el portátil de ejemplo y la tira de piezas se salían por el borde y se veían cortados;
+  - al recargar, la página quedaba a mitad, tanto en celular como en computador.
+- **Evidence:** auditoría de elementos cortados en 9 páginas a 320, 360, 390, 430 y 768 px. Además de lo reportado aparecieron otros 4 casos: las pestañas de Trabajos, las tablas de `/cookies` y `/reembolsos` (con desplazamiento lateral), un botón largo en `/plantillas-canva` a 360 px y la base del portátil a 768 px. Recarga: reproducida. Con la página a 3000 px, al recargar volvía a 2574 px. El navegador restaura la posición y el #ancla.
+- **Decision:** en celular y tableta nada se sale del borde (el efecto de "salirse por la derecha" queda solo en computador). Al recargar, la página empieza arriba; un enlace con #ancla que llega de afuera sigue llevando a su sección.
+- **Change:**
+  - `mount.tsx`: `scrollRestoration = 'manual'`; en una recarga se quita el #ancla y se vuelve arriba.
+  - `index.css`:
+    - el portátil cabe completo;
+    - la tira de piezas pasa a cuadrícula de 3 y 2 columnas con 6 piezas cuadradas;
+    - pestañas de 2 por fila;
+    - los botones largos bajan de línea;
+    - las tablas legales se muestran como bloques con etiquetas (`data-label`).
+- **Prevención:** nuevas pruebas automáticas: "recargar empieza arriba" en escritorio y celular, "un enlace con #ancla sí lleva a la sección" y "nada cortado por el borde" (9 páginas × 5 anchos). Total: 234 comprobaciones en verde.
