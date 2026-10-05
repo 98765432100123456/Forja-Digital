@@ -61,6 +61,10 @@ function Footer() {
           </div>
         )}
       </div>
+      <ol className="container footer__notes">
+        <li>Precios de referencia en pesos colombianos; no se cobra IVA. El precio final queda por escrito en la propuesta. Los tiempos de entrega cuentan desde que recibimos el anticipo y tus contenidos.</li>
+        <li>Las pantallas, páginas y piezas que ves en este sitio son ejemplos ilustrativos con datos de muestra, no trabajos de clientes reales.</li>
+      </ol>
       <div className="container footer__legal">
         <p>
           © {YEAR} {BRAND.name} · {BRAND.legalOwner} · {BRAND.domicile}

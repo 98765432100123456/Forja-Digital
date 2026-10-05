@@ -139,6 +139,29 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Trade-off:** la casilla agrega un paso al formulario y puede bajar los envíos. Métrica: `generate_lead` con método formulario. Resultado: NOT YET AVAILABLE.
 - **Residual risk:** NIT y dirección de notificación pendientes (decisión de Juanes).
 
+### D20 · Rediseño "vitrina" del inicio
+- **Problem:** Juanes percibe el diseño como genérico, "se nota que tiene IA". Usó como referencia el sitio de Apple (grabación de pantalla, 4 oct 2026).
+- **Evidence:** opinión del dueño (observado). Crítica propia: rejillas de tarjetas con listas de ✓ y titulares a la izquierda iguales en cada sección; producto pequeño; patrón que repiten los competidores revisados (`gates.md`). Comportamiento de usuarios: NOT YET AVAILABLE.
+- **Decision:** tomar los **principios**, no la apariencia de Apple (sec. 0: no copiar visualmente a ninguna empresa):
+  - una idea por pantalla;
+  - el producto como protagonista (dispositivos grandes con ejemplos);
+  - titulares cortos y centrados;
+  - dos acciones por vitrina;
+  - fondos que alternan oscuro y claro;
+  - notas al pie honestas.
+  Se mantienen el naranja, el logo y el tono de Forja.
+- **Change:**
+  - El héroe pasa a ser una vitrina oscura centrada.
+  - "Lo que hacemos" se reemplaza por vitrinas: páginas web, apps, y 4 medianas (plantillas, redes, datos y seguridad).
+  - Los titulares cambian a Manrope 800; Unbounded queda solo para el logo.
+  - Botones en píldora y menú translúcido.
+  - Aparición suave al desplazarse, solo donde el navegador lo soporta y sin JavaScript; respeta el movimiento reducido.
+  - Notas al pie: precios y ejemplos ilustrativos.
+  - La sección "Plantillas" sale del inicio porque ya tiene vitrina y página propia.
+- **Test:** 27 funcionales, checklist de 15 en 9 páginas, axe 0, consentimiento 20/20, R1–R4. Lighthouse móvil 98/100/100/100 (LCP 1,7 s); escritorio 100 en todo.
+- **Metric:** tasa de contacto (`generate_lead` / sesiones) y clics por vitrina. **Result:** NOT YET AVAILABLE: no hay línea base, así que no se podrá atribuir un cambio de conversión al rediseño. Hipótesis: mejora la confianza percibida.
+- **Risk:** un rediseño sin datos es una apuesta estética. Es reversible: rama `rediseno/vitrina`.
+
 ---
 
 ## Matriz de evidencia

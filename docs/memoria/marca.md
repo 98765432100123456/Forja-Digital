@@ -34,6 +34,12 @@ Sirven para entrenar el criterio, **no para copiar** (sec. 8 y 14):
 - **Duolingo:** tono cercano y estados vacíos honestos.
 - **Competencia local** (`competencia.md`): qué esperan los visitantes en Colombia (WhatsApp, precios y FAQ).
 
+## Lenguaje visual "vitrina" (desde el 4 oct 2026, D20)
+- Vitrinas de ancho completo que alternan noche (`#0f1113`) y acero; vitrinas medianas en rejilla con esquinas de 28 px.
+- En cada vitrina: categoría en naranja, titular corto (Manrope 800, -0,045em), una línea de precio o tiempo y dos botones en píldora.
+- Producto grande: portátil y celulares con ejemplos marcados como "Ejemplo ilustrativo".
+- Notas al pie numeradas para precios y ejemplos (honestidad visible).
+
 ## Elementos prohibidos
 - Resplandores y gradientes decorativos.
 - Etiquetas en mayúsculas encima de los títulos.

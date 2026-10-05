@@ -8,7 +8,7 @@ const LINKS = [
   { href: '/#servicios', label: 'Servicios' },
   { href: '/apps', label: 'Apps' },
   { href: '/#planes', label: 'Planes' },
-  { href: '/#plantillas', label: 'Plantillas' },
+  { href: '/plantillas-canva', label: 'Plantillas' },
 ];
 
 export function Logo({ inverse = false }: { inverse?: boolean }) {
