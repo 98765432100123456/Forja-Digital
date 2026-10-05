@@ -23,8 +23,12 @@ export const BRAND = {
   email: 'forjadigital7@gmail.com', // correo de Forja (dado por Juanes el 4 oct 2026): datos personales y contacto
 };
 
-/** ID de Google Analytics 4 (G-XXXXXXX). Se configura en Vercel como variable de entorno VITE_GA_ID. */
-export const GA_ID = import.meta.env.VITE_GA_ID as string | undefined;
+/**
+ * ID de Google Analytics 4 de Forja Digital (dado por Juanes el 4 oct 2026). Es un identificador público, no un secreto:
+ * cualquiera lo ve en el navegador. La variable VITE_GA_ID de Vercel, si existe, tiene prioridad.
+ * GA solo se carga si el visitante acepta las cookies (ver consent.ts).
+ */
+export const GA_ID = (import.meta.env.VITE_GA_ID as string | undefined) || 'G-XKHGRSYFDP';
 
 /** Arma un enlace de WhatsApp con un mensaje ya escrito. */
 export function waLink(message = `Hola ${BRAND.name}, quiero cotizar`) {

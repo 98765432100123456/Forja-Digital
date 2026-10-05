@@ -118,6 +118,12 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Change:** curva ease-out más fuerte, presión en botones y opciones, hover solo con mouse, movimiento reducido con fundidos. Tabla en `SISTEMA-DE-DISENO.md`.
 - **Metric:** no medible con datos; es calidad percibida. **Status:** PASSED en Chromium; en un celular real: NOT TESTED.
 
+### D17 · Activar GA4 con el ID en el código
+- **Decision:** `G-XKHGRSYFDP` como valor por defecto en `config.ts` (la variable `VITE_GA_ID` de Vercel tiene prioridad). Es un identificador público, no un secreto, y así no hay que configurarlo en los dos proyectos de Vercel. Aprobado por Juanes ("Ponlo tú").
+- **No se usó el fragmento de Google tal cual:** cargaría GA sin consentimiento y la CSP bloquea scripts en línea.
+- **Test:** 20 comprobaciones del aviso con el ID real; 25 pruebas funcionales. **Status:** VERIFIED (técnico). Datos: NOT YET AVAILABLE.
+- **Next:** en 48 horas, revisar en GA4 → Tiempo real que lleguen visitas; marcar `generate_lead` como evento clave.
+
 ---
 
 ## Matriz de evidencia

@@ -24,4 +24,4 @@ La parte 1 (20 puntos) se aplicó el 3 de octubre de 2026 (commit `8c42aab`).
 | 17 | Borrar el contenido de prueba | VERIFIED | Sin lorem, TODO, localhost ni IDs de prueba en el build. Pendiente (Juanes): rama `claude-prueba-acceso` y PR #1 de Copilot |
 | 18 | Probarla en varios navegadores | Parcial | Chromium probado (escritorio y móvil emulado). **Firefox y Safari: NOT TESTED**: este entorno solo tiene Chromium y no puede descargar otros. Falta abrirla en un iPhone (Safari) y en un Android |
 | 19 | Página de gracias tras el formulario | VERIFIED | `/gracias` desde el 3 de octubre de 2026 |
-| 20 | Medir conversiones | Preparado, **depende de Juanes** | `generate_lead` y el embudo del simulador; ahora solo con consentimiento de cookies. Falta `VITE_GA_ID` |
+| 20 | Medir conversiones | Activado (ID `G-XKHGRSYFDP`) | `generate_lead` y el embudo del simulador, solo con consentimiento. Datos reales: NOT YET AVAILABLE. Falta marcar `generate_lead` como evento clave en GA4 cuando aparezca |
