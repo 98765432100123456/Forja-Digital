@@ -116,6 +116,7 @@ export function Pricing() {
                 href={waLink(`Hola ${BRAND.name}, quiero cotizar el plan ${p.name}`)}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Cotizar este plan: ${p.name}`}
               >
                 Cotizar este plan
               </a>
@@ -146,7 +147,7 @@ export function Templates() {
               <h3>{k.title}</h3>
               <p>{k.text}</p>
               <p className="kit__price">{KIT_PRICE}</p>
-              <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">Pedir este kit</a>
+              <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer" aria-label={`Pedir este kit: ${k.title}`}>Pedir este kit</a>
             </article>
           ))}
         </div>

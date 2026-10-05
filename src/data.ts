@@ -139,11 +139,11 @@ export const APP_OFFERS = [
 /** Lo que trae toda app o micro app que hacemos, sin costo extra. */
 export const APP_BASICS = [
   { t: 'Se instala en el celular', d: 'Ícono en la pantalla de inicio y pantalla completa, en Android y iPhone, sin pasar por las tiendas.' },
-  { t: 'Cada quien ve solo lo suyo', d: 'Los permisos se revisan en el servidor, no solo en la pantalla: un cliente nunca ve los datos de otro.' },
+  { t: 'Cada quien ve solo lo suyo', d: 'Los permisos se revisan en el servidor, no solo en la pantalla: así un cliente no puede ver los datos de otro.' },
   { t: 'Contraseñas y datos protegidos', d: 'Contraseñas cifradas, conexión segura (HTTPS), recuperación de contraseña y ninguna clave secreta en el celular.' },
   { t: 'Copias de seguridad', d: 'Tus datos se respaldan de forma automática y se pueden exportar cuando quieras.' },
   { t: 'Privacidad desde el diseño', d: 'Política de privacidad y términos dentro de la app, autorización de datos y opción de borrar la cuenta.' },
-  { t: 'Funciona para todos', d: 'Textos legibles, buen contraste y uso con teclado o lector de pantalla.' },
+  { t: 'Pensada para todos', d: 'Textos legibles, buen contraste y uso con teclado o lector de pantalla.' },
   { t: 'Rápida con mala señal', d: 'Pensada primero para celular y conexiones lentas.' },
   { t: 'Sabes qué pasa', d: 'Medición de uso (con consentimiento), aviso de errores y de caídas.' },
 ];
@@ -241,7 +241,7 @@ export const FAQ = [
   },
   {
     q: '¿El dominio y el hosting están incluidos?',
-    a: 'Se pagan aparte y quedan a tu nombre, para que siempre sean tuyos. Te ayudamos a elegir la opción más económica y segura.',
+    a: 'Se pagan aparte y quedan a tu nombre, para que sean tuyos. Te ayudamos a elegir la opción más económica y segura.',
   },
   {
     q: '¿Cómo protegen mi página y mis datos?',

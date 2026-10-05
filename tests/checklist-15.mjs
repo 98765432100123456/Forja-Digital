@@ -1,6 +1,6 @@
-// Comprueba los 15 puntos del checklist "15 cosas para ser real". Requiere el build servido en :4174.
+// Comprueba los 15 puntos del checklist "15 cosas para ser real" en todas las páginas. Requiere el build servido en :4174.
 import { chromium } from 'playwright';
-const B='http://localhost:4174';const PAGES=['/','/apps','/plantillas-canva','/privacidad','/terminos','/gracias','/404'];
+const B='http://localhost:4174';const PAGES=['/','/apps','/plantillas-canva','/cookies','/reembolsos','/privacidad','/terminos','/gracias','/404'];
 let fail=0;const ok=(c,n)=>{console.log((c?'PASS ':'FAIL ')+n);if(!c)fail++;};
 const b=await chromium.launch();const ctx=await b.newContext();
 await ctx.addInitScript(()=>{try{localStorage.setItem('forja:cookies','denied')}catch{}});
@@ -10,7 +10,7 @@ for (const [n,u] of [['1 privacidad','/privacidad'],['3 términos','/terminos'],
 const home=(await get('/')).t;ok(home.includes('href="/privacidad"')&&home.includes('href="/terminos"'),'1/3 enlaces visibles en el pie');
 // 4
 const sm=(await get('/sitemap.xml')).t;const locs=[...sm.matchAll(/<loc>([^<]+)/g)].map(m=>m[1].replace('https://forja-digital-mlid.vercel.app',''));
-ok(locs.length===5,'4 sitemap con '+locs.length+' URLs');for(const l of locs){ok((await get(l==='/'?'/':l)).s===200,'4 sitemap URL '+l+' responde 200');}
+ok(locs.length===7,'4 sitemap con '+locs.length+' URLs');for(const l of locs){ok((await get(l==='/'?'/':l)).s===200,'4 sitemap URL '+l+' responde 200');}
 // 5,14,15
 const titles=new Set();
 for (const u of PAGES){const t=(await get(u)).t;const ti=t.match(/<title>([^<]+)/)?.[1];titles.add(ti);

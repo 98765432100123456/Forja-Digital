@@ -31,7 +31,8 @@ function loadGA() {
     window.dataLayer.push(arguments);
   };
   window.gtag('js', new Date());
-  window.gtag('config', id, { anonymize_ip: true });
+  // Datos mínimos: sin señales de Google ni personalización de anuncios (solo medir visitas y contactos).
+  window.gtag('config', id, { anonymize_ip: true, allow_google_signals: false, allow_ad_personalization_signals: false });
 
   const s = document.createElement('script');
   s.async = true;

@@ -25,7 +25,7 @@ export default function CookieBanner() {
         <p>
           Usamos cookies de Google Analytics para saber cuántas personas visitan el sitio y qué secciones les sirven.{' '}
           <strong>Solo se activan si aceptas.</strong> Más detalles en la{' '}
-          <a href="/privacidad#cookies">política de privacidad</a>.
+          <a href="/cookies">política de cookies</a>.
           {current && <span className="cookies__now"> Ahora: {current === 'granted' ? 'aceptadas' : 'rechazadas'}.</span>}
         </p>
         <div className="cookies__actions">

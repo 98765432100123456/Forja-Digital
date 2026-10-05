@@ -38,7 +38,7 @@ export default function Plantillas() {
                 <h2 className="kit__title">{k.title}</h2>
                 <p>{k.text}</p>
                 <p className="kit__price">{KIT_PRICE}</p>
-                <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer">Pedir este kit</a>
+                <a className="link" href={waLink(`Hola ${BRAND.name}, quiero el ${k.title}`)} target="_blank" rel="noopener noreferrer" aria-label={`Pedir este kit: ${k.title}`}>Pedir este kit</a>
               </article>
             ))}
           </div>

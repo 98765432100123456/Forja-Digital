@@ -8,6 +8,8 @@ import Privacidad from './pages/Privacidad';
 import Terminos from './pages/Terminos';
 import Plantillas from './pages/Plantillas';
 import Apps from './pages/Apps';
+import Reembolsos from './pages/Reembolsos';
+import Cookies from './pages/Cookies';
 import NotFound from './pages/NotFound';
 
 const PAGES: Record<string, () => ReactNode> = {
@@ -18,6 +20,8 @@ const PAGES: Record<string, () => ReactNode> = {
   'terminos.html': () => <Terminos />,
   'plantillas-canva.html': () => <Plantillas />,
   'apps.html': () => <Apps />,
+  'reembolsos.html': () => <Reembolsos />,
+  'cookies.html': () => <Cookies />,
 };
 
 export function render(file: string) {

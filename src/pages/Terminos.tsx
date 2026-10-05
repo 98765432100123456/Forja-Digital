@@ -37,7 +37,8 @@ export default function Terminos() {
           <h2 id="pagos">3. Pagos</h2>
           <ul>
             <li><strong>{BRAND.depositPercent} % de anticipo</strong> para empezar y <strong>{rest} % al entregar</strong>, antes de publicar el sitio o enviarte los archivos finales.</li>
-            <li>Los medios de pago se indican en la propuesta.</li>
+            <li><strong>Medios de pago:</strong> {BRAND.paymentMethods.join(', ')}. No recibimos pagos con tarjeta en el sitio.</li>
+            <li><strong>Impuestos:</strong> {BRAND.taxNote}</li>
             <li>El plan de acompañamiento se paga mes a mes, por adelantado.</li>
           </ul>
 
@@ -70,6 +71,7 @@ export default function Terminos() {
           </ul>
 
           <h2 id="cancelacion">7. Cancelación, retracto y reembolsos</h2>
+          <p>Resumen. El detalle, con plazos y pasos, está en la <a href="/reembolsos">política de reembolsos</a>.</p>
           <ul>
             <li><strong>Si cancelas antes de que empecemos a trabajar,</strong> te devolvemos el anticipo completo.</li>
             <li>

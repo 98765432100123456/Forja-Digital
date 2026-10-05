@@ -132,6 +132,13 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 - **Metric:** clics en "Cotizar una micro app" o "Cotizar una app" (`generate_lead` con su etiqueta) y visitas a `/apps`. **Result:** NOT YET AVAILABLE.
 - **Risk:** prometer apps sin una entregada; la página no muestra casos inventados.
 
+### D19 · Blindaje legal ("que no me demanden")
+- **Problem:** faltaban la política de cookies, la de reembolsos, la autorización explícita en el formulario y los datos del negocio. Además, la CSP permitía marcos de Google que no se usan.
+- **Evidence:** Ley 1480, art. 50 (comercio electrónico) y art. 47; Ley 2300 de 2023; Ley 1581 (fuentes en `legal.md`).
+- **Decision:** casilla obligatoria sin marcar; `/cookies` y `/reembolsos`; GA4 con datos mínimos; `frame-src 'none'`; datos del negocio en el pie.
+- **Trade-off:** la casilla agrega un paso al formulario y puede bajar los envíos. Métrica: `generate_lead` con método formulario. Resultado: NOT YET AVAILABLE.
+- **Residual risk:** NIT y dirección de notificación pendientes (decisión de Juanes).
+
 ---
 
 ## Matriz de evidencia

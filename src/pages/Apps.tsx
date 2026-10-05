@@ -67,7 +67,7 @@ export default function Apps() {
             <h2 id="diferencia">¿Micro app o app?</h2>
             <p>Si no estás seguro, empieza por la micro app: resuelve el problema más urgente y se convierte en app cuando lo necesites.</p>
           </div>
-          <div className="table-scroll">
+          <div className="table-scroll" role="region" aria-label="Comparación entre micro app y app" tabIndex={0}>
             <table className="compare__table">
               <thead><tr><th scope="col"><span className="sr-only">Aspecto</span></th><th scope="col">Micro app</th><th scope="col">App</th></tr></thead>
               <tbody>

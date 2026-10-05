@@ -56,3 +56,44 @@ gratuito exige atribución, y algunos recursos son solo para suscriptores.
 - **Registro Nacional de Bases de Datos (RNBD):** solo es obligatorio para sociedades y entidades con activos superiores a
   100 000 UVT (inferido; no se verificó en este ciclo). Una persona natural que empieza probablemente no está obligada. Hay que confirmarlo.
 - **Retención de datos:** la política dice "mientras sean necesarios y lo que exijan las normas contables". No define un plazo exacto.
+
+## Revisión "que no me demanden" (video de Félix G., 4 de octubre de 2026, noche)
+
+| Punto del video | Estado | Qué se hizo o qué falta |
+|---|---|---|
+| Política de privacidad | VERIFIED | Se agregó la Ley 2300 de 2023: horarios de contacto y solo por el canal que usó la persona |
+| Términos y condiciones | VERIFIED | Se agregaron los medios de pago (Nequi, Daviplata, transferencia y Bre-B) y la nota de impuestos ("no se cobra IVA") |
+| Política de cookies | VERIFIED (nueva) | `/cookies` con la tabla de lo que se guarda: `_ga` y `_ga_<ID>` 2 años según la [documentación de Google](https://support.google.com/analytics/answer/11397207?hl=es), más `forja:cookies` y `forja:mensaje` |
+| Consentimiento de cookies | VERIFIED | El aviso enlaza ahora a `/cookies`; la página tiene un botón para cambiar la decisión |
+| Política de reembolsos (¿la necesito?) | **Sí**: Ley 1480 (retracto y garantía). VERIFIED (nueva) | `/reembolsos`: pagos, retracto, tabla de casos y canal de PQR con radicado (fecha del correo o chat), respuesta en 15 días hábiles y reembolso en 30 días calendario |
+| Consentimiento en los formularios | VERIFIED (nuevo) | Casilla obligatoria **sin marcar** por defecto; sin ella el formulario no se envía, muestra el error y enfoca la casilla |
+| Enlazar todo | VERIFIED | Pie → Legal: privacidad, términos, reembolsos, cookies y preferencias |
+| Datos mínimos necesarios | VERIFIED | Formulario: nombre y servicio obligatorios; negocio y mensaje opcionales; nada se guarda en un servidor. GA4: IP anonimizada, sin señales de Google ni personalización de anuncios |
+| Revisar las analíticas | VERIFIED | Solo GA4, solo con consentimiento; eventos sin datos personales (`con_nombre` es sí/no) |
+| Widgets externos | VERIFIED | Ninguno incrustado. La CSP cambió a `frame-src 'none'` (antes permitía Google Maps sin usarlo) |
+| Accesibilidad, texto alternativo y contraste | VERIFIED | axe 0 violaciones en 9 páginas (incluye contraste); tablas desplazables ahora accesibles con teclado |
+| Botones claros | VERIFIED | 65 etiquetas revisadas en 9 páginas, ninguna genérica ni vacía; los botones repetidos ("Pedir este kit", "Cotizar este plan") ahora dicen a qué kit o plan van, sin perder el texto visible (WCAG 2.5.3) |
+| Sin reseñas falsas ni afirmaciones sin respaldo | VERIFIED | 0 opiniones inventadas. Se suavizaron absolutos en `/apps` ("nunca ve" → "no puede ver"; "Funciona para todos" → "Pensada para todos") |
+| Datos del negocio | PARCIAL | Pie: nombre comercial, responsable, Bogotá, correo y teléfono. **Falta el NIT** (Juanes no tiene RUT) y una **dirección de notificación judicial** (Juanes decidió publicar solo la ciudad por privacidad). La Ley 1480, art. 50, exige ambos en comercio electrónico: RESIDUAL RISK |
+| Copyright | VERIFIED | Inventario arriba |
+| Leyes locales | VERIFIED con pendientes | Ley 1581, Decreto 1074, Ley 1480 (arts. 47 y 50), Ley 2300. Accesibilidad web obligatoria (Resolución 1519 de 2020): aplica a entidades públicas, no a Forja (inferido) |
+
+### Ley 1480, art. 50 (comercio electrónico)
+Fuente: [Guía de comercio electrónico](https://www.supertransporte.gov.co/documentos/2024/Mayo/DelegaturaPU_28/Guia_sobre_comercio_electronico.pdf).
+
+| Exige | Estado |
+|---|---|
+| Nombre | Cumple |
+| NIT | Pendiente: sin RUT |
+| Dirección de notificación judicial | Pendiente: solo ciudad |
+| Teléfono y correo | Cumple |
+| Características y precio total | Cumple ("no se cobra IVA") |
+| Retracto | Cumple |
+| Condiciones generales | Cumple (`/terminos`) |
+| Medios de pago | Cumple |
+| Mecanismo de PQR | Cumple (`/reembolsos`) |
+| Reversión del pago | No aplica: no se reciben pagos con tarjeta en el sitio (inferido) |
+
+**Nuevas reglas redactadas por Claude, pendientes de que Juanes las confirme:**
+- El mes de acompañamiento ya pagado no se devuelve.
+- Si un defecto no se puede corregir, se devuelve lo pagado por esa parte.

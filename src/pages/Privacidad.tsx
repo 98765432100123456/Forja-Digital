@@ -50,8 +50,10 @@ export default function Privacidad() {
             <li>Si aceptas las cookies, saber cuántas personas visitan el sitio y qué secciones les sirven, para mejorarlo.</li>
           </ul>
           <p>
-            No vendemos tus datos, no los compartimos para publicidad y no te enviamos mensajes promocionales. Si en algún momento
-            te escribimos con información que no pediste y nos dices que paremos, dejamos de hacerlo.
+            No vendemos tus datos, no los compartimos para publicidad y no te enviamos mensajes promocionales que no hayas pedido.
+            Solo te escribimos por el canal que usaste para contactarnos y, como exige la Ley 2300 de 2023, nunca domingos ni
+            festivos, de lunes a viernes entre 7:00 a.m. y 7:00 p.m. y los sábados entre 8:00 a.m. y 3:00 p.m. Si nos dices que
+            paremos, dejamos de hacerlo.
           </p>
 
           <h2 id="autorizacion">4. Cómo nos autorizas</h2>
@@ -75,7 +77,7 @@ export default function Privacidad() {
             "Rechazar", o no eliges nada, Google Analytics no se carga. Puedes cambiar tu decisión en cualquier momento desde
             "Preferencias de cookies" en el pie de página; al rechazarlas, borramos esas cookies.
           </p>
-          <p>Tu decisión se guarda en tu propio navegador (almacenamiento local), no en nuestros servidores.</p>
+          <p>Tu decisión se guarda en tu propio navegador (almacenamiento local), no en nuestros servidores. El detalle de cada cookie está en la <a href="/cookies">política de cookies</a>.</p>
 
           <h2 id="terceros">7. Con quién compartimos datos</h2>
           <p>Solo con proveedores que necesitamos para operar. Algunos guardan datos fuera de Colombia:</p>

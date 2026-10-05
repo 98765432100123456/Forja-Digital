@@ -10,13 +10,16 @@ export const BRAND = {
   instagram: '', // enlace de tu Instagram. Vacío = no se muestra
   city: 'Colombia',
   domicile: 'Bogotá, Colombia', // domicilio del responsable (Decreto 1074 de 2015, art. 2.2.2.25.3.1)
+  nit: '', // PENDIENTE: Juanes aún no tiene RUT (4 oct 2026). Ley 1480 art. 50 exige publicar el NIT.
+  paymentMethods: ['Nequi', 'Daviplata', 'transferencia bancaria', 'Bre-B (llaves)'], // aprobados por Juanes
+  taxNote: 'Los precios son el valor total: no se cobra IVA.', // Juanes: no cobra IVA
   depositPercent: 50, // anticipo para iniciar un proyecto; el resto se paga al entregar (aprobado por Juanes, 4 oct 2026)
   serviceArea: 'Estamos en Bogotá y atendemos negocios en toda Colombia de forma remota, por WhatsApp y videollamada.',
   /**
    * Mapa (opcional). En Google Maps busca tu ciudad u oficina → Compartir → Insertar un mapa →
    * copia SOLO la URL que está dentro de src="...". Vacío = no se muestra el mapa.
    */
-  mapEmbedUrl: '',
+  mapEmbedUrl: '', // Si algún día se usa: hay que permitir el dominio del mapa en frame-src (vercel.json y public/_headers)
   address: '', // ej. 'Calle 00 #00-00, Bogotá'. Vacío = no se muestra.
   hours: 'Lunes a sábado, de 8:00 a.m. a 7:00 p.m.',
   legalOwner: 'Juan Esteban Niño Naranjo', // responsable del tratamiento de datos (política de privacidad)

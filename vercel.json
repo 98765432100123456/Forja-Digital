@@ -6,7 +6,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src https://www.google.com https://maps.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",
@@ -111,6 +111,26 @@
     {
       "source": "/micro-app",
       "destination": "/apps",
+      "statusCode": 301
+    },
+    {
+      "source": "/politica-de-cookies",
+      "destination": "/cookies",
+      "statusCode": 301
+    },
+    {
+      "source": "/reembolso",
+      "destination": "/reembolsos",
+      "statusCode": 301
+    },
+    {
+      "source": "/devoluciones",
+      "destination": "/reembolsos",
+      "statusCode": 301
+    },
+    {
+      "source": "/politica-de-reembolsos",
+      "destination": "/reembolsos",
       "statusCode": 301
     }
   ]

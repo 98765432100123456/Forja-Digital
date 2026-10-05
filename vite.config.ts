@@ -15,6 +15,8 @@ export default defineConfig({
         terminos: resolve(import.meta.dirname, 'terminos.html'),
         plantillas: resolve(import.meta.dirname, 'plantillas-canva.html'),
         apps: resolve(import.meta.dirname, 'apps.html'),
+        reembolsos: resolve(import.meta.dirname, 'reembolsos.html'),
+        cookies: resolve(import.meta.dirname, 'cookies.html'),
       },
     },
   },

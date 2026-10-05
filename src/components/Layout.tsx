@@ -49,6 +49,8 @@ function Footer() {
           <h2>Legal</h2>
           <a href="/privacidad">Política de privacidad</a>
           <a href="/terminos">Términos y condiciones</a>
+          <a href="/reembolsos">Cancelaciones y reembolsos</a>
+          <a href="/cookies">Política de cookies</a>
           <CookieSettingsLink />
         </nav>
         {(BRAND.facebook || BRAND.instagram) && (
@@ -60,7 +62,10 @@ function Footer() {
         )}
       </div>
       <div className="container footer__legal">
-        <p>© {YEAR} {BRAND.name}. Hecho en {BRAND.city}.</p>
+        <p>
+          © {YEAR} {BRAND.name} · {BRAND.legalOwner} · {BRAND.domicile}
+          {BRAND.nit && <> · NIT {BRAND.nit}</>} · {BRAND.email} · +57 {BRAND.whatsappDisplay}
+        </p>
         <p>Horario de atención: {(BRAND.hours.charAt(0).toLowerCase() + BRAND.hours.slice(1)).replace(/\.$/, '')}.</p>
       </div>
     </footer>

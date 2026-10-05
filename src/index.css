@@ -729,3 +729,16 @@ button { font: inherit; color: inherit; }
 .stores__item h3 { font-size: var(--t-m); font-weight: 700; }
 .stores__item p { font-size: var(--t-s); color: var(--hierro); }
 @media (max-width: 900px) { .stores { grid-template-columns: 1fr; } }
+
+/* Casilla de autorización de datos (Ley 1581: autorización previa, expresa e informada; sin marcar por defecto) */
+.field--check { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--s-3); row-gap: var(--s-1); align-items: start; }
+.field--check input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--grafito); cursor: pointer; }
+.field--check label { font-size: var(--t-s); font-weight: 500; line-height: 1.45; cursor: pointer; }
+.field--check .field__error { grid-column: 2; }
+.legal-table { width: 100%; min-width: 34rem; border-collapse: collapse; margin-top: var(--s-3); font-size: var(--t-s); }
+.legal-table th, .legal-table td { padding: var(--s-3) var(--s-3) var(--s-3) 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--linea); }
+.legal-table thead th { font-size: var(--t-xs); color: var(--hierro); border-bottom-color: var(--grafito); }
+.legal-table tbody th { font-weight: 600; }
+.legal .table-scroll + p { margin-top: var(--s-4); }
+.table-scroll:focus-visible { outline: 3px solid var(--forja); outline-offset: 2px; border-radius: var(--r-s); }
+.footer__nav a, .footer__link-btn { line-height: 1.35; padding-block: 6px; }

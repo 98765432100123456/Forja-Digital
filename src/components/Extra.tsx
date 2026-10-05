@@ -46,7 +46,7 @@ export function About() {
 }
 
 const SERVICE_OPTIONS = ['Página web', 'App o micro app', 'Diseño para redes', 'Base de datos', 'Seguridad y soporte', 'No estoy seguro, quiero asesoría'];
-type Errors = Partial<Record<'nombre' | 'servicio', string>>;
+type Errors = Partial<Record<'nombre' | 'servicio' | 'consent', string>>;
 
 export function Contact() {
   const [errors, setErrors] = useState<Errors>({});
@@ -56,6 +56,7 @@ export function Contact() {
     const e: Errors = {};
     if (String(f.get('nombre') || '').trim().length < 2) e.nombre = 'Escribe tu nombre para saber cómo llamarte.';
     if (!f.get('servicio')) e.servicio = 'Elige qué necesitas. Si no sabes, elige "quiero asesoría".';
+    if (!f.get('autorizacion')) e.consent = 'Para responderte necesitamos tu autorización. Marca la casilla.';
     return e;
   }
 
@@ -66,7 +67,7 @@ export function Contact() {
     const found = validate(f);
     setErrors(found);
     if (Object.keys(found).length) {
-      form.querySelector<HTMLElement>(found.nombre ? '#f-nombre' : '#f-servicio')?.focus();
+      form.querySelector<HTMLElement>(found.nombre ? '#f-nombre' : found.servicio ? '#f-servicio' : '#f-autorizacion')?.focus();
       return;
     }
     const clean = (k: string, max = 400) => String(f.get(k) || '').replace(/\s+/g, ' ').trim().slice(0, max);
@@ -134,12 +135,20 @@ export function Contact() {
             <label htmlFor="f-mensaje">Cuéntanos un poco más <span>opcional</span></label>
             <textarea id="f-mensaje" name="mensaje" rows={4} maxLength={400} placeholder="Por ejemplo: tengo un restaurante y quiero recibir pedidos por WhatsApp." />
           </div>
+          <div className="field field--check">
+            <input id="f-autorizacion" name="autorizacion" type="checkbox" value="si"
+              aria-invalid={!!errors.consent} aria-describedby={errors.consent ? 'e-autorizacion' : undefined} onChange={() => clearError('consent')} />
+            <label htmlFor="f-autorizacion">
+              Autorizo a {BRAND.name} a usar mi nombre, el de mi negocio y mi mensaje solo para responderme y cotizar, según la{' '}
+              <a className="link" href="/privacidad">política de privacidad</a>.
+            </label>
+            {errors.consent && <p className="field__error" id="e-autorizacion">{errors.consent}</p>}
+          </div>
           <button data-cta className="btn btn--primary btn--block btn--lg" type="submit" disabled={sending} aria-live="polite">
             <IconWhatsApp size={20} /> {sending ? 'Abriendo WhatsApp…' : 'Enviar por WhatsApp'}
           </button>
           <p className="form__note">
-            El mensaje va directo a nuestro WhatsApp; no se guarda en ningún servidor. Al enviarlo, autorizas que usemos estos datos
-            para responderte, según la <a className="link" href="/privacidad">política de privacidad</a>.
+            El mensaje va directo a nuestro WhatsApp; no se guarda en ningún servidor. Solo pedimos lo necesario para responderte.
           </p>
         </form>
       </div>
