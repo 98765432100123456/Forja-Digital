@@ -5,6 +5,9 @@ const imgs = import.meta.glob('./assets/portfolio/*.webp', { eager: true, import
 const kitImgs = import.meta.glob('./assets/kits/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
 export const img = (name: string) => imgs[`./assets/portfolio/${name}.webp`];
 export const kitImg = (name: string) => kitImgs[`./assets/kits/${name}.webp`];
+// Versiones reducidas (sufijo -s): el navegador elige la que necesita según el ancho real en pantalla (srcset).
+export const imgSet = (name: string) => `${imgs[`./assets/portfolio/${name}-s.webp`]} 360w, ${img(name)} 720w`;
+export const kitSet = (name: string) => `${kitImgs[`./assets/kits/${name}-s.webp`]} 450w, ${kitImg(name)} 900w`;
 
 export type Niche = 'belleza' | 'restaurante' | 'inmobiliaria' | 'emprendedores';
 
@@ -208,6 +211,8 @@ export const REVIEWS: { name: string; business: string; text: string; rating: 1 
 // Para poner tu foto: guarda una imagen cuadrada en src/assets/equipo/juanes.webp (o .jpg).
 // Mientras no exista, se muestran tus iniciales.
 const teamImgs = import.meta.glob('./assets/equipo/*.{webp,jpg,jpeg,png}', { eager: true, import: 'default' }) as Record<string, string>;
+export const teamSet = (name?: string) =>
+  name ? `${teamImg(`${name}-s`)} 320w, ${teamImg(name)} 640w` : undefined;
 export const teamImg = (name?: string) =>
   name ? Object.entries(teamImgs).find(([k]) => k.includes(`/${name}.`))?.[1] : undefined;
 

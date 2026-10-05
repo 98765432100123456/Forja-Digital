@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { KITS, KIT_PRICE, kitImg } from '../data';
+import { KITS, KIT_PRICE, kitImg, kitSet } from '../data';
 import { Breadcrumbs } from '../components/Layout';
 import { IconWhatsApp } from '../components/Icons';
 
@@ -34,7 +34,7 @@ export default function Plantillas() {
           <div className="kits">
             {KITS.map((k) => (
               <article key={k.id} className="kit">
-                <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
+                <img src={kitImg(k.id)} srcSet={kitSet(k.id)} sizes="(min-width: 1100px) 280px, (min-width: 600px) 45vw, 90vw" alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
                 <h2 className="kit__title">{k.title}</h2>
                 <p>{k.text}</p>
                 <p className="kit__price">{KIT_PRICE}</p>

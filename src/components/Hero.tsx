@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { img } from '../data';
+import { img, imgSet } from '../data';
 import { IconWhatsApp } from './Icons';
 
 /** Candado del navegador: la seguridad aparece como un detalle real, no como otra tarjeta. */
@@ -43,12 +43,12 @@ export default function Hero() {
                     <small>Reserva tu cita en línea en menos de un minuto.</small>
                     <em>Reservar cita</em>
                   </div>
-                  <img src={img('belleza-promo')} alt="" width="720" height="720" />
+                  <img src={img('belleza-promo')} srcSet={imgSet('belleza-promo')} sizes="(min-width: 900px) 200px, 30vw" alt="" width="720" height="720" />
                 </div>
               </div>
             </div>
           </div>
-          <div className="bench__phone bench__phone--a piece"><img src={img('restaurante-menu')} alt="" width="720" height="1280" /></div>
+          <div className="bench__phone bench__phone--a piece"><img src={img('restaurante-menu')} srcSet={imgSet('restaurante-menu')} sizes="(min-width: 900px) 160px, 25vw" alt="" width="720" height="1280" /></div>
           <div className="bench__table piece">
             <p className="bench__table-title">Pedidos de hoy</p>
             <table>

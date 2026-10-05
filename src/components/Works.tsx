@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from 'react';
-import { WORKS, img, type Piece } from '../data';
+import { WORKS, img, imgSet, type Piece } from '../data';
 import { IconCheck, IconX } from './Icons';
 
 const Chevron = ({ dir }: { dir: 'left' | 'right' }) => (
@@ -89,7 +89,7 @@ export default function Works() {
           <div className="pieces">
             {pieces.map((p, i) => (
               <button key={p.file} className={`piece-thumb${p.tall ? ' is-tall' : ''}`} onClick={() => setViewer(i)} aria-label={`Ampliar: ${p.title}`}>
-                <img src={img(p.file)} alt={p.title} width="720" height={p.tall ? 1280 : 720} loading="lazy" decoding="async" />
+                <img src={img(p.file)} srcSet={imgSet(p.file)} sizes="(min-width: 900px) 240px, 45vw" alt={p.title} width="720" height={p.tall ? 1280 : 720} loading="lazy" decoding="async" />
               </button>
             ))}
           </div>

@@ -11,7 +11,7 @@ export const BRAND = {
   city: 'Colombia',
   domicile: 'Bogotá, Colombia', // domicilio del responsable (Decreto 1074 de 2015, art. 2.2.2.25.3.1)
   depositPercent: 50, // anticipo para iniciar un proyecto; el resto se paga al entregar (aprobado por Juanes, 4 oct 2026)
-  serviceArea: 'Atendemos negocios en toda Colombia de forma remota, por WhatsApp y videollamada.',
+  serviceArea: 'Estamos en Bogotá y atendemos negocios en toda Colombia de forma remota, por WhatsApp y videollamada.',
   /**
    * Mapa (opcional). En Google Maps busca tu ciudad u oficina → Compartir → Insertar un mapa →
    * copia SOLO la URL que está dentro de src="...". Vacío = no se muestra el mapa.

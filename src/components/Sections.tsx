@@ -1,5 +1,5 @@
 import { BRAND, waLink } from '../config';
-import { COMPARISON, FAQ, KITS, KIT_PRICE, PLANS, PROCESS, SERVICES, kitImg } from '../data';
+import { COMPARISON, FAQ, KITS, KIT_PRICE, PLANS, PROCESS, SERVICES, kitImg, kitSet } from '../data';
 import { IconCheck } from './Icons';
 
 export function Services() {
@@ -135,7 +135,7 @@ export function Templates() {
         <div className="kits">
           {KITS.map((k) => (
             <article key={k.id} className="kit">
-              <img src={kitImg(k.id)} alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
+              <img src={kitImg(k.id)} srcSet={kitSet(k.id)} sizes="(min-width: 1100px) 280px, (min-width: 600px) 45vw, 90vw" alt={`Vista previa del ${k.title.toLowerCase()}: 6 posts y 4 historias`} width="900" height="900" loading="lazy" decoding="async" />
               <h3>{k.title}</h3>
               <p>{k.text}</p>
               <p className="kit__price">{KIT_PRICE}</p>

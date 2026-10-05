@@ -695,3 +695,9 @@ button { font: inherit; color: inherit; }
 }
 .contact__list a { display: inline-flex; align-items: center; min-height: 44px; }
 .kit .kit__price { font-size: var(--t-s); font-weight: 700; color: var(--grafito); font-variant-numeric: tabular-nums; }
+
+/* Pantallas muy angostas (320–359 px, p. ej. iPhone SE de 1.ª generación): ningún elemento puede desbordar */
+@media (max-width: 359px) {
+  .hero__title { font-size: 2.1rem; }
+  .btn { white-space: normal; text-align: center; }
+}

@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { BRAND, waLink } from '../config';
 import { track } from '../analytics';
-import { REVIEWS, TEAM, teamImg } from '../data';
+import { REVIEWS, TEAM, teamImg, teamSet } from '../data';
 import { IconWhatsApp } from './Icons';
 
 export const MSG_KEY = 'forja:mensaje';
@@ -14,7 +14,7 @@ export function About() {
       <div className="container about">
         <div className="about__person">
           {photo
-            ? <img className="about__photo" src={photo} alt={`Foto de ${m.name}`} width="320" height="320" />
+            ? <img className="about__photo" src={photo} srcSet={teamSet(m.photo)} sizes="(min-width: 761px) 160px, 120px" alt={`Foto de ${m.name}`} width="320" height="320" />
             : <div className="about__photo about__photo--initials" role="img" aria-label={`Iniciales de ${m.name}`}>{m.initials}</div>}
           <div>
             <h2>Quién está detrás</h2>

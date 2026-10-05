@@ -25,3 +25,25 @@ La parte 1 (20 puntos) se aplicó el 3 de octubre de 2026 (commit `8c42aab`).
 | 18 | Probarla en varios navegadores | Parcial | Chromium probado (escritorio y móvil emulado). **Firefox y Safari: NOT TESTED**: este entorno solo tiene Chromium y no puede descargar otros. Falta abrirla en un iPhone (Safari) y en un Android |
 | 19 | Página de gracias tras el formulario | VERIFIED | `/gracias` desde el 3 de octubre de 2026 |
 | 20 | Medir conversiones | Activado (ID `G-XKHGRSYFDP`) | `generate_lead` y el embudo del simulador, solo con consentimiento. Datos reales: NOT YET AVAILABLE. Falta marcar `generate_lead` como evento clave en GA4 cuando aparezca |
+
+# Checklist "15 cosas para ser real" (@sebas.soto222)
+
+Revisado el 4 de octubre de 2026 con `quince.mjs` (47 comprobaciones automáticas sobre el build local, todas pasaron).
+
+| # | Punto | Estado | Evidencia |
+|---|---|---|---|
+| 1 | Página de política de privacidad | VERIFIED | `/privacidad` (Decreto 1074) enlazada en el pie |
+| 2 | Compresión de imágenes | VERIFIED (nuevo) | Versiones reducidas `-s.webp` (360/450/320 px) con `srcset` y `sizes`. En celular se descargan 61 KB de imágenes y ninguna versión grande. Peso total de la página: 188 KiB. Lighthouse móvil: rendimiento 99 (antes 98), LCP 1,7 s (antes 2,1 s); la auditoría "imágenes del tamaño adecuado" pasa |
+| 3 | Términos y condiciones | VERIFIED | `/terminos` enlazada en el pie |
+| 4 | sitemap.xml | VERIFIED | 4 URLs indexables y las 4 responden 200 |
+| 5 | Meta título en cada página | VERIFIED | 6 títulos únicos, cada uno con su meta descripción |
+| 6 | Estado de error en los formularios | VERIFIED | Al enviar vacío: campos con `aria-invalid`, mensaje por campo y foco en el primero con error |
+| 7 | Dirección de contacto real | VERIFIED (ajustado) | "Estamos en Bogotá…", teléfono, WhatsApp y correo tocables; `addressLocality: Bogotá` en los datos estructurados. **No se publica la dirección de la casa** (riesgo de privacidad sin beneficio para un servicio remoto) |
+| 8 | Banner de cookies | VERIFIED | Aparece en la primera visita; aceptar y rechazar |
+| 9 | Texto alternativo en cada imagen | VERIFIED | Todas las `<img>` de las 6 páginas tienen `alt` (vacío solo en las decorativas dentro de una figura descrita) |
+| 10 | Página 404 personalizada | VERIFIED | `/404` con salidas a inicio, trabajos, planes y contacto |
+| 11 | Página de "Gracias" | VERIFIED | `/gracias` |
+| 12 | Breakpoints para móvil | VERIFIED (corregido) | 6 páginas × 5 anchos (320, 390, 768, 1024 y 1440 px). **A 320 px desbordaban** el título del inicio y un botón de la página de plantillas: corregido |
+| 13 | Analíticas | VERIFIED | GA4 `G-XKHGRSYFDP` tras aceptar cookies |
+| 14 | Favicon personalizado | VERIFIED (corregido) | El favicon tenía los colores y la forma de la marca vieja. Ahora es igual al logo, con versiones PNG de 32 px, `apple-touch-icon` de 180 px (iPhone) e ícono de 512 px para el logo en Google |
+| 15 | Imagen de Open Graph | VERIFIED | `og.jpg` 1200×630 en las 6 páginas |

@@ -35,7 +35,7 @@ Son datos de laboratorio. La experiencia real (Core Web Vitals de campo) se desc
 CPU 4× más lenta. La interacción más lenta tardó **144 ms** (tocar una opción del simulador); el umbral "bueno" es 200 ms.
 Medido el 4 de octubre de 2026. INP de campo: no disponible aún.
 Mejoras técnicas pendientes que señala Lighthouse:
-- Imágenes del portafolio con `srcset` (se sirven a 720 px aunque se muestran más pequeñas).
+- ~~Imágenes del portafolio con `srcset`~~: hecho el 4 de octubre de 2026 (móvil: rendimiento 99, LCP 1,7 s).
 - CSS que bloquea el renderizado.
 
 Su impacto es bajo frente al de la confianza y la medición.
