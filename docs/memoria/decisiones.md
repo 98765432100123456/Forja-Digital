@@ -179,3 +179,10 @@ Cada decisión importante, con su evidencia. Ninguna tiene todavía un resultado
 | D9 Errores | Identificado | Reproducido | Definida | Implementada | `exception` | Técnico: VERIFIED; negocio: pendiente | Media | Activar GA4 |
 | D10 Veracidad | Identificado | Disponible | — | Implementada | No aplica | VERIFIED | Alta | — |
 | D11 Veto | Identificado | Disponible | — | Implementada | Bloqueo probado | VERIFIED | Alta (alcance limitado) | Revisar reglas cada ciclo |
+
+### D21 · Logo nuevo: martillo y golpe (opción C)
+- **Problem:** Juanes propuso como logo una imagen generada con IA (estilo ciberpunk). Crítica de Claude: demasiado detalle, no se lee a 16 px y se parece a muchos logos de IA.
+- **Evidence:** hoja comparativa con 3 opciones (yunque y cursor, F de dos piezas, martillo y golpe), probadas en negro, blanco y naranja, a 32 y 16 px reales. Juanes eligió la **C** (4 oct 2026, 23:19). Claude recomendaba la B por legibilidad a 16 px; la C también se lee a ese tamaño. Opinión de clientes: NOT YET AVAILABLE.
+- **Decision:** martillo inclinado en el momento del golpe con tres chispas, dentro del cuadro naranja de siempre (martillo grafito, chispas blancas). Se mantienen el naranja, Unbounded para el nombre y el cuadro de 32 px.
+- **Change:** `Navbar.tsx` (componente `Logo`, usado en el menú y en el pie), `index.css` (`.logo__fondo`, `.logo__martillo`, `.logo__chispas`), `public/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `icon-512.png` y `og.jpg` regenerados.
+- **Riesgo residual:** el martillo es un símbolo común; no se hizo búsqueda de marcas registradas parecidas (NOT TESTED). Antes de registrar la marca en la SIC conviene revisarlo.

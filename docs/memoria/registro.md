@@ -23,6 +23,7 @@
 | 2026-10-04 | este commit | main | **Aprobado por Juanes** ("Si", 22:33) | Claude | — (merge fast-forward) | Paso a producción: checklist de 15, apps y micro apps, blindaje legal | Build con veto OK | Producción | D18, D19 |
 | 2026-10-04 | `2a66ce9` | `rediseno/vitrina` | Juanes (referencia: grabación del sitio de Apple) | Claude | `Hero.tsx`, `Vitrinas.tsx` (nuevo), `Home.tsx`, `Layout.tsx`, `Navbar.tsx`, `index.css`, `docs/memoria/**` | Rediseño vitrina del inicio | 27 funcionales; checklist de 15 OK; axe 0; Lighthouse móvil 98/100/100/100 | Preview (pendiente de aprobación) | D20 |
 | 2026-10-04 | este commit | main | **Aprobado por Juanes** ("Carga los nuevos cambios", 23:15) | Claude | — (merge fast-forward) | Paso a producción del rediseño vitrina | Build con veto OK | Producción | D20 |
+| 2026-10-04 | `marca/logo-martillo` | `marca/logo-martillo` | Juanes (eligió la opción C) | Claude | `Navbar.tsx`, `index.css`, `public/favicon.svg`, íconos PNG, `og.jpg`, `docs/memoria/decisiones.md` | Logo nuevo: martillo y golpe | Build con veto OK; lint OK; funcionales OK (1 enlace en frase, exento); axe 0; S1–S4 OK | Preview (pendiente de aprobación) | D21 |
 
 Notas:
 - Las 3 "fallas" de área táctil que reporta la prueba son enlaces dentro de una frase (`Pregúntanos por WhatsApp`, el número en la lista de contacto, `Política de privacidad` en la nota del formulario). WCAG 2.5.8 los exceptúa.

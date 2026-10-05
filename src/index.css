@@ -136,8 +136,9 @@ button { font: inherit; color: inherit; }
 
 .logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-family: var(--f-display); font-weight: 700; font-size: 1.0625rem; letter-spacing: -0.02em; color: var(--grafito); }
 .logo__mark { width: 32px; height: 32px; flex-shrink: 0; }
-.logo__mark rect { fill: var(--forja); }
-.logo__mark path { fill: var(--grafito); }
+.logo__fondo { fill: var(--forja); }
+.logo__martillo { fill: var(--grafito); }
+.logo__chispas { fill: none; stroke: var(--blanco); stroke-width: 2.4; stroke-linecap: round; }
 .logo--inverse { color: var(--blanco); }
 
 .nav__links { display: flex; align-items: center; gap: var(--s-1); }

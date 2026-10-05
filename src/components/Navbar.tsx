@@ -15,8 +15,15 @@ export function Logo({ inverse = false }: { inverse?: boolean }) {
   return (
     <a href="/" className={`logo${inverse ? ' logo--inverse' : ''}`} aria-label={`${BRAND.name}, inicio`}>
       <svg className="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="8" />
-        <path d="M11 8h11v4h-6.5v3H21v4h-5.5v5H11z" />
+        {/* Martillo en el momento del golpe, con tres chispas (opción C, elegida por Juanes) */}
+        <rect className="logo__fondo" width="32" height="32" rx="8" />
+        <g transform="translate(3.2 3.2) scale(.8)">
+          <g className="logo__martillo" transform="translate(3 -1) rotate(-40 16 16)">
+            <rect x="6" y="5" width="20" height="8" rx="1.5" />
+            <rect x="13.5" y="13" width="5" height="16" rx="1" />
+          </g>
+          <path className="logo__chispas" d="M4.5 19.5L2 21.5M7 21.2L6.4 24.6M10 20.6L11.8 23.4" />
+        </g>
       </svg>
       <span>Forja Digital</span>
     </a>
